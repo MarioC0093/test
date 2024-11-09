@@ -60,8 +60,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../tema_03/tema_03_3_obtener_datos_simulados.html" rel="next">
-<link href="../tema_03/tema_03_1_introduccion.html" rel="prev">
+<link href="../tema_03/tema_03.html" rel="next">
+<link href="../tema_02/tema_02_1_introduccion.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -89,7 +89,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Enviar",
     "search-label": "Buscar"
   }
-}</script><link rel="stylesheet" href="../css/styles.css">
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="../css/styles.css">
 </head>
 <body class="nav-sidebar floating">
 
@@ -98,7 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tema_03/tema_03.html">TEMA 3</a></li><li class="breadcrumb-item"><a href="../tema_03/tema_03_2_selección_aleatoria.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">2. Selección aleatoria de pacientes y asignación de tratamientos <span style="color:green;">✓</span></span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tema_02/tema_02.html">TEMA 2</a></li><li class="breadcrumb-item"><a href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -187,7 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></a>
+  <a href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></a>
   </div>
 </li>
       </ul>
@@ -208,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_03/tema_03_2_selección_aleatoria.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">2. Selección aleatoria de pacientes y asignación de tratamientos <span style="color:green;">✓</span></span></a>
+  <a href="../tema_03/tema_03_2_selección_aleatoria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Selección aleatoria de pacientes y asignación de tratamientos <span style="color:green;">✓</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -232,20 +232,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">In this page</h2>
    
   <ul>
-<li><a href="#aleatorizaci%C3%B3n-simple" id="toc-aleatorización-simple" class="nav-link active" data-scroll-target="#aleatorizaci%C3%B3n-simple">Aleatorización simple</a></li>
-  <li>
-<a href="#por-bloques-o-restringida" id="toc-por-bloques-o-restringida" class="nav-link" data-scroll-target="#por-bloques-o-restringida">Por bloques o restringida</a>
-  <ul>
-<li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
-  </ul>
-</li>
-  <li><a href="#estratificada" id="toc-estratificada" class="nav-link" data-scroll-target="#estratificada">Estratificada</a></li>
-  <li><a href="#adaptativa-o-minimizaci%C3%B3n" id="toc-adaptativa-o-minimización" class="nav-link" data-scroll-target="#adaptativa-o-minimizaci%C3%B3n">Adaptativa o minimización</a></li>
+<li><a href="#gui%C3%B3n" id="toc-guión" class="nav-link active" data-scroll-target="#gui%C3%B3n">Guión</a></li>
+  <li><a href="#regi%C3%B3n-de-confianza-para-hatse-1-hatsp" id="toc-región-de-confianza-para-hatse-1-hatsp" class="nav-link" data-scroll-target="#regi%C3%B3n-de-confianza-para-hatse-1-hatsp">Región de confianza para (<span class="math inline">\(\hat{Se}, (1-\hat{Sp})\)</span>)</a></li>
+  <li><a href="#ic-para-las-razones-de-verosimilutes" id="toc-ic-para-las-razones-de-verosimilutes" class="nav-link" data-scroll-target="#ic-para-las-razones-de-verosimilutes">IC para las razones de verosimilutes</a></li>
+  <li><a href="#estudios-caso-control" id="toc-estudios-caso-control" class="nav-link" data-scroll-target="#estudios-caso-control">Estudios caso control</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span class="chapter-title">2. Selección aleatoria de pacientes y asignación de tratamientos <span style="color:green;">✓</span></span></h1>
+<h1 class="title"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></h1>
 </div>
 
 
@@ -258,150 +253,155 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header><p><u><strong>Objetivo.</strong></u></p>
-<p>Llegar a una conclusión que sea <u>válida</u>. Valido = representativo.</p>
-<p><u><strong>Aleatorización.</strong></u></p>
-<p>Exigencia teórica impuesta a experimentos y ensayos clínicos con el objetivo de minimizar la variabilidad de las evaluaciones y evitar la distorsión que pueden producir otros factores en las pruebas experimentales.</p>
-<p>Cuántas veces debería hacer la simulación para saber que el resultado es verdaderamente cercano al valor desconocido real. La validez de una estimación está ligada al conportamiento de lo que quiero estimar y con la cantidad de información que tenga.</p>
-<p><u><strong>Hipótesis.</strong></u></p>
+</header><p>plantemoas modelos teoricos vemos métricas para comparar suponemos que estamos en modelo idondeo donde todo es perfecto pero tengo que hacer una estiamcion puntual no es nada, me toca validar resultados para comparar pruebas dicotómicas</p>
+<p>diapo15</p>
+<section id="guión" class="level2"><h2 class="anchored" data-anchor-id="guión">Guión</h2>
 <ul>
-<li>Los pacientes se eligen aleatoriamente. Cualquier grupo de n pacientes tiene las mismas posibilidades de ser elegido.<br>
-</li>
-<li>El tratamiento es asignado aleatoriamente. No hay preferencias en la asignación, cada paciente tiene las mismas oportunidades de recibir uno de los tratamientos.</li>
+<li>Estimaciones puntuales, por intervalo.</li>
+<li>Regiones de confianza.</li>
 </ul>
-<p>Debo de partir con la idea de que todas las personas que son similares.</p>
-<p>Si quiero hacer una comparacion voy a procurar que el tamaño entre las personas que reciben cada uno de los tratamientos es similar.</p>
-<p>Ejemplo: aplico varias metodologías de aprendizaje en niños, no puedo tener 10k niños con la metodología antigua y 1 unidad de niños con la metodología nueva, aunque todos sabemos que luego esto nunca se lleva a cabo correctamente. (vamos, la diapo14)</p>
-<p><u><strong>Objetivos de la aleatorización.</strong></u></p>
+<ol type="a">
+<li>Cohortes</li>
+<li>Caso-control</li>
+</ol>
 <ul>
-<li>Asegurar que cualquier paciente tiene las mismas oportunidades de recibir el tratamiento experimental.<br>
-</li>
-<li>Eliminar sesgos en la selección.<br>
-</li>
-<li>Equilibrar el tamaño de los grupos. (en función del objetivo o de las características experimentales)<br>
-</li>
-<li>Verificar o estudiar la eficacia de los tratamientos.</li>
+<li>Comparación entre pruebas diagnósticas</li>
+<li>Métricas para comparar.</li>
+<li>Criterio de periferia o preferencia (no sé lo que pone) basados en las métricas. Alternativas si el criterio no produce una conclusión.</li>
+<li>Estimación de las métricas</li>
+<li>Validación</li>
 </ul>
-<p><u><strong>Razones para la aleatorización.</strong></u></p>
-<ul>
-<li>Los sujetos asignados a cada tratamiento tendrán características similares.
-<ul>
-<li>Sin similitud =&gt; Sesgo en los resultados.<br>
-</li>
-</ul>
-</li>
-<li>Ni el investigador, ni el paciente tendrán conocimiento del grupo de asignación en el que se va incluir al participante en el estudio.
-<ul>
-<li>Sesgo en la selección =&gt; Efectos del tratamiento sobredimensionados.<br>
-</li>
-</ul>
-</li>
-<li>La aleatorización garantiza la validez de los test estadísticos utilizados para comparar tratamientos.</li>
-</ul>
-<p>La aleatorización estratificada y la aleatorización adaptada a las covariables controlan la influencia de las covariables.</p>
-<p><strong>Si quiero ver si un medicamento funciona mejor que otro</strong>:</p>
-<ul>
-<li><p>Necestiamos trabajar sobre un modelo matematico que me confirme que los individuos no estén relacionados entre sí (si son familia pues les sentará igual de mal o igual de bien cada uno de los tratamietos) y homogeneidad entre los dos grupos (un grupo más sano que otro)</p></li>
-<li><p>Si quiero asginar mi muestra en dos grupos la asignación aleatoria de cada individuo uno por uno va mal si tenemos una muestra reducida (elijo una persona y la asigno aleatoriamente a un grupo, luego con la siguiente). Si n es grande a la larga tendré estabilidad de frecuencias.</p></li>
-</ul>
-<section id="aleatorización-simple" class="level3"><h3 class="anchored" data-anchor-id="aleatorización-simple">Aleatorización simple</h3>
-<p>Está basada en una única serie de asignaciones aleatorias. Los pacientes se asignan a los grupos de tratamiento del estudio clínico.</p>
-<p>Se puede imponer un control realizando asignaciones de modo que haya el mismo número de individuos en cada grupo.</p>
-<p>De un grupo de individuo cojo n de ellos sin que se repitan.</p>
+<p>cada pd tiene por detrás cómo he escogido a esa muestra</p>
+<p>detrás de las probabilidades hay una distribucion binomial</p>
+<p>Cuando n es grande =&gt; IC asintótico</p>
+<p>cenrado en p^ (lo que hemos observado) =</p>
+<p><span class="math display">\[
+\frac{x}{m} +- z_{\alpha/2} \frac{1}{m}\sqrt{x(1-\frac{x}{n}))}
+\]</span></p>
+<p>senisnbiliad: n éxitos positivos en grupo de enfermos</p>
+<ol type="1">
+<li>para estimar la prob de falsos positivos — (1-Sp) se usa la v.a.</li>
+</ol>
+<p><span class="math display">\[
+X \sim \text{número de enfermos en el grupo de sanos"} \sim Bin(n_{\overline{D}}, (1-Sp))
+\]</span></p>
+<p><span class="math display">\[
+x = n_{\overline{D}}^+
+\]</span></p>
+<ol start="2" type="1">
+<li>Para estimar p = ppv =&gt; X = número de individuos enferos en los que tienen test postitivo</li>
+</ol>
+<p><span class="math display">\[
+X \sim Bin(n^+, ppv), \quad \quad x =  n_{\overline{D}}^+
+\]</span></p>
+<ol start="3" type="1">
+<li>Para estimar p = NPV =&gt; X = número de individuos enferos en los que tienen test postitivo</li>
+</ol>
+<p><span class="math display">\[
+X \sim Bin(n^-, npv), \quad \quad x =  n_{\overline{D}}^-
+\]</span></p>
+<p>la cuestion es identificar qué estamos investigando en cada uno de los casos, saber cuál es mi éxito y dentro de qué subgrupo estamos mirando el número de éxitos</p>
+<p>la sensi y la especi son dos cantidades. si estimo un ic para esas cosas, estoy cometiendo un error. si estoy estimando dos cosas, el error total que tengo es mayor o la precision total es menor.</p>
+<p>los estimadores de la probabildiades de clasificacion son independientes. que la sensi sea grande no influye con que la especi sea grande o pequeña.</p>
+<p>prob de IC 0.9, prob de que la sensi esté dentro de un intervalo, 0.9. prob de que la sensi esté dentro de mi intervalo y la especi dentro de mi intervalo, 0.9*0.9</p>
+<p>ya que son indep ambas estimaciones vamos a buscar una region de confianza de tal forma que ambas estimaciones estén dentro de esa región con una prob del 0.9.</p>
+</section><section id="región-de-confianza-para-hatse-1-hatsp" class="level2"><h2 class="anchored" data-anchor-id="región-de-confianza-para-hatse-1-hatsp">Región de confianza para (<span class="math inline">\(\hat{Se}, (1-\hat{Sp})\)</span>)</h2>
+<p>ic de la sensi multiplacado por el ic de 1-sp (es un “multiplicado” teórico para entenderlo)</p>
+<p>confianza bidiensional sea 1-alpha</p>
+<p>1-apha = prob caer en el IC * prob de caer en el otro IC = beta^2 tq beta=sqrt(1-alpha)</p>
+<p>la RC es una zona de confort en dos dimensioesn. si trabajo en con las dos dimensiones separadas consigo una confianza menor a la que yo tenía</p>
+<p>diapo18 <strong><span class="math inline">\(\hat(ppv)\)</span></strong></p>
+<p>estimos los casos positivos: 930 cuántos lo son de verdad: 815</p>
+<p>hat(npv) = 327/535</p>
+<p>en medcal por defecto te calcula la asitótica, aunque tengas una muestra de 3 esto tira por la asintótica siempre.</p>
+<p>Estimamos las razones de verosimilitud con las estimacions de las probabilidades de clasificaciones</p>
+<p><span class="math inline">\(\hat{DLR^+} = \frac{\hat{Se}}{\hat{1-Sp}}\)</span></p>
+<p><span class="math inline">\(\hat{DLR^-} = \frac{\hat{1-Se}}{\hat{Sp}}\)</span></p>
+<p>comparacion de casso positivos que tengo dentro del grupo de enfermos y sanos- en funcion del cociente decíamos que era más verosimil</p>
+<p>DLR+^: un resultado positivo es 30 veces más creíble en el grupo de enfermos que en el grupo de sanos DLR+^: comparamos negativos en grupo de sanos y enfermos, gripo de enferms en sanos deben ser pocos, por que lo que DLR-^&lt;&lt;&lt;1, para facilitar la comparativa se le suele dar la vuelta (porque debe ser más fácil interpretar un 2 que un 0.5)</p>
+</section><section id="ic-para-las-razones-de-verosimilutes" class="level2"><h2 class="anchored" data-anchor-id="ic-para-las-razones-de-verosimilutes">IC para las razones de verosimilutes</h2>
+<p>hay que ponerse en aquellos casos donde es más facil tener exito, supongamos n grande.</p>
+<p>pasamos a escala logarítmica, así separo la componente de la sensi y la componente de la especi. trabajamos con el método delta de la diapo 19.</p>
+<p>que dice: las dos razones de vero no son independientes sino que su comportamiento cuando trabajamos con sus logaritmos tienen un comportamiento normal bidimensional. la cobaranza dice: cuando una razon aunmenta la otra disminuye (mirar la matriz de varianzas y covarianzas)</p>
+<p>una normal bidimensional. de esa nbidimi puedo crear una RConfianza.</p>
+<p>la RC es para los logaritmos de las razones.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">178900</span><span class="op">)</span></span>
-<span><span class="va">trat</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">10</span>,replace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="va">indiv</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">trat</span><span class="op">)</span></span>
-<span><span class="va">indiv</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  2  3  4  6  9 10 11 13 17 18</code></pre>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Definimos la media y la matriz de covarianza</span></span>
+<span><span class="va">media</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span></span>
+<span><span class="va">covarianza</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Generamos los puntos con una distribución normal multivariada</span></span>
+<span><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MASS/man/mvrnorm.html">mvrnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1000</span>, mu <span class="op">=</span> <span class="va">media</span>, Sigma <span class="op">=</span> <span class="va">covarianza</span><span class="op">)</span></span>
+<span><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">datos</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">datos</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"X"</span>, <span class="st">"Y"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">plot3D</span><span class="op">)</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span>, <span class="fl">3</span>, length <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span>, <span class="fl">3</span>, length <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/outer.html">outer</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="fu">mclust</span><span class="fu">::</span><span class="fu"><a href="https://mclust-org.github.io/mclust/reference/dmvnorm.html">dmvnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span>, mean <span class="op">=</span> <span class="va">media</span>, sigma <span class="op">=</span> <span class="va">covarianza</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/plot3D/man/persp3D.html">persp3D</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">z</span>, theta <span class="op">=</span> <span class="fl">30</span>, phi <span class="op">=</span> <span class="fl">20</span>, expand <span class="op">=</span> <span class="fl">0.6</span>, col <span class="op">=</span> <span class="st">"lightblue"</span>, main <span class="op">=</span> <span class="st">"Distribución Gaussiana Bidimensional"</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tema_02_2_tratamiento_muestral_pruebas_binarias_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Si tengo un n muy grande participando en el estudio no tengo que preocuparme por la selección.</p>
-<p><u><strong>Ventajas:</strong></u></p>
+<p>ejemplo.</p>
+<p>dado IC del log(hat(DLR+)) = (-0.6,2) cuál es el IC(hat(DLR+)) = (e^-0.6, e^2) = 0.55, 0.79 e^-0.6 &lt; hat(DLR+) &lt; e^2</p>
+<p>el test de esfuerzo da positivo tres veces más en los enfermos que en sanos. es tres veces masversosimili encontrar un positivo en la prueba de esfuerzo en un individuo enfermo que en un individio sano</p>
+<p>cuando tenemos un resultado negativo en esa prueba es casi cuatro veces 3.7 mas verosimil un negativo sobre un individuo sano que sobre un individuo enfermo.</p>
+<p>queriamo pd que tuvieran razones grands grandes en casso de los positivos y peques peques en el caso de los negativos.</p>
+<p>pasamos los IC de la escala logartimica a la escala que nos interesa.</p>
+</section><section id="estudios-caso-control" class="level2"><h2 class="anchored" data-anchor-id="estudios-caso-control">Estudios caso control</h2>
+<p>un grupo sabemos que tiene la enfermedad y otra sabemos que no la tiene</p>
+<p>teniendo una idea de que las ramas de estos estudios estan equilirbados tendremos una canitdad en los casos y una cantidad en los controles que suelen estar equilirbados. lo bueno es que tenemos una situacion equilibrada, lo malo es que no es una situacion representativa.</p>
+<p>la prevalencia que tenemos en al muestra es muchisimo mayor que en la poblacion. no afecta a la estimacion de sensi, de especi ni las razones. lo que no nos vale son los valores predictivos.</p>
+<p>supongamos que tengo una etimacion para la prevalencia real.</p>
+<p>en caso control la prevalencia de la poblacion no se conserrva en la muestra, cuando es cohortes ese problema no se tiene. porque he bsuacado un grupo de individuos que se han sometido a un riesgo y he esperado a ver si tenían o no la enfermedad, no he elegido.</p>
+<p>trabajo con canitdad no que dependan del tamaño de la muestra, sino de la prevalencia. uso el tma bayes para expresar los valores predictivos en funcion de la sensi y la especi, ed, en las proabildiades de clasficiacion.</p>
+<p>ppv = p(D=1 | Y=1) = —formula del otro día =&gt; ppv = num: Se * prev den: se.prev + (1-sp)(1-prev)</p>
+<p>npv (sin gorro) = Sp(1-prev) / Sp(1-prev) + (1-se)prev</p>
+<p>supongams que no sabemos el valor exacto de la prev.</p>
+<p>si la prev es máxima, uno: ppv=1. si la prev es mínimo, cero: ppv=0.</p>
+<p>sacar graficquito (para algún ejercicio o ejemplo) cómo aumenta el ppv para cierto se y sp en función de cómo aumenta la pervalencia de cero a uno</p>
+<p>si la prev es máxima, uno: npv=0. si la prev es mínimo, cero: npv=1.</p>
+<p>la estimacion del valor</p>
+<p>“o la estimacion ha cambiado y ha crecido, cómo afecta”, el ppc crece al aumentar la prevalencia y el npv decrece al aumentar la rpevalencia</p>
+<p>relacion entre el logaritmo de la fversolimilitu con el logartimo de esa x que no sé lo que es.</p>
+<p><span class="math inline">\(\frac{PPV}{1-PPV} = DLR^+ (\frac{\rho}{1-\rho})\)</span></p>
+<p><span class="math inline">\(ln(\frac{PPV}{1-PPV}9 = ln(DLR^) + ln(\frac{\rho}{1-\rho})\)</span></p>
+<p>Si el IC_ln(DLR+) = (a,b). Al logit de rho le llamo H. H = <span class="math inline">\(ln(\frac{\rho}{1-\rho})\)</span></p>
+<p><span class="math display">\[\exp^{a+H} &lt; \frac{\hat{ppv}}{1-\hat{ppv}} \Rightarrow \exp^{a+H} - \exp^{a+H} \hat{ppv} &lt;  \hat{ppv}\]</span></p>
+<p><span class="math display">\[\frac{\hat{ppv}}{1-\hat{ppv}} &lt; \exp^{b+H} \Rightarrow \hat{ppv} &lt; \exp^{a+H} - \exp^{a+H} \hat{ppv} &lt; \]</span></p>
+<p><span class="math display">\[\frac{\exp^{a+h}}{1+\exp^{a+h}} &lt; \hat{ppv} &lt; \frac{\exp^{b+h}}{1+\exp^{b+h}}\]</span></p>
+<p>diapo23</p>
+<p>logit(rho) = H</p>
+<p>logit(npv) = -H - ln(DLR-)</p>
+<p>Supongamo que IC_ln(hat(DLR-)) = (A, B) (luego le pongo yo otra letras para no confundirlo con a y b) =&gt;</p>
+<p>A &lt; ln(hat(DLR-)) &lt; B</p>
+<p>-B &lt; -ln(hat(DLR-)) &lt; -A</p>
 <ul>
-<li>Es un procedimiento sencillo y fácil de poner en práctica.<br>
-</li>
-<li>En estudios de muchos pacientes la aleatorización simple conduce a grupos con un número similar de participantes.</li>
+<li><p>H - B &lt; logit(npv) &lt; - H - A</p></li>
+<li><p>(H-B) &lt; NPV / (1-NPV) &lt; - (H+A)</p></li>
+<li><p>(H-B) &lt; ln(NPV / (1-NPV)) &lt; - (H+A)</p></li>
 </ul>
-<p><u><strong>Desventajas:</strong></u></p>
-<ul>
-<li>Los resultados de la aleatorización pueden dar lugar a grupos de tamaños muy desiguales cuando el estudio involucra a un número reducido de pacientes.</li>
-</ul>
-<p><u><strong>Problema:</strong></u></p>
-<ul>
-<li>A veces no tengo todos mis pacientes a mis disposición, por ejemplo, a mitad del estudio este se para y tenemos x individuos sin haberle podido dar el tratamiento (ej: se rompe la máquina que da la dosis y muchos pacientes se quedan sin dosis)<br>
-</li>
-<li>Si el suceso de no poder realizar la asignación a todos los individuos es altamente probable debo tenerlo contemplado. Para ello usamos la aleatorización por bloques.</li>
-</ul></section><section id="por-bloques-o-restringida" class="level3"><h3 class="anchored" data-anchor-id="por-bloques-o-restringida">Por bloques o restringida</h3>
-<p>Permite asignar aleatoriamente sujetos en los grupos de tratamiento de igual tamaño dividiendo a los pacientes potenciales en m bloques de tamaño 2n, n&gt;1.</p>
-<p>En lugar de colocar las n personas al mogollón, voy equilibrando grupos más pequeños. Así si se interrumpe el experimento tengo un experimento más pequeño pero bien repartido.</p>
-<p>El procedimiento consiste en repartir toda la muestra en x aleternativas igual que antes pero en vez de tener n/2 y m/2, fijo un tamaño del bloque y dentro de cada bloque jeugo con un reparto equitativo.</p>
-<p>El procedimiento se basa en la construcción de todos los posibles bloques distintos formados con n asignaciones A (tratamiento) y n asignaciones B (placebo). La elección de cada bloque es aleatoria.</p>
-<p><u><strong>Selección del tamaño de los bloques.</strong></u></p>
-<ul>
-<li>Tamaño n múltiplo del número de tratamientos.<br>
-</li>
-<li>Tamaño n no muy grande porque precisamente lo que quiero son bloques no grandes para poder tener la asignación equilibrada.<br>
-</li>
-<li>El n=6 suele ir bien.<br>
-</li>
-<li>Tamaño n dividendo del total de la muestra parece no ser una condición, tal vez el último bloque sea de menor tamaño para asignar a los individuos sin tratamiento.</li>
-</ul>
-<p><u><strong>Ventajas:</strong></u></p>
-<ul>
-<li>El método asegura tener grupos de tamaño equilibrado a lo largo del proceso de asignación, siempre que se use el bloque completo.</li>
-</ul>
-<p><u><strong>Desventajas:</strong></u></p>
-<ul>
-<li>Hay que ocultar el tamaño del bloque al clínico para que la asignación no sea predecible.</li>
-</ul>
-<p>Si el experimento es doble ciego quiero que el médico no sepa que es asignación por blqoues, ya que si estoy asignando el primer bloque y la mitad de los individuos tienen un tratamiento automáticamente sabe que los n siguientes individuos van a tener el otro tratamiento.</p>
-<section id="ejemplo" class="level4"><h4 class="anchored" data-anchor-id="ejemplo">Ejemplo</h4>
-<p>Asignar tratamiento o placebo a 60 sujetos utilizando bloques de tamaño 6 (2n=6).</p>
-<p>Creo todos los bloques de asignación posible con todos los órdenes de asignación.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../attachments/tema_03_aleatorizacion_bloques.JPG" style="width:80.0%;height:80.0%" class="figure-img"></p>
-</figure>
-</div>
-<p>Selecciono con reemplazamiento los bloques necesarios.</p>
-<div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">32581</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">10</span>,replace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  7  4 15  5 19  3  5  2 12 19</code></pre>
-</div>
-</div>
-</section></section><section id="estratificada" class="level3"><h3 class="anchored" data-anchor-id="estratificada">Estratificada</h3>
-<p>Se utiliza para conseguir un equilibrio entre los grupos respecto a otras características (covariables) de los sujetos. Se complica con la cantidad de covariables que quiera incluir para la creación de grupos.</p>
-<p>Controla la posible influencia de las covariables en las conclusiones de la investigación.</p>
-<p>La asignación uno a uno de los individuos no se puede si quiere controlar las covariables. La asignación estratificada debe hacerse de entrada. Necesito conocer qué niveles tengo para cada covariable y definir el tamaño muestral para cada nivel o combinación de niveles.</p>
-<p>El número de estratos es el múltiplo del número de niveles de cada covariable.</p>
-<p>En cada estrato se genera una secuencia de asignación mediante aleatorización simple o por bloques.</p>
-<p><u><strong>Ventajas:</strong></u></p>
-<ul>
-<li>El método asegura tener grupos de tamaño equilibrado teniendo en cuenta los factores influyentes.</li>
-</ul>
-<p><u><strong>Desventajas:</strong></u></p>
-<ul>
-<li>Precisa conocer todas las características de los sujetos con anterioridad a la asignación en grupos.<br>
-</li>
-<li>La técnica se complica al aumentar el número de covariables.<br>
-</li>
-<li>No puede utilizarse si los sujetos se incluyen en el estudio uno a uno.</li>
-</ul></section><section id="adaptativa-o-minimización" class="level3"><h3 class="anchored" data-anchor-id="adaptativa-o-minimización">Adaptativa o minimización</h3>
-<p>Tenemos un equilibrio en los bloques en función de los individuos que vamos recibiendo.</p>
-<p>Se utiliza para minimizar las diferencias de los tamaños de los distintos grupos.</p>
-<p>Cada nuevo sujeto se asigna secuencialmente a un grupo concreto de tratamiento teniendo en cuenta las covariables y las asignaciones de los sujetos anteriores.</p>
-<p>El investigador debe elaborar un plan de aleatorización para asignar los tratamientos a los pacientes</p>
-<p><u><strong>Ventajas:</strong></u></p>
-<ul>
-<li>El método es útil cuando hay muchas covariables y si la muestra de sujetos es pequeña.</li>
-</ul>
-<p><u><strong>Desventajas:</strong></u></p>
-<ul>
-<li>Precisa recoger todas las características de los participantes con anterioridad a la aleatorización.</li>
-</ul>
+<p>e^(- (H-B)) &lt; NPV / (1-NPV) &lt; e^(- (H+A))</p>
+<p>e^(- (H-B)) * (1-NPV) &lt; NPV &lt; e^(- (H+A)) * (1-NPV)</p>
+<p>e^(- (H-B)) / (1 e^(- (H-B))) &lt; NPV &lt; e^(- (H-A)) / (1 e^(- (H-A)))</p>
+<p>diapo24. el ic me dice que estima mal la rpeuab diagnóstica. si dando positivo solo acierto al enfermedad de 0.08 a 0.2 (oooo algo así)</p>
+<p>el ic 008 a 0.2 no es muy grande pq lo máximo .</p>
+<p>tienes un valor positivo en la prueba, dando un diagnóstico positivo, cómo de bien lo haces. la pd no es buena pq solo acertaría entre un 0.08 y un 0.2 basándome en haber visto un valor positivo en la prueba.</p>
+<p>si uno toma esta pd para hacer un diagnóstico en funcion del resultado los aciertos son muy pocos.</p>
+<p>diapo25.</p>
+<p>cada mediada está enfocada a cosas distintas. la probabildiad de prediccion: cómo refleja la prueba el estado real del paciente.</p>
+<p>los valores precitivos es al reves, los valroes clinicos de la prueba.</p>
+<p>lo tercero como de creible es un valor postivio o negativo.</p>
+<p>puedeo elegir cualquiera para comparar dos pd.</p>
+<p>los cocienes son fáciles, los odd ratio son odiosos.</p>
+<p>si tengo dos pd basadas en unidades distintas, no puedo hacer restas. pero si tengo cocientes sí puedo hacer comparaciones.</p>
+<p>si no preferencia basada en prob de clasificacion hayla en la basada en la ppv</p>
+<p>si fallo en la i) voy a la iii) a ver qué pasa</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -637,13 +637,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
-      <a href="../tema_03/tema_03_1_introduccion.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">1. Introducción <span style="color:green;">✓</span></span></span>
+      <a href="../tema_02/tema_02_1_introduccion.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">1. Conceptos básicos <span style="color:red;">✗</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../tema_03/tema_03_3_obtener_datos_simulados.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title">3. Obtener datos simulados a partir de observaciones reales <span style="color:green;">✓</span></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../tema_03/tema_03.html" class="pagination-link">
+        <span class="nav-page-text">TEMA 3</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
