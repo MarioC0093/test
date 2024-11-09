@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../tema_03/tema_03_1_introduccion.html" rel="next">
-<link href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias.html" rel="prev">
+<link href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias.html" rel="next">
+<link href="../tema_02/tema_02.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -62,6 +62,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../css/styles.css">
 </head>
@@ -75,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tema_03/tema_03.html">TEMA 3</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tema_02/tema_02.html">TEMA 2</a></li><li class="breadcrumb-item"><a href="../tema_02/tema_02_1_introduccion.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">1. Conceptos básicos <span style="color:red;">✗</span></span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -163,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Conceptos básicos <span style="color:red;">✗</span></span></a>
+  <a href="../tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">1. Conceptos básicos <span style="color:red;">✗</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -175,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../tema_03/tema_03.html" class="sidebar-item-text sidebar-link active">
+            <a href="../tema_03/tema_03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TEMA 3</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -215,7 +217,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">In this page</h2>
    
   <ul>
-  <li><a href="#simulación-numérica-para-desarrollar-pruebas-diagnósticas." id="toc-simulación-numérica-para-desarrollar-pruebas-diagnósticas." class="nav-link active" data-scroll-target="#simulación-numérica-para-desarrollar-pruebas-diagnósticas.">Simulación numérica para desarrollar pruebas diagnósticas.</a></li>
+  <li><a href="#tests-binarios" id="toc-tests-binarios" class="nav-link active" data-scroll-target="#tests-binarios">Tests binarios</a></li>
+  <li><a href="#estudios-cohorte" id="toc-estudios-cohorte" class="nav-link" data-scroll-target="#estudios-cohorte">Estudios cohorte</a></li>
   </ul>
 </nav>
     </div>
@@ -224,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TEMA 3</h1>
+<h1 class="title"><span class="chapter-title">1. Conceptos básicos <span style="color:red;">✗</span></span></h1>
 </div>
 
 
@@ -239,21 +242,98 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="simulación-numérica-para-desarrollar-pruebas-diagnósticas." class="level2">
-<h2 class="anchored" data-anchor-id="simulación-numérica-para-desarrollar-pruebas-diagnósticas.">Simulación numérica para desarrollar pruebas diagnósticas.</h2>
-<p>Este es un tema instrumental. Iremos recurriendo a sus contenidos a medida que avance el desarrollo de la asignatura.</p>
-<p>Contenidos:</p>
+<p><u><strong>Test o prueba diagnóstica</strong></u></p>
+<p>una prueba que da resultados. No confundir con los test a los que suponemos los estad´siticos de una hipótesis.</p>
+<p>se crea para analizar la naturaleza de una determinada condición. en el ámbito médico , cuando el resultado de una prueba sea X podemos decir que una persona pueda tener la enfermedad.</p>
+<p>Ya empezamos a pensar que una cosa es que el paciente tenga una enfermedad y que el test diga que esa persona tiene esa enfermedad.</p>
+<p>Clasificamosa las pd en <strong>según el tipo de resultado</strong>.<br>
+Tb podemos hacerlo según cómo elegimos a los individuos del estudio. <strong>según la forma de elegir los individuos</strong>.<br>
+En casos donde dadas n pd, ver qué tipo de destudios hacemos para poder compararlas: tb llamado la compartavia del diseño. <strong>según la comparativa a realizar</strong>.</p>
+<p>Dada un gold standar.</p>
+<p>Comparativa entre dos pruebas o contra la gold standar. ¿Y si tenemos tres pd? ¿Hacemos comparativas dos a dos?</p>
+<p>Sea X ~ resultado de la prieba diagnóstica de un individuo.</p>
 <ul>
-<li>Introducción (metodología y otros aspectos básicos)</li>
-<li>Selección aleatoria de pacientes y asignación de tratamientos</li>
-<li>Obtención de datos simulados</li>
-<li>Validación de estimaciones: Metodología Bootstrap</li>
-<li>Validación del Índice Kappa</li>
-<li>Técnicas de remuestreo aplicadas a la inferencia de curvas ROC</li>
-<li>Determinar el número de réplicas de simulación</li>
-<li>Controlar la calidad de los datos simulados</li>
-<li>Aplicaciones</li>
+<li>Clasificación binaria.</li>
+<li>Clasificación ordinal.</li>
+<li>Clasificación continuo. variables que dan resultados medidos en algun tipo de unidad e incluso que puede tener un intervalo de valores como resultado.</li>
 </ul>
+<p>adaptamos los casos que no son binarios a la metodología de los casos binarios. el resultado final que dada una condición binaria (pertenece a la categoría ordinal, tiene un marcador por encima de un punto) tiene o no la enfermedad.</p>
+<p>tenga la característica de individuo e intento asociarla a un estado del individio. tb podemos tener una clasificacion en cómo elijo a los individuos.</p>
+<p>cohorte. cohorte retrospectiva. sabiendo que están expuesto al riesgo. sabiendo que han estado expuesos pero aun no han desarrollado la enfermedad.</p>
+<p>cassos control. es al reves- elijo un grupo que tengan la cacterística y otrs no. aplico la pd y veo los resultados. caso - “aquel que tiene la carcterística” control - “grupo de inidivuos que no ha mostrado la enfermedad”</p>
+<section id="tests-binarios" class="level2">
+<h2 class="anchored" data-anchor-id="tests-binarios">Tests binarios</h2>
+<p>una variable que dice el estado real del paciente respecto a la enfermedad una variable que dice el resiltado de la pf</p>
+<p>Y - resultado de la prueba diagnostica en un individuo D - estado real del individuo</p>
+<p>Y, D € {0,1}</p>
+<p>prevalencia, rho, probabilidad real de que tenga la enfermedad. <span class="math inline">\(\rho\)</span> = p(D=1)</p>
+<p>el test da el resultado de la prueba, no da el diagnóstoco.</p>
+<p>el test tiene un resultado para la enfermedad, no da el diagnóstoco. medimos si la prueba es válida para que cuando haya un positivo la persona pueda tomar decisiones o no en base a esa prueba.</p>
+<p>probailidades qe determinan cómo de válidas son las pruebas que estamos midienda: la sense y la especi. ambas son probabilides de acertar.</p>
+<p>tb relacionadas con las prb de fallo poqque creamos las prob de error FP y FN.q</p>
+<p>qué paxa para un test ideal. se = sp = 1. qué paxa para ser inutil. acertar en una p que tiene la enfermedad. 1-espc: dar un posititvo a alguien que no lo tiene. se = 1-pe, lo que hace es que a todo el mundo le da positivo tenga o no la enfermedad (pensar si tb se cumple dando negativo a todo el mundo.)</p>
+<p>Medidas asociadas a un test:</p>
+<p>medidas de clasificacion, probabilidades de clasificar bien a un individuo.</p>
+<p>si qiero hacer una compartaiva entre varias pruebas diagnositcas, al tener dos medidas, ¿cuál priorizo para la comprativa?</p>
+<p>novio guapo y pobre vs novio feo y rico.</p>
+<p>necesitamos una escala doble. o de pasar nuestra decision en la comparativa donde las dos comparativas están reducidas a una única dimensión.</p>
+<p>p(“emitir un diagnóstico erróneo”) = p(Y <span class="math inline">\(\neq\)</span> D) = p() + p() = p() intersección p() = = p(Y=1 | D=0) * p(D=0) + p(Y=0 | D=1) * p(D=1) = = (un error) * p(D=0) + p(otro error) * <span class="math inline">\(\rho\)</span> = (1 - Sp) * (1-<span class="math inline">\(\rho\)</span>) + (1 - Se) * <span class="math inline">\(\rho\)</span></p>
+<p>esto me dice que es igual de importante cualquiera de los dos errores.</p>
+<p>no se puede dar el mismo peso a ambos errores.</p>
+<p>pensar en el significado que tiene una prevalencia alta o baja en relación con cada uno de los errores. a mayor prevalencia da más peso a tal error porque…</p>
+<p>ejemplo.</p>
+<p>imaginemos una una pd que siempre da positivo a cualquier individuo.</p>
+<p>p(Y=1 | D=0) = p(Y=1 | D=1) = 1.</p>
+<p>si la prev es grande, la prueba es fantástica. si la prev es pequeña, esta prueba apesta. y la prueba no me sirve para nada porque no discrimina. cuando tengo muchas personas con la enfermedad pareace que acierta.</p>
+<p>cuando comparo entre varias pd cada una tiene dos medidas que evaluan su calidad. tenemos que lidiar ese problema usando otra medidsa a travez de los valores predictivos y las razones de verosimilitudes</p>
+<p>vale mijo pero cuando yo hago un test y tengo un positivo, ¿qué hago?</p>
+<p>para ver de un punto de vista clínico cómo de útiles son. tengo un resutlado de una preueba y tengo que hacer un diagnóstico.</p>
+<p>vuelvo a definir el test ideal y el test inutil. Test ideal: PPV = NPV = 1 Test sin utilidad: PPV = <span class="math inline">\(\rho\)</span> y NPV = 1 - <span class="math inline">\(\rho\)</span></p>
+<p>los valores predictivos dependen de la prevalencia. que un test sea mas sensible o mas especifico no depende de la prevalencia.</p>
+<p><u><strong>Ejemplo 2.1.</strong></u></p>
+<p>Se considera una prueba para diagnosticar el cáncer de mama. Supongamos que la prevalencia en la población femenina es del 1%. En un estudio caso-control las probabilidades de resultados positivos del test fueron 0,85 dentro de los casos y 0,03 dentro de los controles. ¿Cuáles son los valores predictivos positivo y negativo?</p>
+<p>que sea de caso-control ahora me viene verga. no me sirve para nada en este punto de evaluacion del modelo.</p>
+<p>0.85 = p(Y=1 | D=1) = Se 0.03 = p(Y=1 | D=0) = 1-Sp</p>
+<p>PPV = P(D=1 | Y=1) = <span class="math inline">\(\frac{p(D=1 \cap Y=1)}{Y=1}\)</span> = <span class="math inline">\(\frac{p(D=1 | Y=1) p(D=1)}{p(D=1 | Y=1) p(D=1) + p(D=1 | Y=0) p(D=0)}\)</span> = <span class="math inline">\(\frac{p(D=1 \cap Y=1)}{Y=1}\)</span> 0.85<em>0.01 0.03</em>0.99 0.2225 PNV = P(D=0 | Y=0) =</p>
+<p>la pd perfecta no es. si fuera perfecta tendríamos que haber obtenido un 1 en ambos valores predctivos (que dependen de los resultados de la prueba)</p>
+<p>utlididad: podemos hace run cribada? parra una persona que da un resultado negativo tenemos una pribabilidad bárbara de no tner la enfermedad (0.9984).</p>
+<p>de cada una de las personas de las que tengo un posit, en el 99.89 % de los casos tengo una confimracion de no tener la enfermedad.</p>
+<p>no me sirve para indicar el positivo de la muestra. para esta gente que me da positivo, o repito la prueba o hago otra prueba.</p>
+<p>qué mriamos, aquello que nos conviene, me conviene las partes altas.</p>
+<p>medidas asociadas a las medidas diagnosticas desde cai el ppio ya que básicamente lo que estamos haciedno e saplicar el Tma. de Bayes.</p>
+<p>Razones de verosimilitud: indica cómo de pausible es algo. lo que hacemos es una comparacion.</p>
+<p>comparo dos situaciones dos situaciones donde tengo resultados positivos. comparo cómo de creible es tener positivo en los sanos respecto a en los sanos. lo idonea sería ser alta pq tengo que reflejar mucho más los poitivos en los enfermos que en los sanos.</p>
+<p>ven cuánta infor añade el resultado de una pd.</p>
+<p>odds son las oportunidades, comparo las oportunidades. 100 personas, hay uno sano y noventa y nueve enfermos. tengo 99 contra 1.</p>
+<p>Tras realizar el test: cómo cambia el resultado de la prueba esa percepción. sabiendo el resultado de la rpeuab que es posti/neg veo cuantas personas sanas tengo y cuánto gana.</p>
+<p>la forma de interpretar las razones de verosimilitud no es probabilistas.</p>
+<p>DLR+: 0.2225/(1-0.994) = Se / (1-Sp) = DLR-: (1-Sp) / Se =</p>
+<p>la estimacion para las razones dependen de cómo estimemos se y sp. los valores predictivos no</p>
+<p>lo que tengo es que un valor positivo incrementa la</p>
+<p>odd pre-test = p(d1) / p(d0) = 1/99 – antes de hacer la prueba – sin hacerme la prueba la únnica informacion que tengo la prevalencia de la enfermedad</p>
+<p>odd post-test = p(d1|y1) / p(d0|y1) = 1/3.5 – cuando tengo el positivo. en la prueba el tener ese posti en la pd aumenta la credebilidade de que tengo esa enfermedad. aumenta la credebilidad de tener la enfermedad (de tener esa situacion), que no la probabilidad. ha aumentado en casi 28.83</p>
+<p>28 veces es la relación que existe entre las dos situaciones (el odd post-test cuando es positivo es oigal que el DLR-)</p>
+<p>si pensamos en los resultados negativos:</p>
+<p>partimos igual (sin hacerme la pruebea) = 1 a favor de tenerlo / 99 a favor de no tenerlo</p>
+<p>al tener un resultado negativo, p(d1|y0) / p(d0|y0) = 1 / 629.</p>
+<p>pasar de tener una credebilidad de tener 1 a 99 a tener una credebilidad de 1 de teer la enfermedad a 629 de no tenerla.</p>
+<p>¿un resultado negativo es seis veces más verosimil en un paciente sano que en uno enfermo?</p>
+<p>0.157 es aprox 1/6, entonces sí. seis veces más creible en uno sano que en uno enfermo</p>
+<p>las razones se intepretan como hacniedo la comparativa deenfermos osbre sanos y las razones negativas de los enfermos sobre los sanos</p>
+</section>
+<section id="estudios-cohorte" class="level2">
+<h2 class="anchored" data-anchor-id="estudios-cohorte">Estudios cohorte</h2>
+<p>diapo11.</p>
+<p>nos ha dicho que copiemos este dibujo. (lo que exporté del drawio)</p>
+<p>validación de la estimación mediante el intervalo de confianza. (tratar de medir de dónde a dónde podría tener mis estimaciones) ¿y si no hubiera trabajado con esta poblacion sino con otra con las mismas caracteristicas y de las misma poblacion?</p>
+<p>binomiales estudiadas tanto a nivel asintótico como para muestras pequeñas.</p>
+<p>mejor hacer un ic con una muestra pequña que tirar a bootstarp</p>
+<p>los elementos de la muestra son totalmente independientes y los resultados de uno no depende del otro. con bootstrp no creamos nada nuevo, depende de la muestra original</p>
+<p>siempre que tengamos una alternativa teórica es preferible a bootstrap</p>
+<p>Supongamos que realizamos un experimento con resultados {éxito, fracaso} y sea p = p(éxito). Repetimos el experimento n veces en condiciones independientes.</p>
+<p>Sea X ~ “número de éxitos en n pruebas”. Modelo teórico B(n,p).</p>
+<p><span class="math inline">\(\hat p\)</span> = número de éxitos observados / n = x/n</p>
+<p>Intervalo de confianza exacto o no asintótico de la distribución binomia</p>
 
 
 </section>
@@ -494,13 +574,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></span>
+      <a href="../tema_02/tema_02.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">TEMA 2</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../tema_03/tema_03_1_introduccion.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title">1. Introducción <span style="color:green;">✓</span></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
