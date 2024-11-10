@@ -190,6 +190,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias - copia.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_2_cont.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_3_curvas_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:red;">✗</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -208,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_03/tema_03_2_selección_aleatoria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Selección aleatoria de pacientes y asignación de tratamientos <span style="color:green;">✓</span></span></a>
+  <a href="../tema_03/tema_03_2_selección_aleatoria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Selección aleatoria de pacientes y asignación de tratamientos <span style="color:red;">✗</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -232,10 +247,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">In this page</h2>
    
   <ul>
-<li><a href="#clasificaciones-binomiales" id="toc-clasificaciones-binomiales" class="nav-link active" data-scroll-target="#clasificaciones-binomiales">Clasificaciones binomiales</a></li>
-  <li><a href="#acuerdo-observado-o-%C3%ADndice-de-concordancia-global" id="toc-acuerdo-observado-o-índice-de-concordancia-global" class="nav-link" data-scroll-target="#acuerdo-observado-o-%C3%ADndice-de-concordancia-global">Acuerdo observado o Índice de concordancia global</a></li>
+<li>
+<a href="#clasificaciones-binomiales" id="toc-clasificaciones-binomiales" class="nav-link active" data-scroll-target="#clasificaciones-binomiales">Clasificaciones binomiales</a>
+  <ul>
+<li><a href="#acuerdo-observado-o-%C3%ADndice-de-concordancia-global" id="toc-acuerdo-observado-o-índice-de-concordancia-global" class="nav-link" data-scroll-target="#acuerdo-observado-o-%C3%ADndice-de-concordancia-global">Acuerdo observado o Índice de concordancia global</a></li>
   <li><a href="#%C3%ADndice-kappa-de-cohen" id="toc-índice-kappa-de-cohen" class="nav-link" data-scroll-target="#%C3%ADndice-kappa-de-cohen">Índice kappa (de Cohen)</a></li>
   <li><a href="#interpretaci%C3%B3n-del-%C3%ADndice-kappa-si-k0" id="toc-interpretación-del-índice-kappa-si-k0" class="nav-link" data-scroll-target="#interpretaci%C3%B3n-del-%C3%ADndice-kappa-si-k0">Interpretación del índice kappa (si <span class="math inline">\(k\)</span>&gt;0)</a></li>
+  </ul>
+</li>
   <li>
 <a href="#clasificaciones-multinomiales" id="toc-clasificaciones-multinomiales" class="nav-link" data-scroll-target="#clasificaciones-multinomiales">Clasificaciones multinomiales</a>
   <ul>
@@ -288,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Como la p.d. depende del agente que me da la medida, tengo una variable aleatoria por cada agente.</p>
 <p>X = “clasificación dada por el observador A.”<br>
 Y = “clasificación dada por el observador B.”</p>
-<p>Dado un individuo va a ser analizado por el agente A y el agente B y cada uno de ellos va a dar su opinión.</p>
+<p>Dado un individuo este es analizado por el agente A y por el agente B.</p>
 <p><span class="math display">\[
 \displaylines{
 &amp; \text {Medidas para cada inidividuo} \\
@@ -317,16 +336,16 @@ Y = “clasificación dada por el observador B.”</p>
 \pi_{ij} = \text{p({X=i, Y=j})} &amp; \pi_{i.} = \text{p({Y=j})} &amp; \pi_{.j} =  \text{p({X=i})} \\
 \end{array}
 \]</span></p>
-</section><section id="acuerdo-observado-o-índice-de-concordancia-global" class="level2"><h2 class="anchored" data-anchor-id="acuerdo-observado-o-índice-de-concordancia-global">Acuerdo observado o Índice de concordancia global</h2>
-<p>La aproximación a la concordancia más intuitiva. Expresa el porcentaje de coincidencia en la clasificación de ambos agentes.</p>
+<section id="acuerdo-observado-o-índice-de-concordancia-global" class="level3"><h3 class="anchored" data-anchor-id="acuerdo-observado-o-índice-de-concordancia-global">Acuerdo observado o Índice de concordancia global</h3>
+<p>Es la aproximación a la concordancia más intuitiva. Expresa el porcentaje de coincidencia en la clasificación de ambos agentes.</p>
 <p>El problema que plantea este índice básico es que una parte de ese acuerdo puede deberse exclusivamente al azar.</p>
 <p>Medir la concordancia es saber la probabilidad con la que los dos dan la misma clasificación.</p>
 <div class="recuadro_2">
 <p><strong>Medida de concordancia global</strong>: <span class="math inline">\(\Pi_0 = \pi_{11} + \pi_{22} = \sum_{i=j} \pi_{ij}\)</span></p>
 </div>
 <p><u><strong>Ejemplo 1.0.</strong></u></p>
-<p>Se recogen las respuestas a las entrevistas 1 y 2 de manera independiente.<br>
-Entrevista 1: ¿Consume usted suplementos vitamínicos?<br>
+<p>Se recogen las respuestas a las entrevistas 1 y 2 de manera independiente.</p>
+<p>Entrevista 1: ¿Consume usted suplementos vitamínicos?<br>
 Entrevista 2: Responda si consume vitaminas sin contar sus aportes alimentarios</p>
 <ul>
 <li>
@@ -369,9 +388,20 @@ p({X=Y})=1</li>
 </ul>
 <div style="padding-left: 34px;">
 <p>Las dos entrevistas concuerdan el 40 % de las ocasiones. Puede no haber asociación real entre las dos entrevistas porque toda la concordancia puede atribuirse al azar.</p>
+<p><span class="math display">\[
+\begin{array}{c|c c c c}
+&amp; &amp; \textbf{Entervista 1} \\
+&amp; &amp; \textbf{No} &amp; \textbf{Sí} &amp; \textbf{Total} \\
+\hline
+\textbf{Entrevista 2} &amp; \textbf{No} &amp; 0.3 &amp; 0.3 &amp; 0.6 \\
+                      &amp; \textbf{Sí} &amp; 0.3 &amp; 0.1 &amp; 0.4 \\
+\hline
+&amp; \textbf{Total} &amp; 0.6 &amp; 0.4 &amp; 1 \\
+\end{array}
+\]</span></p>
 <p>¿Cuál sería la distribución de las respuestas si los individuos responden tirando una moneda? (cara: no, cruz: sí)</p>
-<p>p(X=“no”, Y=“sí”) = p(“sale cara primera moneda”, “sale cara segunda moneda”) = 0.5 * 0.5 = 0.25<br>
-p(X=“sí”, Y=“no”) = p(X=“no”, Y=“no”) = p(X=“sí”, Y=“sí”) = 0.25</p>
+<p>p(X=“no”, Y=“sí”) = p(“sale cara primera moneda”, “sale cara segunda moneda”) = 0.5 * 0.5 = 0.25</p>
+<p>p(X=“sí”, Y=“no”) = p(X=“no”, Y=“no”) = p(X=“sí”, Y=“sí”) = 0.25</p>
 <p><span class="math inline">\(\pi_{0}\)</span> = 0.25 + 0.25 = 0.5<br><span class="math inline">\(\pi_{i} = \pi_{1.} * \pi_{.1} + \pi_{2.} * \pi_{.2}\)</span> = 0.5 * 0.5 + 0.5 * 0.5 (concordancia debida al azar)</p>
 </div>
 <p><span class="math display">\[
@@ -388,28 +418,18 @@ p(X=“sí”, Y=“no”) = p(X=“no”, Y=“no”) = p(X=“sí”, Y=“sí
 <div style="padding-left: 34px;">
 <p>Esta sería la máxima no concordancia, ya que si la diagonal principal acumula menos de la mitad de los casos podríamos medir una concordancia inversa.</p>
 </div>
-<p><span class="math display">\[
-\begin{array}{c|c c c c}
-&amp; &amp; \textbf{Entervista 1} \\
-&amp; &amp; \textbf{No} &amp; \textbf{Sí} &amp; \textbf{Total} \\
-\hline
-\textbf{Entrevista 2} &amp; \textbf{No} &amp; 0.3 &amp; 0.3 &amp; 0.6 \\
-                      &amp; \textbf{Sí} &amp; 0.3 &amp; 0.1 &amp; 0.4 \\
-\hline
-&amp; \textbf{Total} &amp; 0.6 &amp; 0.4 &amp; 1 \\
-\end{array}
-\]</span></p>
 <p><strong>El problema de <span class="math inline">\(\Pi_{0}\)</span> es que incluye concordancia que puede atribuirse al azar. Y concordar por azar no es concordar.</strong></p>
-<p>Si los dos observadores clasificasen de forma independiente y, por tanto, totalmente al azar en las dos categorías, la probabilidad de la concordancia (p(X=Y)) sería:</p>
+<p><strong>Y bailar de lejos no es bailar.</strong></p>
+<p>Si los dos observadores clasificasen de forma independiente y, por tanto, totalmente al azar entre las dos categorías, la probabilidad de la concordancia <span class="math inline">\(p(X=Y)\)</span> sería:</p>
 <div class="recuadro_2">
 <p><strong>Medida de concordancia debida al azar</strong>: <span class="math inline">\(\Pi_c = \pi_{1.}\pi_{.1} + \pi_{2.}\pi_{.2} = \sum_{k=1,2} \pi_{k.}\pi_{.k}\)</span></p>
 </div>
 <p><strong>A la concordancia global debo restarle la concordancia del azar.</strong></p>
-</section><section id="índice-kappa-de-cohen" class="level2"><h2 class="anchored" data-anchor-id="índice-kappa-de-cohen">Índice kappa (de Cohen)</h2>
+</section><section id="índice-kappa-de-cohen" class="level3"><h3 class="anchored">Índice kappa (de Cohen)</h3>
 <p>Este índice es una medida basada en resultados teóricos.</p>
-<p><span class="math inline">\(k = \frac{\Pi_0-\Pi_c}{1-\Pi_c}\)</span> tq <span class="math inline">\(\Pi_0 = \pi_{11} + \pi_{22}\)</span> y <span class="math inline">\(\Pi_c = \pi_{1.}\pi_{.1} + \pi_{2.}\pi_{.2}\)</span></p>
-<p>A la concordancia le quita la concordancia debida al azar y lo compara con la concordancia perfecto sin contar la concordancia al azar. Es decir, a la concordancia y a la concordancia perfecta les substrae la concordancia debida al azar y compara la concordancia sin el azar obtenida contra la máxima concordancia sin el azar posible.</p>
-<p>La interpretabilidad o Podemos tener resultados negativos: el intervalor [-1,0) es sin corcondancia.</p>
+<p><span class="math display">\[k = \frac{\Pi_0-\Pi_c}{1-\Pi_c}\]</span> tal que <span class="math display">\[\Pi_0 = \pi_{11} + \pi_{22} \quad \text{y} \quad \Pi_c = \pi_{1.}\pi_{.1} + \pi_{2.}\pi_{.2}\]</span></p>
+<p><strong>A la concordancia le quita la concordancia debida al azar y lo compara con la concordancia perfecto sin contar la concordancia al azar</strong>. Es decir, a la concordancia y a la concordancia perfecta les substrae la concordancia debida al azar y compara la concordancia sin el azar obtenida contra la máxima concordancia sin el azar posible.</p>
+<p>Podemos tener resultados negativos: el intervalor [-1,0) es sin corcondancia.</p>
 <p><u><strong>Ejemplo 1.0.</strong></u></p>
 <ul>
 <li><u><strong>Caso 1. Concordancia perfecta.</strong></u></li>
@@ -426,15 +446,15 @@ p(X=“sí”, Y=“no”) = p(X=“no”, Y=“no”) = p(X=“sí”, Y=“sí
 \end{array}
 \]</span></p>
 <div style="padding-left: 34px;">
-<p>Cuando tengo una concordancia perfecta, la concordancia debido al azar es 0.5.</p>
+<p><span class="bck_color_01">Cuando tengo una concordancia perfecta, la concordancia debido al azar es 0.5.</span></p>
 <p><span class="math inline">\(\Pi_c = \pi_{1.}\pi_{.1} + \pi_{2.}\pi_{.2} = 0.36 + 0.24 = 0.5\)</span></p>
-Y POR EEEEEEEEEEEESO, usamos el índice kappa del señor Cohen.
+<p><span class="bck_color_01">Y POR EEEEEEEEEEEESO, usamos el índice kappa del señor Cohen.</span></p>
 <div>
 
 <ul>
 <li><u><strong>Caso 3. Sin corcondancia.</strong></u></li>
 </ul>
-<p>Cuando la concordancia o acuerdo observado coincide con la esperada por el azar el índice kappa toma el valor 0.</p>
+<p>Si la concordancia observada <span class="math inline">\(\Pi_0\)</span> coincide con la concordancia esperada por el azar <span class="math inline">\(\Pi_1\)</span> el índice kappa toma el valor 0.</p>
 <p><span class="math display">\[
 \begin{array}{c|c c c c}
 &amp; &amp; \textbf{Entervista 1} \\
@@ -461,9 +481,9 @@ Y POR EEEEEEEEEEEESO, usamos el índice kappa del señor Cohen.
 <p><span class="math inline">\(\Pi_0 = \pi_{11} + \pi_{22} = 0.4\)</span> y <span class="math inline">\(\Pi_c = \pi_{1.}\pi_{.1} + \pi_{2.}\pi_{.2} = 0.6*0.6 + 0.4*0.4 = 0.52\)</span></p>
 <p><span class="math inline">\(k = \frac{0.4-0.52}{1-0.52} = -0.25\)</span></p>
 
-<section id="interpretación-del-índice-kappa-si-k0" class="level2"><h2 class="anchored" data-anchor-id="interpretación-del-índice-kappa-si-k0">Interpretación del índice kappa (si <span class="math inline">\(k\)</span>&gt;0)</h2>
+<section id="interpretación-del-índice-kappa-si-k0" class="level3"><h3 class="anchored" data-anchor-id="interpretación-del-índice-kappa-si-k0">Interpretación del índice kappa (si <span class="math inline">\(k\)</span>&gt;0)</h3>
 <p>Los datos observados son un caso particular.</p>
-<p>La probabilidad de acuerdo observado es una media ponderada del máximo acuerdo (1) y del acuerdo debido al azar (<span class="math inline">\(Pi_{c\)</span>), siendo <span class="math inline">\(k\)</span> el peso del máximo acuerdo.</p>
+<p>La probabilidad de acuerdo observado es una media ponderada del máximo acuerdo y del acuerdo debido al azar <span class="math inline">\(\Pi_c\)</span>, siendo <span class="math inline">\(k\)</span> el peso del máximo acuerdo.</p>
 <div class="recuadro_2">
 <p><span class="math display">\[
 \displaylines{
@@ -472,7 +492,7 @@ k * (1-\Pi_{i}) = (\Pi_{0} - \Pi_{c}) \\ \\
 \Pi_{0} = k + (1-k)*\Pi_{c}
 }
 \]</span></p>
-<p><strong>El acuerdo observado es una combinación de la concordania perfecta y concordania debida al azar</strong>. El ínidce kappa da más peso a uno o al otro.</p>
+<p><strong>El acuerdo observado es una combinación de la concordania perfecta y concordania debida al azar</strong>. El ínidce kappa da más peso a uno u otro.</p>
 </div>
 <p><u><strong>Ejemplo 1.1.</strong></u></p>
 <p><span class="math display">\[
@@ -769,8 +789,10 @@ Total 0.275 0.7250 1.0000
 [1] 0.6290051</code></pre>
 </div>
 </div>
-<p>Hasta ahora hemos hablado de probabilidades ya que estamos con el modelo teórico. Cuando trabajamoes con datos de una muestra hablaremos de porcentajes. <span class="math inline">\(\Rightarrow\)</span> <em>“Este % es consecuencia de un acuerdo de tal y un azar de no sé cuántos”</em></p>
+<p>Hasta ahora hemos hablado de probabilidades ya que estamos con el modelo teórico. <span class="highlight">Cuando trabajamos con datos de una muestra hablaremos de porcentajes.</span> <span class="math inline">\(\Rightarrow\)</span> <em>“Este % es consecuencia de un acuerdo de xx y un azar de xx”</em></p>
+<div class="recuadro_1">
 <p>El índice kappa tiene una distribución teórica y lo estimo según una muestra. Con una poca información (la muestra) doy un intervalo. No doy intervalos de confianza para valores desconocidos sino para las estimaciones.</p>
+</div>
 </section></section><section id="inconvenientes-del-índice-kappa" class="level2"><h2 class="anchored" data-anchor-id="inconvenientes-del-índice-kappa">Inconvenientes del índice kappa</h2>
 <p><u><strong>Ejemplo 1.1.</strong></u></p>
 <p><span class="math display">\[
@@ -785,7 +807,7 @@ Total 0.275 0.7250 1.0000
 \end{array}
 \]</span></p>
 <p>La prevalencia de pulmonía es baja: <strong>014 para el radiólogo A y 0.1 para el rediólogo B</strong>.</p>
-<p>**Ambas marginales desequilibradas*: la prevalencia observada dista mucho de 0.5 (a favor de los diagnósticos negativos)</p>
+<p><strong>Ambas marginales desequilibradas</strong>: la prevalencia observada dista mucho de 0.5 (a favor de los diagnósticos negativos)</p>
 <p>El bajo valor del índice kappa se explica porque nos encontramos en el peor de los escenarios: baja prevalencia y marginales desequilibradas.</p>
 <div class="cell">
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">pi_0</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">data</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
@@ -1362,7 +1384,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav>
 </div> <!-- /content -->
 
-</div></section></main>
+</div></section></section></main>
 </div>
 
 
