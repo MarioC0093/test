@@ -43,23 +43,19 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    background-color: #ffffff;
+    text-align: center;
+    background-color: #d8e6f0;
 }
 
-table, th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+tr:nth-child(even) {
+    background-color: #d8e6f0;
 }
 
 th {
     background-color: #2E86C1;
-    color: white;
+    color: black;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
 
 /* Código */
 pre, code {

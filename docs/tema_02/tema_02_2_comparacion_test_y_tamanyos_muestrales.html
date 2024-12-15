@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Máster de Bioestadística - Probabilidad y Simulación</title>
 <style>
 code{white-space: pre-wrap;}
@@ -20,8 +17,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -30,8 +60,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../tema_02/tema_02_3_curvas_roc.html" rel="next">
-<link href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias - copia.html" rel="prev">
+<link href="../tema_02/tema_2_28_11_2024.html" rel="next">
+<link href="../tema_02/tema_02_1_2_cohortes_y_casos_control.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -40,8 +70,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -60,44 +89,32 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Enviar",
     "search-label": "Buscar"
   }
-}</script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="../css/styles.css">
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="../css/styles.css">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tema_02/tema_02.html">TEMA 2</a></li><li class="breadcrumb-item"><a href="../tema_02/tema_02_2_cont.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tema_02/tema_02.html">TEMA 2</a></li><li class="breadcrumb-item"><a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">2. Comparación de test y tratamiento del tamaño mmuestral <span style="color:red;">✗</span></span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Buscar"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
   </div>
@@ -115,14 +132,14 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../tema_00/tema_00_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../tema_01/tema_01.html" class="sidebar-item-text sidebar-link">
@@ -131,8 +148,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../tema_01/tema_01_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Introducción <span style="color:green;">✓</span></span></a>
   </div>
@@ -153,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../tema_02/tema_02.html" class="sidebar-item-text sidebar-link">
@@ -162,25 +179,25 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Conceptos básicos <span style="color:green;">✓</span></span></a>
+  <a href="../tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1.1. Conceptos básicos <span style="color:green;">✓</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></a>
+  <a href="../tema_02/tema_02_1_2_cohortes_y_casos_control.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1.2 Estudios de cohorte y casos-control <span style="color:green;">✓</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias - copia.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></a>
+  <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño mmuestral <span style="color:red;">✗</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_2_cont.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></a>
+  <a href="../tema_02/tema_2_28_11_2024.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">tema_2_28_11_2024</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -188,8 +205,13 @@ ul.task-list li input[type="checkbox"] {
   <a href="../tema_02/tema_02_3_curvas_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:red;">✗</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_3_curvas_roc_final.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">curvas ROC - segunda parte</span></a>
+  </div>
+</li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../tema_03/tema_03.html" class="sidebar-item-text sidebar-link">
@@ -198,8 +220,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../tema_03/tema_03_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Introducción <span style="color:green;">✓</span></span></a>
   </div>
@@ -214,8 +236,13 @@ ul.task-list li input[type="checkbox"] {
   <a href="../tema_03/tema_03_3_obtener_datos_simulados.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Obtener datos simulados a partir de observaciones reales <span style="color:green;">✓</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_03/tema_03_4_remuestreo_inferencia_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Técnicas de remuestreo aplicadas a la inferencia de curvas ROC <span style="color:red;">✗</span></span></a>
+  </div>
+</li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -223,19 +250,34 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">In this page</h2>
+   
+  <ul>
+<li><a href="#qu%C3%A9-test-es-mejor" id="toc-qué-test-es-mejor" class="nav-link active" data-scroll-target="#qu%C3%A9-test-es-mejor">¿Qué test es mejor?</a></li>
+  <li>
+<a href="#tratamiento-muestral-de-la-comparativa" id="toc-tratamiento-muestral-de-la-comparativa" class="nav-link" data-scroll-target="#tratamiento-muestral-de-la-comparativa">Tratamiento muestral de la comparativa</a>
+  <ul>
+<li>
+<a href="#estimaci%C3%B3n-de-medias-de-comparaci%C3%B3n-en-datos-no-paradeados" id="toc-estimación-de-medias-de-comparación-en-datos-no-paradeados" class="nav-link" data-scroll-target="#estimaci%C3%B3n-de-medias-de-comparaci%C3%B3n-en-datos-no-paradeados">Estimación de medias de comparación en datos no paradeados</a>
+  <ul>
+<li><a href="#cohortes" id="toc-cohortes" class="nav-link" data-scroll-target="#cohortes">Cohortes</a></li>
+  </ul>
+</li>
+  <li><a href="#caso-control" id="toc-caso-control" class="nav-link" data-scroll-target="#caso-control">Caso-control</a></li>
+  <li><a href="#resultados-para-muestras-grandes" id="toc-resultados-para-muestras-grandes" class="nav-link" data-scroll-target="#resultados-para-muestras-grandes">Resultados para muestras grandes</a></li>
+  <li><a href="#estimaci%C3%B3n-de-medias-de-comparaci%C3%B3n-en-datos-paradeados" id="toc-estimación-de-medias-de-comparación-en-datos-paradeados" class="nav-link" data-scroll-target="#estimaci%C3%B3n-de-medias-de-comparaci%C3%B3n-en-datos-paradeados">Estimación de medias de comparación en datos paradeados</a></li>
+  <li><a href="#resultados-para-muestras-grandes-1" id="toc-resultados-para-muestras-grandes-1" class="nav-link" data-scroll-target="#resultados-para-muestras-grandes-1">Resultados para muestras grandes</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></h1>
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño mmuestral <span style="color:red;">✗</span></span></h1>
 </div>
 
 
@@ -248,25 +290,168 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-</header>
-
-<p>daiapo31</p>
-<p>estimaciones que corresponden a esa comparacion. con est puntuales y su validacion y tomar decision de qué es rpeferible entre los dos.</p>
-<p>estamos comparando dos pd para diagnositcar una enfermeda. imp cómo he elegido los individuos. muy mip cómo he construido miestudio compartivo. dos grupos de individuos distintos tienen cada prueba o un individuo tiene ambas pruebas. esto es estudios pareados o estudios no parads (los he puesto al revés)</p>
-<p>diseñar el experimento de forma que se realicen ambas prueba en distinto orden. no ha todos primero la primera prueba y luego la segunda.</p>
-<p>si me diesn a elegir entre un diseño u otro, elijo el parado. tengo menos variabilidad en los sujetos.</p>
-<p>NO PAREADO.</p>
-<p>contabilizo de manera diferente a los que hacen la prueba y a los que están haciendo la otra. miro la situacion real de cada conjunto de personas separadas (grupo de personas con la caracteristica y grupo de personas sin la caracteristica)</p>
-<p>si es caso control las estimaciones por intervalo nos siguen sirviendo excepto unas que se tachan y no aparecen en la diapo. IC de algo que no hemos podido estimar puntualmente: cocientes entre estimaciones de valores predictivos rPPV y rNPV.</p>
+</header><section id="qué-test-es-mejor" class="level2"><h2 class="anchored" data-anchor-id="qué-test-es-mejor">¿Qué test es mejor?</h2>
+<p>A es preferible a B, en la métrica del cociente, al comparar las probabilidades de clasificación: rSe(A,B) &gt; 1 y r(1-Sp(A,B)) &lt; 1, (i)</p>
+<p>A es preferible a B, en la métrica del cociente, al comparar los valores predictivos: rPPV(A,B) &gt; 1 y rNPV(A,B) &lt; 1, (ii)</p>
+<p>A es preferible a B, en la métrica del cociente, al comparar las razones de verosimilitud del diagnóstico: rDLR+(A,B) &gt;1 y rDLR-(A,B) &lt;1, (iii)</p>
+<p>Se tiene que: (i) <span class="math inline">\(\iff\)</span> (ii)<br>
+(i) <span class="math inline">\(\implies\)</span> (iii)</p>
+<p>Si un test es mejor en una dimensión y peor en otra (no sé a qué dimensiones se refiere), entonces es aconsejable tomar una medida única construida a partir de ambas dimensiones:</p>
+<ul>
+<li>Medida compuesta basada en costes:
+<ul>
+<li>Boyko (Med Dec Making, 1994)</li>
+<li>Gold et al.&nbsp;(1996). Cost-Effectiveness in Health and Medicine</li>
+</ul>
+</li>
+<li>Medida compuesta de Chock et al.&nbsp;(J Clin Epidemiol, 1997):
+<ul>
+<li>(TPFA-TPFB)/(FPFA-FPFB)=(Se(A)-Se(B)/(Sp(B)-Sp(A))</li>
+</ul>
+</li>
+</ul>
+<p>La validez de la preferencia está relacionada con la validez de los estimación de la métrica empleada. Es preciso realizar un estudio de la comparativa desde el punto de vista de la muestra. Se necesita:</p>
+<ul>
+<li>Determinar estimadores de las métricas</li>
+<li>Validar dichos estimadore</li>
+</ul>
+<p>Con las estimaciones puntuales para la coparativa y sus validaciones, podemos tomas decisiones sobre qué prueba diagnóstica es mejor con la comparativa adecuada.</p>
+</section><section id="tratamiento-muestral-de-la-comparativa" class="level2"><h2 class="anchored" data-anchor-id="tratamiento-muestral-de-la-comparativa">Tratamiento muestral de la comparativa</h2>
+<p>En la comparativa de dos pruebas diagnósticas, es importante la forma en que se han elegido los individuos y cómo se ha construido el estudio comparativo.</p>
+<p><strong>Diseño pareado. Cada sujeto se somete a todas las pruebas que se quieren comparar.</strong> - Son válidos cuando las pruebas diagnósticas no interfieren entre ellas - Se debe diseñar el experimento de forma que las pruebas se realicen en distinto orden para cada sujeto.</p>
+<p><strong>Diseño no pareado. Un sujeto solo se somete a una prueba. Cada test se aplica a un conjunto de sujetos diferente.</strong> - Implican un protocolo detallado del estudio. - Se aplican en pruebas diagnósticas invasivas, que causan malestar en el paciente, que consumen tiempo o que conllevan un riesgo significativo. - En pruebas que interfieren en los resultados de la otra. - En estudios observacionales.</p>
+<p><u>Es preferible el diseño pareado ya que genera menos variabildiad inter sujetos.</u></p>
+<p><u><strong>Notación.</strong></u></p>
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{No pareado}
+\end{aligned}
+\]</span></p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{D=0}
+\end{aligned}
+\begin{array}{c|c|c|c|}
+&amp; Y = 0 &amp; Y = 1 \\
+\hline
+\text{Test A} &amp; n_{D}^{-}(A) &amp; n_{D}^{+}(A) &amp; n_{D}(A)\\
+\text{Test B} &amp; n_{D}^{-}(B) &amp; n_{D}^{+}(B) &amp; n_{D}(B)\\
+\hline
+\end{array}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{D=1}
+\end{aligned}
+\begin{array}{c|c|c|c|}
+&amp; Y = 0 &amp; Y = 1 \\
+\hline
+\text{Test A} &amp; n_{\overline{D}}^{-}(A) &amp; n_{\overline{D}}^{+}(A) &amp; n_{\overline{D}}(A)\\
+\text{Test B} &amp; n_{\overline{D}}^{-}(B) &amp; n_{\overline{D}}^{+}(B) &amp; n_{\overline{D}}(B)\\
+\hline
+\end{array}
+\]</span></p>
+</div>
+</div>
+</div>
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{Pareado}
+\end{aligned}
+\]</span></p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{D=1}
+\end{aligned}
+\begin{array}{c|c|c|c|}
+&amp; \text{(Test A) Y = 0} &amp; \text{(Test A) Y = 1} \\
+\hline
+\text{(Test B) Y = 0} &amp; a &amp; b &amp; n_{D}^-(B)\\
+\text{(Test B) Y = 1} &amp; c &amp; d &amp; n_{D}^+(B)\\
+\hline
+&amp; n_{D}^-(A) &amp; n_{D}^+(A) &amp; n_{D}
+\end{array}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{D=0}
+\end{aligned}
+\begin{array}{c|c|c|c|}
+&amp; \text{(Test A) Y = 0} &amp; \text{(Test A) Y = 1} \\
+\hline
+\text{(Test B) Y = 0} &amp; e &amp; f &amp; n_{\overline{D}}^-(B)\\
+\text{(Test B) Y = 1} &amp; g &amp; h &amp; n_{\overline{D}}^+(B)\\
+\hline
+&amp; n_{\overline{D}}^-(A) &amp; n_{\overline{D}}^+(A) &amp; n{\overline{D}}
+\end{array}
+\]</span></p>
+</div>
+</div>
+</div>
+<section id="estimación-de-medias-de-comparación-en-datos-no-paradeados" class="level3"><h3 class="anchored" data-anchor-id="estimación-de-medias-de-comparación-en-datos-no-paradeados">Estimación de medias de comparación en datos no paradeados</h3>
+<p>Se observa la situacion real de cada conjunto de personas (grupo con la caracteristica y grupo sin la caracteristica; grupo con un test y grupo con otro test, etc.). Se contabiliza y realizan estimaciones de manera independiente.</p>
+<section id="cohortes" class="level4"><h4 class="anchored" data-anchor-id="cohortes">Cohortes</h4>
+<p><embed src="tema_02/Tema2_24_25.pdf#page=35" class="img-fluid">){width=100% height=800px}</p>
+</section></section><section id="caso-control" class="level3"><h3 class="anchored" data-anchor-id="caso-control">Caso-control</h3>
+<p>No se puede estimar las medidas comparativas para los valores predictivos puesto que involucran a la prevalencia.</p>
+<p><embed src="tema_02/Tema2_24_25.pdf#page=36" class="img-fluid">){width=100% height=800px}</p>
+</section><section id="resultados-para-muestras-grandes" class="level3"><h3 class="anchored" data-anchor-id="resultados-para-muestras-grandes">Resultados para muestras grandes</h3>
 <p><u><strong>Ejemplo 2.4.</strong></u></p>
-<p>prueba EA: 122 + 4878 prueba CVS: 124 + 4876</p>
-<p>gente con problemas: 122+124 gente sin problemas: las otras</p>
-<p>algo ha pasado que ha dicho nuestro gozo en un pozo</p>
+<p>Los siguientes datos corresponden a dos pruebas diagnósticas aplicadas a mujeres embarazadas en el primer trimestre de embarazo para diagnosticar anormalidades cromosómicas fetales. Estas pruebas son CVS (Chorionic villus sampling) y EA (Early amniocentesis). Las mujeres fueron aleatorizadas para recibir CVS o EA. Los datos obtenidos se resumen como:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>col1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">13</span><span class="op">)</span>,</span>
+<span>                 col2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">116</span>, <span class="fl">111</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Y=0"</span>, <span class="st">"Y=1"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">df_1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"EA"</span>,<span class="st">"CVS"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_1_extended</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">df_1</span>, <span class="st">"Total"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">df_1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df_1_extended</span> <span class="op">&lt;-</span> <span class="va">df_1_extended</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="st">"Total"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">df_1_extended</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df_1_extended</span></span>
+<span><span class="co">##       Y=0 Y=1 Total</span></span>
+<span><span class="co">## EA      6 116   122</span></span>
+<span><span class="co">## CVS    13 111   124</span></span>
+<span><span class="co">## Total  19 227   246</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>col1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4844</span>, <span class="fl">34</span><span class="op">)</span>,</span>
+<span>                 col2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4765</span>, <span class="fl">111</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_0</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Y=0"</span>, <span class="st">"Y=1"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">df_0</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"EA"</span>,<span class="st">"CVS"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_0_extended</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">df_0</span>, <span class="st">"Total"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">df_0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df_0_extended</span> <span class="op">&lt;-</span> <span class="va">df_0_extended</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="st">"Total"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">df_0_extended</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df_0_extended</span></span>
+<span><span class="co">##        Y=0  Y=1 Total</span></span>
+<span><span class="co">## EA    4844 4765  9609</span></span>
+<span><span class="co">## CVS     34  111   145</span></span>
+<span><span class="co">## Total 4878 4876  9754</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>prueba EA: 122 + 4.878 = 5.000 prueba CVS: 124 + 4.876 = 5.000</p>
+<p>gente con problemas: 122 + 124 = 246 gente sin problemas: las otras = 5.000 + 5.000 - 246 = 9.754</p>
+<p><em>Algo ha pasado que ha dicho nuestro gozo en un pozo</em></p>
 <p>cocientes de 1-especi. siempre por debajo de 1, esto no me da ningun problema.</p>
 <p>dos medidas por separado, significa que tengo un error para una y otro erro para otra.</p>
 <p>al hacer un IC para ambas conjuntamente debo subir un poco la confianza y tengo una region hecha como producto de los intervalos. esta region de confi tp nos viene bien, es mas ancha todavia pq hemos subido esa confianza.</p>
 <p>repecto a la sensi no tengo diferencias de comortamiento entre ambos al 95%. al 90 % el intervalo va a ser más pequeo, es una posible forma, nos arriesgamos mas. calcularlo el 90 % por nuestra cuenta a ver si nos sirve o no. tal vez podamos dar una respuesta clara con una confianza más pequeña.</p>
 <p>95 en esa region vs 95 para una prueba y 95 para la otra prueba.</p>
+</section><section id="estimación-de-medias-de-comparación-en-datos-paradeados" class="level3"><h3 class="anchored" data-anchor-id="estimación-de-medias-de-comparación-en-datos-paradeados">Estimación de medias de comparación en datos paradeados</h3>
+</section><section id="resultados-para-muestras-grandes-1" class="level3"><h3 class="anchored" data-anchor-id="resultados-para-muestras-grandes-1">Resultados para muestras grandes</h3>
 <p>diapo42.</p>
 <p>la misma forma de estimar puntualmente nos sirve pero la variaza no.</p>
 <p>en la varianza aparece algo nuevo: ahora aparece la probabilidad de que un mismo individuo tenga dos positivos o dos negativos.</p>
@@ -301,9 +486,7 @@ A_no_pareado = <span class="math inline">\(\hat{A}_\overline{D}\)</span></p>
 <p>si es el cociente entre las especifidades (esto conviene)</p>
 
 
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -535,16 +718,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation column-page-right">
-  <div class="nav-page nav-page-previous">
-      <a href="../tema_02/tema_02_2_tratamiento_muestral_pruebas_binarias - copia.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">2.Tratamiento muestral para pruebas binarias <span style="color:red;">✗</span></span></span>
+</script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
+      <a href="../tema_02/tema_02_1_2_cohortes_y_casos_control.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">1.2 Estudios de cohorte y casos-control <span style="color:green;">✓</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../tema_02/tema_02_3_curvas_roc.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:red;">✗</span></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../tema_02/tema_2_28_11_2024.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">tema_2_28_11_2024</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
