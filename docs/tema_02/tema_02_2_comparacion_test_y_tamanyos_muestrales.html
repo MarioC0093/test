@@ -261,16 +261,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li>
 <a href="#tratamiento-muestral-de-la-comparativa" id="toc-tratamiento-muestral-de-la-comparativa" class="nav-link" data-scroll-target="#tratamiento-muestral-de-la-comparativa">Tratamiento muestral de la comparativa</a>
   <ul>
-<li>
-<a href="#estimaci%C3%B3n-de-medias-de-comparaci%C3%B3n-en-datos-no-paradeados" id="toc-estimación-de-medias-de-comparación-en-datos-no-paradeados" class="nav-link" data-scroll-target="#estimaci%C3%B3n-de-medias-de-comparaci%C3%B3n-en-datos-no-paradeados">Estimación de medias de comparación en datos no paradeados</a>
-  <ul>
-<li><a href="#cohortes" id="toc-cohortes" class="nav-link" data-scroll-target="#cohortes">Cohortes</a></li>
-  </ul>
-</li>
+<li><a href="#estimaci%C3%B3n-de-medias-de-comparaci%C3%B3n-en-datos-no-paradeados" id="toc-estimación-de-medias-de-comparación-en-datos-no-paradeados" class="nav-link" data-scroll-target="#estimaci%C3%B3n-de-medias-de-comparaci%C3%B3n-en-datos-no-paradeados">Estimación de medias de comparación en datos no paradeados</a></li>
+  <li><a href="#cohortes" id="toc-cohortes" class="nav-link" data-scroll-target="#cohortes">Cohortes</a></li>
   <li><a href="#caso-control" id="toc-caso-control" class="nav-link" data-scroll-target="#caso-control">Caso-control</a></li>
   <li><a href="#resultados-para-muestras-grandes" id="toc-resultados-para-muestras-grandes" class="nav-link" data-scroll-target="#resultados-para-muestras-grandes">Resultados para muestras grandes</a></li>
   <li><a href="#estimaci%C3%B3n-de-medias-de-comparaci%C3%B3n-en-datos-paradeados" id="toc-estimación-de-medias-de-comparación-en-datos-paradeados" class="nav-link" data-scroll-target="#estimaci%C3%B3n-de-medias-de-comparaci%C3%B3n-en-datos-paradeados">Estimación de medias de comparación en datos paradeados</a></li>
-  <li><a href="#resultados-para-muestras-grandes-1" id="toc-resultados-para-muestras-grandes-1" class="nav-link" data-scroll-target="#resultados-para-muestras-grandes-1">Resultados para muestras grandes</a></li>
+  <li><a href="#eficiencia-de-dise%C3%B1os-pareados-frente-no-pareados" id="toc-eficiencia-de-diseños-pareados-frente-no-pareados" class="nav-link" data-scroll-target="#eficiencia-de-dise%C3%B1os-pareados-frente-no-pareados">Eficiencia de diseños pareados frente no pareados</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -294,7 +290,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A es preferible a B, en la métrica del cociente, al comparar las probabilidades de clasificación: rSe(A,B) &gt; 1 y r(1-Sp(A,B)) &lt; 1, (i)</p>
 <p>A es preferible a B, en la métrica del cociente, al comparar los valores predictivos: rPPV(A,B) &gt; 1 y rNPV(A,B) &lt; 1, (ii)</p>
 <p>A es preferible a B, en la métrica del cociente, al comparar las razones de verosimilitud del diagnóstico: rDLR+(A,B) &gt;1 y rDLR-(A,B) &lt;1, (iii)</p>
-<p>Se tiene que: (i) <span class="math inline">\(\iff\)</span> (ii)<br>
+<p>Se tiene que:<br>
+(i) <span class="math inline">\(\iff\)</span> (ii)<br>
 (i) <span class="math inline">\(\implies\)</span> (iii)</p>
 <p>Si un test es mejor en una dimensión y peor en otra (no sé a qué dimensiones se refiere), entonces es aconsejable tomar una medida única construida a partir de ambas dimensiones:</p>
 <ul>
@@ -400,12 +397,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="estimación-de-medias-de-comparación-en-datos-no-paradeados" class="level3"><h3 class="anchored" data-anchor-id="estimación-de-medias-de-comparación-en-datos-no-paradeados">Estimación de medias de comparación en datos no paradeados</h3>
 <p>Se observa la situacion real de cada conjunto de personas (grupo con la caracteristica y grupo sin la caracteristica; grupo con un test y grupo con otro test, etc.). Se contabiliza y realizan estimaciones de manera independiente.</p>
-<section id="cohortes" class="level4"><h4 class="anchored" data-anchor-id="cohortes">Cohortes</h4>
-<p><embed src="tema_02/Tema2_24_25.pdf#page=35" class="img-fluid">){width=100% height=800px}</p>
-</section></section><section id="caso-control" class="level3"><h3 class="anchored" data-anchor-id="caso-control">Caso-control</h3>
+</section><section id="cohortes" class="level3"><h3 class="anchored" data-anchor-id="cohortes">Cohortes</h3>
+<p><img src="../attachments/output_tema2_page35.png" style="width:80.0%;height:80.0%"></p>
+</section><section id="caso-control" class="level3"><h3 class="anchored" data-anchor-id="caso-control">Caso-control</h3>
 <p>No se puede estimar las medidas comparativas para los valores predictivos puesto que involucran a la prevalencia.</p>
-<p><embed src="tema_02/Tema2_24_25.pdf#page=36" class="img-fluid">){width=100% height=800px}</p>
+<p><img src="../attachments/output_tema2_page36.png" style="width:80.0%;height:80.0%"></p>
 </section><section id="resultados-para-muestras-grandes" class="level3"><h3 class="anchored" data-anchor-id="resultados-para-muestras-grandes">Resultados para muestras grandes</h3>
+<div style="text-align: center; border: 1px solid black; padding: 5px;">
+<p><img src="../attachments/tema_02_resultados_grandes_datosnoparaeados_0.png" style="width: 75%; height: 75%;"></p>
+</div>
+<div style="text-align: center; border: 1px solid black; padding: 5px;">
+<p><img src="../attachments/tema_02_resultados_grandes_datosnoparaeados_1.png" style="width:75.0%;height:75.0%"><img src="../attachments/tema_02_resultados_grandes_datosnoparaeados_2.png" style="width:75.0%;height:75.0%"><img src="../attachments/tema_02_resultados_grandes_datosnoparaeados_3.png" style="width:75.0%;height:75.0%"></p>
+</div>
 <p><u><strong>Ejemplo 2.4.</strong></u></p>
 <p>Los siguientes datos corresponden a dos pruebas diagnósticas aplicadas a mujeres embarazadas en el primer trimestre de embarazo para diagnosticar anormalidades cromosómicas fetales. Estas pruebas son CVS (Chorionic villus sampling) y EA (Early amniocentesis). Las mujeres fueron aleatorizadas para recibir CVS o EA. Los datos obtenidos se resumen como:</p>
 <div class="cell">
@@ -428,8 +431,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">df_0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>col1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4844</span>, <span class="fl">34</span><span class="op">)</span>,</span>
-<span>                 col2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4765</span>, <span class="fl">111</span><span class="op">)</span></span>
+<span><span class="va">df_0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>col1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4844</span>, <span class="fl">4765</span><span class="op">)</span>,</span>
+<span>                 col2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">34</span>, <span class="fl">111</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_0</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Y=0"</span>, <span class="st">"Y=1"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">df_0</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"EA"</span>,<span class="st">"CVS"</span><span class="op">)</span></span>
@@ -437,25 +440,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">df_0_extended</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">df_0</span>, <span class="st">"Total"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">df_0</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">df_0_extended</span> <span class="op">&lt;-</span> <span class="va">df_0_extended</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="st">"Total"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">df_0_extended</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">df_0_extended</span></span>
-<span><span class="co">##        Y=0  Y=1 Total</span></span>
-<span><span class="co">## EA    4844 4765  9609</span></span>
-<span><span class="co">## CVS     34  111   145</span></span>
-<span><span class="co">## Total 4878 4876  9754</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">##        Y=0 Y=1 Total</span></span>
+<span><span class="co">## EA    4844  34  4878</span></span>
+<span><span class="co">## CVS   4765 111  4876</span></span>
+<span><span class="co">## Total 9609 145  9754</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>prueba EA: 122 + 4.878 = 5.000 prueba CVS: 124 + 4.876 = 5.000</p>
 <p>gente con problemas: 122 + 124 = 246 gente sin problemas: las otras = 5.000 + 5.000 - 246 = 9.754</p>
 <p><em>Algo ha pasado que ha dicho nuestro gozo en un pozo</em></p>
-<p>cocientes de 1-especi. siempre por debajo de 1, esto no me da ningun problema.</p>
-<p>dos medidas por separado, significa que tengo un error para una y otro erro para otra.</p>
-<p>al hacer un IC para ambas conjuntamente debo subir un poco la confianza y tengo una region hecha como producto de los intervalos. esta region de confi tp nos viene bien, es mas ancha todavia pq hemos subido esa confianza.</p>
-<p>repecto a la sensi no tengo diferencias de comortamiento entre ambos al 95%. al 90 % el intervalo va a ser más pequeo, es una posible forma, nos arriesgamos mas. calcularlo el 90 % por nuestra cuenta a ver si nos sirve o no. tal vez podamos dar una respuesta clara con una confianza más pequeña.</p>
-<p>95 en esa region vs 95 para una prueba y 95 para la otra prueba.</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Se_EA</span> <span class="op">=</span> <span class="fl">116</span> <span class="op">/</span> <span class="fl">122</span></span>
+<span><span class="va">Se_CVS</span> <span class="op">=</span> <span class="fl">111</span> <span class="op">/</span> <span class="fl">124</span></span>
+<span><span class="co"># rSe_est_EA_sobre_CVS</span></span>
+<span><span class="op">(</span><span class="va">rSE_est</span> <span class="op">=</span> <span class="va">Se_EA</span> <span class="op">/</span> <span class="va">Se_CVS</span><span class="op">)</span></span>
+<span><span class="co">## [1] 1.062177</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Uno_menos_Sp_EA</span> <span class="op">=</span> <span class="fl">1</span> <span class="op">-</span> <span class="fl">4844</span> <span class="op">/</span> <span class="fl">4878</span></span>
+<span><span class="va">Uno_menos_Sp_CVS</span> <span class="op">=</span> <span class="fl">1</span> <span class="op">-</span> <span class="fl">4765</span> <span class="op">/</span> <span class="fl">4876</span></span>
+<span><span class="co"># rSe_est_EA_sobre_CVS</span></span>
+<span><span class="op">(</span><span class="va">rUno_menos_Sp_est</span> <span class="op">=</span> <span class="va">Uno_menos_Sp_EA</span> <span class="op">/</span> <span class="va">Uno_menos_Sp_CVS</span><span class="op">)</span></span>
+<span><span class="co">## [1] 0.3061807</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">IC_log_rSe_est_EA_CVS</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rSE_est</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1.96</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.00137</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rSE_est</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1.96</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.00137</span><span class="op">)</span> <span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] -0.01222597  0.13286699</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">IC_rSe_est_EA_CVS</span> <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">IC_log_rSe_est_EA_CVS</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] 0.9878485 1.1420981</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">IC_log_rUno_menos_Sp_est_EA_CVS</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rUno_menos_Sp_est</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1.96</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.038</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rUno_menos_Sp_est</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1.96</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.038</span><span class="op">)</span> <span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] -1.5656541 -0.8015054</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">IC_rUno_menos_Sp_est_EA_CVS</span> <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">IC_log_rUno_menos_Sp_est_EA_CVS</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] 0.2089513 0.4486530</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">RC_log_rSe_est_log_rUno_menos_Sp_est_EA_CVS</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">IC_log_rSe_est_EA_CVS</span>, <span class="va">IC_log_rUno_menos_Sp_est_EA_CVS</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] -0.01222597  0.13286699 -1.56565410 -0.80150543</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">RC_rSe_estrUno_menos_Sp_est_EA_CVS</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">IC_log_rSe_est_EA_CVS</span>, <span class="va">IC_log_rUno_menos_Sp_est_EA_CVS</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] 0.9878485 1.1420981 0.2089513 0.4486530</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>En el 95 % de los casos con una muestra de igual tamaño y mismo comportamiento encontraríamos razón de sensibilidades de 0.98 a 1.14 por lo que no se puede asumir que ninguna prueba sea mejor que otra ya que el 1 está contenido en el intervalo de confianza.</p>
+<p>Con estas razones no podríamos decir que una prueba sea mejor que otra, no se cumple la condición i y consecuentemente la ii tampoco. Hay que mirar la iii.</p>
+<p>Al hacer un IC para ambas medidas conjuntamente debo subir levemente la confianza y construir una region como producto de los intervalos. Esta región de confianza no nos conviene ya que es aún más ancha debido a que hemos subido esa confianza.</p>
+<p>Respecto a la sensibilidad no tengo diferencias de comprtamiento entre ambas pruebas al 95 %. En una confianza del 90 % el intervalo será más pequeño y nos estaremos arriesgando más. (Calcularlo el 90 % a ver si sirve o no, tal vez podamos dar una respuesta clara con una confianza más pequeña)</p>
+<p>95 % en esa región vs 95 % en una prueba y 95 % en otra prueba.</p>
 </section><section id="estimación-de-medias-de-comparación-en-datos-paradeados" class="level3"><h3 class="anchored" data-anchor-id="estimación-de-medias-de-comparación-en-datos-paradeados">Estimación de medias de comparación en datos paradeados</h3>
-</section><section id="resultados-para-muestras-grandes-1" class="level3"><h3 class="anchored" data-anchor-id="resultados-para-muestras-grandes-1">Resultados para muestras grandes</h3>
-<p>diapo42.</p>
-<p>la misma forma de estimar puntualmente nos sirve pero la variaza no.</p>
-<p>en la varianza aparece algo nuevo: ahora aparece la probabilidad de que un mismo individuo tenga dos positivos o dos negativos.</p>
-<p>solo inte de confianza para controlar los cocientes de las Probabilidades de clasificación (rDLR + y -).</p>
+<div style="text-align: center; border: 1px solid black; padding: 5px;">
+<p><img src="../attachments/tema_02_resultados_grandes_datosparaeados_0.png" style="width: 75%; height: 75%;"></p>
+</div>
+<div style="text-align: center; border: 1px solid black; padding: 5px;">
+<p><img src="../attachments/tema_02_resultados_grandes_datosparaeados_1_2.png" style="width:75.0%;height:75.0%"><img src="../attachments/tema_02_resultados_grandes_datosparaeados_2_3.png" style="width:75.0%;height:75.0%"></p>
+</div>
+</section><section id="eficiencia-de-diseños-pareados-frente-no-pareados" class="level3"><h3 class="anchored" data-anchor-id="eficiencia-de-diseños-pareados-frente-no-pareados">Eficiencia de diseños pareados frente no pareados</h3>
 <p>— nuevo día, 21 / 11 / 2024</p>
 <p>diapo44</p>
 <p>suponemos en que el mismo número de individuos en a que en b</p>

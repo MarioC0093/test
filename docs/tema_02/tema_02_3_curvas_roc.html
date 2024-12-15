@@ -271,30 +271,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header><div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>comparacion de biomarcadores. utilidad:</p>
+</header><p>Se trata de una curva bidimensional donde para cualquier punto posible de la prueba calculamos la probabilidad de positivos en sanos y de negativos en enfermos.</p>
+<p>Se utiliza para la comparación de biomarcadores.</p>
 <ul>
-<li>sobre resultados de pd donde los resultados no son positivo/negativo.</li>
-<li>validacion de biomarcadores cuando los resultados de la pd tienen varios niveles.</li>
+<li>En pruebas diagnósticas donde los resultados no son positivo/negativo.<br>
+</li>
+<li>Validacion de biomarcadores cuando los resultados de la prueba diagnóstica tienen varios niveles.</li>
 </ul>
-<p>Por convenio, se establece que los valores de la prueba en enfermos son superiores que en individuos sanos. (para los ejercicos, el by default de R, etc.)</p>
-<p>Se termina por dicotomizar los resultados de la pd en base a un treshold c.</p>
-<p>Se(c) = TPF=P(Y ≥ c/ D=1) 1-Sp(c) = FPF=P(Y ≥ c/D=0)</p>
-<p>curva bidimensional doned para cualquier punto posible de la prueba calculamos pa prob de positivos en sanos y negativos en enfermos.</p>
-<p>dado un valor c, probabildaid de tener en los dos grupos un valor por encima de c.</p>
-<p>prob de tener en los enfermos un valor por encima de c y prob de tener en los sanos un valor por encima de c.</p>
-<p>si c <span class="math inline">\(\rightarrow\)</span> -inf =&gt; se=1 y sp=1 si c <span class="math inline">\(\rightarrow\)</span> +inf =&gt; se=0 y sp=0</p>
-<p>ejemplo 2.5.</p>
-<p>al ser distribuciones normales le pido a R la prob de tener un valor menor a c.</p>
-<p>ej: para c=6 se(6) = prob(Y ge 6 | D=1) = 1 1-sp(6) = p(Y ge 6 | D=1) = 1</p>
-<p>ej: para c=8.5 se(8) = prob(Y ge 6 | D=1) = 1 1-sp(8) = p(Y ge 6 | D=1) = 0.5</p>
-<p>nos gustaria una ROC que distinguiese perfectmenete sanos y enfermos (prueba perfecta)</p>
-<p>umbral: punto a partir del cual asigno un positivo.</p>
-<p>si es un umbral a partir del cual hago una invasiva, que sea alta si es un umbral</p>
+<p><strong>Por convenio, se establece que los valores de la prueba en enfermos son superiores que en individuos sanos.</strong> (en los ejercicios, en el default de R, etc.)</p>
+<p><u><strong>Definición</strong></u> Umbral: punto a partir del cual se decide que la prueba diagnóstica asigna un positivo.<br>
+- Si es un umbral a partir del cual hago una prueba invasiva, que sea alto.<br>
+- Si es un umbral a partir del cual hago una prueba no invasiva, barata, etc. puedo elegir un umbral bajo.</p>
+<p>Se dicotomizan los resultados de la prueba diagnóstica en base a un treshold c.</p>
+<p>Dado un valor c, la probabilidad de tener en los dos grupos un valor por encima de c:<br>
+- <span class="math inline">\(Se(c) = TPF = P(Y \ge c | D=1)\)</span><br>
+- <span class="math inline">\(1-Sp(c) = FPF =P(Y \ge c |D=0)\)</span></p>
+<p>Se trata de elegir un punto de corte teniendo en cuenta el equilibrio (o el equilibrio deseado) entre los errores.</p>
+<p><span class="math inline">\(ROC(\cdot) = \left\{ (1 - Sp(c), Se(c)), \, c \in (-\infty, +\infty) \right\}\)</span></p>
+<p>Probabilidad de tener en los enfermos un valor por encima de c y probabilidad de tener en los sanos un valor por encima de c.</p>
+<p>Si c <span class="math inline">\(\rightarrow\)</span> -inf =&gt; <span class="math inline">\(Se = 1\)</span> y <span class="math inline">\(Sp=1\)</span><br>
+si c <span class="math inline">\(\rightarrow\)</span> +inf =&gt; <span class="math inline">\(Se = 0\)</span> y <span class="math inline">\(Sp=0\)</span></p>
+<div class="recuadro_1">
+<p>Se desea que una curva ROC distinguiese perfectamente entre sanos y enfermos (esto sería una prueba perfecta, ya que discrima sin errores).</p>
+<p>Una prueba perfecta es quella donde la curva que representa la distribución de los resultados de los enfermos y la curva que representa la distribución de los resultados de los sanos son claramente diferenciables y espaciadas entre ellas.</p>
+<p>Si las curva de densidad para D=0 y D=1 se solapan y son iguales, se trata de una prueba inutil.</p>
+<p>Cuando representamos la curva ROC de dos pruebas diagnósticas podemos decir que una prueba es mejor que la otra si las curvas ROC no se cruzan y una está por encima de la otra.</p>
+</div>
+<p><u><strong>Ejemplo 2.5.</strong></u></p>
+<p>Una prueba diagnóstica para la cirrosis consiste en medir el diámetro de hematíes (Y). Supongamos que en los individuos sin cirrosis Y sigue una distribución N(7.5,0.2) y en los cirróticos una N(8.5, 0.6).</p>
+<p>Calculo para cada distribución la probabilidad de tener un valor menor a c.</p>
+<ul>
+<li>Para c=6.
+<ul>
+<li><span class="math inline">\(Se(6) = p(Y \ge 6 | D=1) = 1\)</span></li>
+<li><span class="math inline">\(1-sp(6) = p(Y \ge 6 | D=1) = 1\)</span></li>
+</ul>
+</li>
+<li>Para c=8.5.
+<ul>
+<li><span class="math inline">\(Se(8.5) = p(Y \ge 8.5 | D=1) = 1\)</span></li>
+<li><span class="math inline">\(1-sp(8.5) = p(Y \ge 8.5 | D=1) = 0.5\)</span></li>
+</ul>
+</li>
+</ul>
+<div style="text-align: center;">
+<strong>Al dibujar la ROC el valor del umbral no aparece en la curva.</strong>
+</div>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>c<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>c<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>                 `1-Sp`<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span>, </span>
 <span>                 Se<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> </span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">c</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">6.5</span>, <span class="fl">10.5</span>, <span class="fl">0.025</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
@@ -304,28 +328,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="op">}</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'c'</span>, <span class="st">'1-Sp'</span>, <span class="st">'Se'</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">`1-Sp`</span>, y <span class="op">=</span> <span class="va">Se</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
+<span><span class="co">##        c      1-Sp        Se</span></span>
+<span><span class="co">## 1  6.500 0.9999997 0.9995709</span></span>
+<span><span class="co">## 2  6.525 0.9999995 0.9995020</span></span>
+<span><span class="co">## 3  6.550 0.9999990 0.9994230</span></span>
+<span><span class="co">## 4  6.575 0.9999981 0.9993325</span></span>
+<span><span class="co">## 5  6.600 0.9999966 0.9992290</span></span>
+<span><span class="co">## 6  6.625 0.9999939 0.9991110</span></span>
+<span><span class="co">## 7  6.650 0.9999893 0.9989765</span></span>
+<span><span class="co">## 8  6.675 0.9999815 0.9988236</span></span>
+<span><span class="co">## 9  6.700 0.9999683 0.9986501</span></span>
+<span><span class="co">## 10 6.725 0.9999467 0.9984535</span></span>
+<span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">df</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">`1-Sp`</span>, y <span class="op">=</span> <span class="va">Se</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co"># geom_line(color = "blue", size = 1) +</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Curva ROC"</span>,</span>
 <span>    x <span class="op">=</span> <span class="st">"1 - Especificidad (Tasa de Falsos Positivos)"</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">"Sensibilidad (Tasa de Verdaderos Positivos)"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="tema_02_3_curvas_roc_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>diapo56</p>
-<p>otro punto de describir la roc desde un punto de vista matemático. al dibujar la ROC el valor del umbral no aparece en la curva.</p>
-<p>para estudiar las propiedas de la curva roc: se varían valores de <em>t</em> entre [0, 1] y se trabaja con las funciones de supervivencia.</p>
-<p>copiar bocadillo de la diapo.</p>
-<p>si las curva de densidad de D=0 y D=1 se solapan, son iguales. es una prueba inutil</p>
-<p>una prueba perfecta. aquella donde los resultados de los enfermos y la curva de los sanos son claramente diferenciables y espaciadas entre ellas.</p>
-<p>cuando representamos la curva roc de dos pd decir que una es mejor que la otra. si las roc no se cruzan y una está por encima de la otra e</p>
-<p>curva roc nunca decrece ya que digo la proabilidad de tener el valor c o más, segun subo c pues aumenta. cuando cambiamos las propiedades de la pd mediante una transformacion creciente la ROC es la misma.</p>
-<p>esto es positivo cuando la transformación nos proporcione normalidad.</p>
+<p>Para estudiar las propiedas de la curva ROC se varían valores de <em>c</em> entre [0, 1] y se trabaja con funciones de supervivencia.</p>
+<p>Dado un punto de corte c: ROC(c) = “Probabilidad de que la respuesta del test en los enfermos sea superior a la respuesta máxima observada en los sanos con probabilidad (1-c).”</p>
+<p>Cuando cambiamos las propiedades de la prueba diagnóstica mediante una transformacion creciente la ROC es la misma. Esto será algo que buscaremos <strong>cuando la transformación nos proporcione normalidad</strong>.</p>
+<p><strong>Interpretación.</strong></p>
+<ul>
+<li>La curva ROC representa la capacidad discriminadora de una prueba diagnóstica a lo largo de todos los posibles puntos de corte.</li>
+<li>Es una medida global de precisión diagnóstica, independientemente del punto de corte y de la prevalencia de la enfermedad.</li>
+<li>Es una guía en la selección del punto de corte en las pruebas diagnósticas.</li>
+</ul>
 <p>medidas para medir la calidad de ROC: AUC</p>
 <p>eligiendo un par de resultados (uno en muestra de sanos y orto en muestra de enfermos) acertar diciendo que el sano es el que menor valor tiene en la prueba y el enfermo es el que tiene un valor mayor en la prueb tiene una prob de acierto igual a AUC</p>
 <p>si una curva roc siempre está por encima de otra pos el AUC de la primera está por encima de la segunda, pero no se cumple la condición en sentido opuesto.</p>
