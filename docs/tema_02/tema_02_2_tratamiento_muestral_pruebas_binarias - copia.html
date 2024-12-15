@@ -166,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_01/tema_01_4_tamanyo_muestral.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Cálculo del tamaño muestral <span style="color:red;">✗</span></span></a>
+  <a href="../tema_01/tema_01_4_tamanyo_muestral.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Cálculo del tamaño muestral <span style="color:green;">✓</span></span></a>
   </div>
 </li>
       </ul>
@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Conceptos básicos <span style="color:red;">✗</span></span></a>
+  <a href="../tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Conceptos básicos <span style="color:green;">✓</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -247,7 +247,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">In this page</h2>
    
   <ul>
-<li><a href="#gui%C3%B3n" id="toc-guión" class="nav-link active" data-scroll-target="#gui%C3%B3n">Guión</a></li>
+<li><a href="#estudios-cohorte" id="toc-estudios-cohorte" class="nav-link active" data-scroll-target="#estudios-cohorte">Estudios cohorte</a></li>
+  <li><a href="#gui%C3%B3n" id="toc-guión" class="nav-link" data-scroll-target="#gui%C3%B3n">Guión</a></li>
   <li><a href="#regi%C3%B3n-de-confianza-para-hatse-1-hatsp" id="toc-región-de-confianza-para-hatse-1-hatsp" class="nav-link" data-scroll-target="#regi%C3%B3n-de-confianza-para-hatse-1-hatsp">Región de confianza para (<span class="math inline">\(\hat{Se}, (1-\hat{Sp})\)</span>)</a></li>
   <li><a href="#ic-para-las-razones-de-verosimilutes" id="toc-ic-para-las-razones-de-verosimilutes" class="nav-link" data-scroll-target="#ic-para-las-razones-de-verosimilutes">IC para las razones de verosimilutes</a></li>
   <li><a href="#estudios-caso-control" id="toc-estudios-caso-control" class="nav-link" data-scroll-target="#estudios-caso-control">Estudios caso control</a></li>
@@ -268,9 +269,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header><p>plantemoas modelos teoricos vemos métricas para comparar suponemos que estamos en modelo idondeo donde todo es perfecto pero tengo que hacer una estiamcion puntual no es nada, me toca validar resultados para comparar pruebas dicotómicas</p>
+</header><section id="estudios-cohorte" class="level2"><h2 class="anchored" data-anchor-id="estudios-cohorte">Estudios cohorte</h2>
+<p>diapo11.</p>
+<p>nos ha dicho que copiemos este dibujo. (lo que exporté del drawio)</p>
+<p>validación de la estimación mediante el intervalo de confianza. (tratar de medir de dónde a dónde podría tener mis estimaciones) ¿y si no hubiera trabajado con esta poblacion sino con otra con las mismas caracteristicas y de las misma poblacion?</p>
+<p>binomiales estudiadas tanto a nivel asintótico como para muestras pequeñas.</p>
+<p>mejor hacer un ic con una muestra pequña que tirar a bootstarp</p>
+<p>los elementos de la muestra son totalmente independientes y los resultados de uno no depende del otro. con bootstrp no creamos nada nuevo, depende de la muestra original</p>
+<p>siempre que tengamos una alternativa teórica es preferible a bootstrap</p>
+<p>Supongamos que realizamos un experimento con resultados {éxito, fracaso} y sea p = p(éxito). Repetimos el experimento n veces en condiciones independientes.</p>
+<p>Sea X ~ “número de éxitos en n pruebas”. Modelo teórico B(n,p).</p>
+<p><span class="math inline">\(\hat p\)</span> = número de éxitos observados / n = x/n</p>
+<p>Intervalo de confianza exacto o no asintótico de la distribución binomia</p>
+<hr>
+<p>plantemoas modelos teoricos vemos métricas para comparar suponemos que estamos en modelo idondeo donde todo es perfecto pero tengo que hacer una estiamcion puntual no es nada, me toca validar resultados para comparar pruebas dicotómicas</p>
 <p>diapo15</p>
-<section id="guión" class="level2"><h2 class="anchored" data-anchor-id="guión">Guión</h2>
+</section><section id="guión" class="level2"><h2 class="anchored" data-anchor-id="guión">Guión</h2>
 <ul>
 <li>Estimaciones puntuales, por intervalo.</li>
 <li>Regiones de confianza.</li>

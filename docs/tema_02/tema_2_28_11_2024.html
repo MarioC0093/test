@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Máster de Bioestadística - Probabilidad y Simulación</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../tema_02/tema_02_3_curvas_roc.html" rel="next">
+<link href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tema_02/tema_02.html">TEMA 2</a></li><li class="breadcrumb-item"><a href="../tema_02/tema_2_28_11_2024.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">tema_2_28_11_2024</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../DUDAS.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dudas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../tema_00/tema_00.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEMA 0</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_00/tema_00_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../tema_01/tema_01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEMA 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_01/tema_01_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Introducción <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_01/tema_01_2_concordancia_categoricas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Análisis de concordancia en variables categóricas <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_01/tema_01_3_concordancia_numericas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Análisis de concordancia en variables numéricas <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_01/tema_01_4_tamanyo_muestral.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Cálculo del tamaño muestral <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../tema_02/tema_02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEMA 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1.1. Conceptos básicos <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_1_2_cohortes_y_casos_control.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1.2 Estudios de cohorte y casos-control <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño mmuestral <span style="color:red;">✗</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_2_28_11_2024.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">tema_2_28_11_2024</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_3_curvas_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:red;">✗</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_3_curvas_roc_final.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">curvas ROC - segunda parte</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../tema_03/tema_03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEMA 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_03/tema_03_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Introducción <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_03/tema_03_2_selección_aleatoria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Selección aleatoria de pacientes y asignación de tratamientos <span style="color:red;">✗</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_03/tema_03_3_obtener_datos_simulados.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Obtener datos simulados a partir de observaciones reales <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_03/tema_03_4_remuestreo_inferencia_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Técnicas de remuestreo aplicadas a la inferencia de curvas ROC <span style="color:red;">✗</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">In this page</h2>
+   
+  <ul>
+<li><a href="#comparaci%C3%B3n-de-curvas-roc" id="toc-comparación-de-curvas-roc" class="nav-link active" data-scroll-target="#comparaci%C3%B3n-de-curvas-roc">Comparación de curvas ROC</a></li>
+  <li><a href="#elecci%C3%B3n-del-punto-de-corte-c" id="toc-elección-del-punto-de-corte-c" class="nav-link" data-scroll-target="#elecci%C3%B3n-del-punto-de-corte-c">Elección del punto de corte c</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span class="chapter-title">tema_2_28_11_2024</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><p>hacemos el ejercicio de la diapo54.</p>
+<p><span class="math inline">\(D = enfermo\)</span> <span class="math inline">\(Y_{\over{D}} ~ N(7.5,0.2)\)</span> <span class="math inline">\(Y_{D} ~ N(8.5,0.6)\)</span></p>
+<p><span class="math display">\[
+ROC(t) = \Phi\left( \frac{\mu_D - \mu_{\overline{D}}}{\sigma_D} + \frac{\sigma_{\overline{D}}}{\sigma_D} \Phi^{-1}(t) \right)
+\]</span></p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ROC</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">t</span>, <span class="va">mu_D</span>, <span class="va">mu_D_bar</span>, <span class="va">sigma_D</span>, <span class="va">sigma_D_bar</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="co"># pnorm( (mu_D - mu_D_bar) / sigma_D + (sigma_D_bar / sigma_D) * qnorm(t) )</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span> <span class="op">(</span><span class="va">mu_D</span> <span class="op">-</span> <span class="va">mu_D_bar</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">sigma_D_bar</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="va">sigma_D</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span> <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Ejemplo de uso con valores específicos</span></span>
+<span><span class="va">t</span> <span class="op">&lt;-</span> <span class="fl">0.5</span>           <span class="co"># Valor del percentil</span></span>
+<span><span class="va">mu_D</span> <span class="op">&lt;-</span> <span class="fl">8.5</span>          <span class="co"># Media de D</span></span>
+<span><span class="va">mu_D_bar</span> <span class="op">&lt;-</span> <span class="fl">7.5</span>    <span class="co"># Media de D_bar</span></span>
+<span><span class="va">sigma_D</span> <span class="op">&lt;-</span> <span class="fl">0.6</span>     <span class="co"># Desviación estándar de D</span></span>
+<span><span class="va">sigma_D_bar</span> <span class="op">&lt;-</span> <span class="fl">0.2</span> <span class="co"># Desviación estándar de D_bar</span></span>
+<span></span>
+<span><span class="va">ROC_value</span> <span class="op">&lt;-</span> <span class="fu">ROC</span><span class="op">(</span><span class="va">t</span>, <span class="va">mu_D</span>, <span class="va">mu_D_bar</span>, <span class="va">sigma_D</span>, <span class="va">sigma_D_bar</span><span class="op">)</span></span>
+<span><span class="va">ROC_value</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9430769</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#AUC = p(z&lt; (8.5-7.5) / sqrt(0.6^2 + 0.02^2) ) = (p(Z &lt; 1.58) = 0.9430</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>es el area bajo la curva, no es una estimacion.</p>
+<p>con el metodo binomal siempre que tenemos infor de algo de las respuestas d los dos grupos, no tenemos una estimacion del ara sobre la curva, sino el ara bajo la curva.</p>
+<p>en el momento en que tenos que usar infor adicionalo estimar valores, entonces tenemos un area estimada del ara bajo la curva.</p>
+<p>en este caso al ser un dato exacto no tenemos IC (que ya que lo ha preguntado una compañera lo apunto)</p>
+<p>interpretación:</p>
+<blockquote class="blockquote">
+<p>rnorm(1, 7.5, 0.2) [1] 7.510489 rnorm(1, 8.5, 0.6) [1] 8.613545</p>
+</blockquote>
+<p>si tengo estos dos valores y asigno el primero a un no cirro y el segundo a un sí cirrot, mi prob de acercar es 0.4.</p>
+<p>elijo dos valores (uno en cada muestra) y asigno el valor mas alto a los enfermo (por defecto los valores mas altos para los casos) entonces la prob de acierto es el area bajo la curva</p>
+<p>así interpretaremos también al AUC estimado.</p>
+<p>diapo66</p>
+<p>ahora casos en lo que solo tenemos informacion muestral</p>
+<p>muestra de resultado para casos sanos y muestra de resultados para casos enfermos.</p>
+<p>en la muestra correspondiente miro la proporcion de caos que están por encima del punto de corte.</p>
+<p>la variable respuesta es un biomarcador con unidades de medida. muchas veces la <em>máquina correspondiente</em> nos da pocos decimales o incluso. estamos chocando con la hipótesis de que es imposible que dos individuos tengan el mismo valor. esto lo veremos reflejado en la curva ROC, ya veremos cómo impacta.</p>
+<p><u><strong>Ejemplo.</strong></u></p>
+<p>supongamos que queremos estimar con el metodo empiricio la curva ROC asociada a un biomarcador y que se ha observado la siguiente muestra de resultados del biomarcador en sanos y enfermos.</p>
+<p><span class="math inline">\(Y_{\over{D}} = (1, 1, 2, 4, 4)\)</span> <span class="math inline">\(Y_{D} = (2, 3, 4, 5, 7)\)</span></p>
+<p>Los valores observados se encuentran entre 2 y 7. Asigno c € (0.5, 7.5).</p>
+<p><span class="math inline">\(1 - \hat{Sp}(7.5) = \text{"proporcion de individuos sanos que tienen valores por encima de _c_."} = 0\)</span> <span class="math inline">\(1 - \hat{Sp}(7.5) = \text{"proporcion de individuos enfermos que tienen valores por encima de _c_."} = 0\)</span></p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">Y_overD</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="va">Y_D</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">6</span>, <span class="fl">7</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>c<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>                 `1-Sp`<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span>, </span>
+<span>                 Se<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">c</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">7.5</span>, <span class="fl">0.5</span>, by<span class="op">=</span><span class="op">-</span><span class="fl">0.5</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="va">se</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Y_D</span> <span class="op">&gt;</span> <span class="va">c</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">Y_D</span><span class="op">)</span></span>
+<span>  <span class="va">sp</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Y_overD</span> <span class="op">&lt;</span> <span class="va">c</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">Y_overD</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">df</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">c</span>,<span class="va">sp</span>,<span class="va">se</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'c'</span>, <span class="st">'1-Sp(c)^'</span>, <span class="st">'Se(c)^'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">`1-Sp(c)^`</span>, y <span class="op">=</span> <span class="va">`Se(c)^`</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fl">0</span>, slope <span class="op">=</span> <span class="fl">1</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, color <span class="op">=</span> <span class="st">"gray"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Curva ROC"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"1 - Especificidad (Tasa de Falsos Positivos)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Sensibilidad (Tasa de Verdaderos Positivos)"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>este gráfico es la estimacion de la curva roc.</p>
+<p>¿dónde la distancia vertical es máxima? (0, 2/5) – esto es la estiamcion del indice de youden.</p>
+<p>a qué corresponde esa poligonal? a los empates.</p>
+<p>si miras la teoria que hay detras de todo esto pues ves que esas cosas dependen de los empates.</p>
+<p>el AUC estimado es 0.78, sacado a mano sumando el área de los polígonos del dibujo.</p>
+<p>¿los valores observados están en algún sitio en la curva? nop, la curva no representa los valores. si en lugar de números hubieran sido letras ordenadas alfabéticamente hubiera sido el mismo resultado. solo es necesario saber el orden de los valores y saber si los valores se repiten. ni los valores ni el punto del corte a partir del cual decimos que eta enfermo se ve refeljado en la curva roc , a nviel global como se comporta el biomarcador pero no si discrimina o no. para ver si discrimina o no habrá que mirar el AUC, cuanto más esté a 1 mejor sirve para discriminar.</p>
+<p>supongamos que c=6 es el imbral de positivos tal que si y ge6 =&gt; cuáles son las estiaciones de la sensi y la especi para c=6, sensi = 0.4 y especi = 1</p>
+<p>la diapo 67 es el resumen dle método empirico.</p>
+<p><u><strong>Ejemplo.</strong></u></p>
+<p>dist gaussianas distribuciones de tipo beta. dist de tpo gamma</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">602</span><span class="op">)</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">100</span></span>
+<span><span class="va">Ysan3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">Yenf3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">12</span>, <span class="fl">3</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">roc3</span> <span class="op">&lt;-</span> <span class="fu">pROC</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pROC/man/roc.html">roc</a></span><span class="op">(</span>controls <span class="op">=</span> <span class="va">Ysan3</span>, cases <span class="op">=</span> <span class="va">Yenf3</span>, partial.auc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">roc3</span> <span class="co"># pos se supone que debería dar 0.686</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+roc.default(controls = Ysan3, cases = Yenf3, partial.auc = c(0,     0.2))
+
+Data: 100 controls &lt; 100 cases.
+Partial area under the curve (specificity 0.2-0): 0.197</code></pre>
+</div>
+</div>
+<p>cambiando la semilla aka cambiando la miestra, las estimaciones de AUC cambian. aumentando el tamaño muestral obvio que tb.</p>
+<p>diapo70.</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="va"><a href="https://xrobin.github.io/pROC/">pROC</a></span><span class="op">)</span></span>
+<span><span class="va">cancer</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"~/Master_Bioestadistica/Simulacion/tema_02/EjemploROCcancer.csv"</span>, header<span class="op">=</span><span class="cn">TRUE</span>, sep<span class="op">=</span><span class="st">";"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">roc1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/roc.html">roc</a></span><span class="op">(</span><span class="va">cancer</span><span class="op">$</span><span class="va">var2</span>,<span class="va">cancer</span><span class="op">$</span><span class="va">var1</span>,plot<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">roc1</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 15
+ $ percent           : logi FALSE
+ $ sensitivities     : num [1:46] 1 1 1 1 0.967 ...
+ $ specificities     : num [1:46] 0 0.0435 0.087 0.1304 0.1304 ...
+ $ thresholds        : num [1:46] -Inf 0.471 0.505 0.526 0.555 ...
+ $ direction         : chr "&lt;"
+ $ cases             : num [1:30] 0.543 0.571 0.602 0.609 0.628 0.641 0.666 0.694 0.769 0.8 ...
+ $ controls          : num [1:23] 0.442 0.5 0.51 0.568 0.571 0.574 0.588 0.595 0.595 0.595 ...
+ $ fun.sesp          :function (thresholds, controls, cases, direction)  
+ $ auc               : 'auc' num 0.809
+  ..- attr(*, "partial.auc")= logi FALSE
+  ..- attr(*, "percent")= logi FALSE
+  ..- attr(*, "roc")=List of 15
+  .. ..$ percent           : logi FALSE
+  .. ..$ sensitivities     : num [1:46] 1 1 1 1 0.967 ...
+  .. ..$ specificities     : num [1:46] 0 0.0435 0.087 0.1304 0.1304 ...
+  .. ..$ thresholds        : num [1:46] -Inf 0.471 0.505 0.526 0.555 ...
+  .. ..$ direction         : chr "&lt;"
+  .. ..$ cases             : num [1:30] 0.543 0.571 0.602 0.609 0.628 0.641 0.666 0.694 0.769 0.8 ...
+  .. ..$ controls          : num [1:23] 0.442 0.5 0.51 0.568 0.571 0.574 0.588 0.595 0.595 0.595 ...
+  .. ..$ fun.sesp          :function (thresholds, controls, cases, direction)  
+  .. ..$ auc               : 'auc' num 0.809
+  .. .. ..- attr(*, "partial.auc")= logi FALSE
+  .. .. ..- attr(*, "percent")= logi FALSE
+  .. .. ..- attr(*, "roc")=List of 8
+  .. .. .. ..$ percent      : logi FALSE
+  .. .. .. ..$ sensitivities: num [1:46] 1 1 1 1 0.967 ...
+  .. .. .. ..$ specificities: num [1:46] 0 0.0435 0.087 0.1304 0.1304 ...
+  .. .. .. ..$ thresholds   : num [1:46] -Inf 0.471 0.505 0.526 0.555 ...
+  .. .. .. ..$ direction    : chr "&lt;"
+  .. .. .. ..$ cases        : num [1:30] 0.543 0.571 0.602 0.609 0.628 0.641 0.666 0.694 0.769 0.8 ...
+  .. .. .. ..$ controls     : num [1:23] 0.442 0.5 0.51 0.568 0.571 0.574 0.588 0.595 0.595 0.595 ...
+  .. .. .. ..$ fun.sesp     :function (thresholds, controls, cases, direction)  
+  .. .. .. ..- attr(*, "class")= chr "roc"
+  .. ..$ call              : language roc.default(response = cancer$var2, predictor = cancer$var1, plot = TRUE)
+  .. ..$ original.predictor: num [1:53] 0.442 0.5 0.51 0.568 0.571 0.574 0.588 0.595 0.595 0.595 ...
+  .. ..$ original.response : int [1:53] 0 0 0 0 0 0 0 0 0 0 ...
+  .. ..$ predictor         : num [1:53] 0.442 0.5 0.51 0.568 0.571 0.574 0.588 0.595 0.595 0.595 ...
+  .. ..$ response          : int [1:53] 0 0 0 0 0 0 0 0 0 0 ...
+  .. ..$ levels            : chr [1:2] "0" "1"
+  .. ..- attr(*, "class")= chr "roc"
+ $ call              : language roc.default(response = cancer$var2, predictor = cancer$var1, plot = TRUE)
+ $ original.predictor: num [1:53] 0.442 0.5 0.51 0.568 0.571 0.574 0.588 0.595 0.595 0.595 ...
+ $ original.response : int [1:53] 0 0 0 0 0 0 0 0 0 0 ...
+ $ predictor         : num [1:53] 0.442 0.5 0.51 0.568 0.571 0.574 0.588 0.595 0.595 0.595 ...
+ $ response          : int [1:53] 0 0 0 0 0 0 0 0 0 0 ...
+ $ levels            : chr [1:2] "0" "1"
+ - attr(*, "class")= chr "roc"</code></pre>
+</div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Youden</span> <span class="op">&lt;-</span> <span class="va">roc1</span><span class="op">$</span><span class="va">sensitivities</span><span class="op">+</span><span class="va">roc1</span><span class="op">$</span><span class="va">specificities</span><span class="op">-</span><span class="fl">1</span></span>
+<span><span class="va">Youden</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">Youden</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">Youden</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.1431  0.3297  0.2977  0.4453  0.5696 </code></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">YI</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Youden</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot.roc</a></span><span class="op">(</span><span class="va">roc1</span>,print.auc <span class="op">=</span> <span class="cn">TRUE</span>, legacy.axes <span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>diapo72.</p>
+<p>oootro ejemplo.</p>
+<p>no estaría mal representar histogramas y dist de densidad de los datos meustrales. nos puede dar una idea de si vamos a tener un biomarcador que nos sirva para discriminar o no.</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="va"><a href="https://xrobin.github.io/pROC/">pROC</a></span><span class="op">)</span></span>
+<span><span class="va">cirroticos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"~/Master_Bioestadistica/Simulacion/tema_02/Protom_SanCirr.csv"</span>, header<span class="op">=</span><span class="cn">TRUE</span>, sep<span class="op">=</span><span class="st">";"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Gráfica de las distribuciones en sanos y cirroticos</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/density.html">density</a></span><span class="op">(</span><span class="va">cirroticos</span><span class="op">$</span><span class="va">X.protombina</span>,na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,lty<span class="op">=</span><span class="fl">2</span>,lwd<span class="op">=</span><span class="fl">2</span>,</span>
+<span>     xlab<span class="op">=</span><span class="st">"%Protombina"</span>,ylab<span class="op">=</span><span class="st">"Densidad"</span>,xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">120</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.04</span><span class="op">)</span>,main<span class="op">=</span><span class="st">""</span>,type<span class="op">=</span><span class="st">"l"</span>, col<span class="op">=</span><span class="st">"darkblue"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/density.html">density</a></span><span class="op">(</span><span class="va">cirroticos</span><span class="op">$</span><span class="va">cirroticos.sanos</span>,na.rm <span class="op">=</span><span class="cn">T</span><span class="op">)</span>, lty<span class="op">=</span><span class="fl">1</span>,lwd<span class="op">=</span><span class="fl">2</span>, xlab<span class="op">=</span><span class="st">""</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">80</span>,<span class="fl">0.02</span>, <span class="st">"Sanos"</span>, col<span class="op">=</span><span class="st">"darkblue"</span>, adj<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="op">-</span><span class="fl">.1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">40</span>,<span class="fl">0.025</span>, <span class="st">"Cirróticos"</span>, col<span class="op">=</span><span class="st">"red"</span>, adj<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="op">-</span><span class="fl">.1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Ref: Estimación no paramétrica de la función de densidad. Antonio Miñarro 1998</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>parece que los sanos tienen valoers superriores a los cirroticos, y eso va al reves de nuestros default. asi que intercambaimos los valores de casos y controles.</p>
+<p>los casos siempre son los que tienen mayores valores, en este caso los casos son los sanos.</p>
+<p>me parecia anti intiuituvo ese valor de curva roc viendo como se solapan las distribuciones pero sí que es cierto que lo que realmente se solapan son los rangos donde se distribuyen las distribuciones, pero por debajo del punto donde se cortan las distribiciones hay muy poca densidad para los sanos.</p>
+<p>diapo74.</p>
+<p>Ha dicho algo de nucleos y suavizado.</p>
+<p>todo esto viene de que son variables numéricas y muestras que provienen de una variable numérica.</p>
+<p>depende de algo y de un ancho de la ventana.</p>
+<p>en R nos deja elegir el nucleo pero no la ventana. la ventana tiene alicacion en diagnostico por imagen</p>
+<p>tenemos varios métodos para el suavizado. (dapi75)</p>
+<p>binormal: toma una aproximacion de la densiadad a una aproximacion normal y toma las aproximaciones de una curva troc con dist binormal y considerando la muestra como una muestra proveniente de una normal con media y varianza que viene de la muestra.</p>
+<p>densidad: estimar la densidad de los datos usanod un nucleo que le parezca perfecto (tal cual que ha dicho eso pero npi de qué significa su frase)</p>
+<p>fir-distribution: la distriubucions que mejor se aproxima a los datos por el metodo de máxoma verosiiilitud</p>
+<p>lognormal: …</p>
+<p>el AUC es la misma pq es la que estimamos usando la dist empirica. la normalizada es para dibujar solamente, sirve pq el dibujo es “mas intuitivo”, lo que hace es trazar de una forma mas “estetica” pq es una curva mas continua, y menos poligonal y escaloanda</p>
+<p>diapo76.</p>
+<p>cómo le pongo un IC a todo esto.</p>
+<p>si la muestra pequeña tan solo puedo “repetir el experimento” con muestras bootstrap (respetando el tamaño de las muestras - plural pq tengo muestra de sanos y enfermos).</p>
+<p>fijado punto de corte mido sensi para la pd y una especi para la pd, por lo que nuevamente puedo calcular una region de confianza.</p>
+<p>con una dimension fija ver cómo variá la otra dimension. “fijada la sensi ver de qué pto a qué pto va la especi”</p>
+<p>[aquí ha hecho un dubujito muy boniko que a ver si lo replico.]</p>
+<p>diferencia entre bootstrap y la asintotica es muy poca.</p>
+<section id="comparación-de-curvas-roc" class="level3"><h3 class="anchored" data-anchor-id="comparación-de-curvas-roc">Comparación de curvas ROC</h3>
+<p>lleva emparejado dos biomarcadores en dos muestras pareaadas o no pareadas, dependiendo del tipo de muestras usaremos un tipo de comparación y otra.</p>
+<p>El estimador que se suele usar es la diferencia de las AUC, normalizado para tener una distribucion asintotica.</p>
+<p>Sean dos pruebas diagnósticas A, B =&gt; H0: ROC_A = ROC_B</p>
+<p>Si las AUC son diferentes automáticamente tenemos curvas distintas (al revés no)</p>
+<p>aparece la supervivencia ya que los sanos</p>
+<p>prob acumulada : densidad prob de colas : prob de supervivencia</p>
+<p>diapo83</p>
+<p>2a.</p>
+<p>si miramos las curvas (a parte de los resultados) nos gustaría saber si las consideramos la misma o no</p>
+<p>el p value para contrastar la hipotesis es p-value = 0.03075. si hacemos una comparacoin entre dos curvas podemos decir que no son la misma. si usamos DeLongs, el estadistico es diferente con otra dist asintotica pero decimos lo mismo. Y con Venkatraman pues eso.</p>
+<p>bootstrap aqui es inutil pq es mecanico y tal… no sé, que computacionalmente no tiene sentido, ¿creo?</p>
+<p>para esta especi de 0.9, ¿las dos pruebas me dan sensibilidades que son distintas?</p>
+<p>caramba, pvalor 0.2, con lo cual las dos pruebas (partiendo de una especi de 0.9) conducen a la misma sensibilidad. y si aplico bootstrap (para hacerlo al reves, fijando sensi) me dice que no: si fijo sensi de 0.9 no admito que las dos rpeubas tenga la misma especi.</p>
+<p>no tengo evidencia que para una especi de 0.9 las dos sensi sean iguales</p>
+<p>en diapo85, para una especi de 0.9 se contrasta si la sensi_ = sensi_B. con pvalor 0.2 admito la hipóteis. no tnemos evidencias de que la sensi de ambas pruebas conese nivel de especi sea diferente.</p>
+<p>la segunda salida es fijo la sensi a 0.9 y contrasto si la especi de esas dos pruebas coinciden o no. con pvalor infimo puedo descartar que la especi sea igual.</p>
+<p>esto es un argumento de autoridad (test y un apoyo teorico que me garantiza las cosas) pero visualmente viendo las curvas ROC debemos tener unas primeras impresiones.</p>
+<p>“casualmete” la especi 0.9 es donde se cruzan las curvas ROC, por eso no se pueden diferencias las sensi.</p>
+<p>pero cuando voy a mirar la seni 0.9 SÍ que hay diferencias entre as especifi</p>
+</section><section id="elección-del-punto-de-corte-c" class="level3"><h3 class="anchored" data-anchor-id="elección-del-punto-de-corte-c">Elección del punto de corte c</h3>
+<p>Valor que hace que la pd asigne como positivo o negativo un resultado.</p>
+<p>según algún criterio.</p>
+<p>a la hora de tener una estimacion del AUC y sobre todo su Ic nos va a dar una pista para decidir qué tipo de prueba tenemos.</p>
+<p>AUC – categoria &lt;0.6 – prueba caca y no merece la pensa hacer nada con ella 0.7-0.8 – buena 0.8-0.9 – buena 0.9 - 1 – excelente</p>
+<p>si el AUC estimado con sus intervalos del IC es claramente menor a 0.6 la verdad es que podemos obviar esa curva ROC y no hace falta hacer ninguna comparativa con otra (alargar esta frase para resolver todos los casos pero vamos, que está entendido)</p>
+<p>diapo87</p>
+<p>indice de youden: buscar test que tiene mayor sensi y especi</p>
+<p>en otro es buscar que tenga misma sensi y misma especi</p>
+<p>en el tercer caso queremos maximizar una de ellas</p>
+<p>todas basadas en tener maxima sensi y maxima especi, dentro de lo que ofrece la prueba. si la sensi no sube de 0.6, por más que intentemos maximizarla no podremos (esto no lo entiendo, porque al final si disminuyes el pc debería poder llegar a 1)</p>
+<p>diapo89. consideramos positivo si mayor a 37, pero eso no me dice nada sober la prueba. miramos el auc y es 0.74. no puedo descartar esa prueba, ya que con el IC a veces llega a ser buena.</p>
+<p>interpretacion de AUC. asignando e mayor de los valores a los enfermos aciertarias estimadamente en el 74 % de las veces pudiendo variasr entre un 66 y un 62.</p>
+<p>acierto en una proporcion del 68 %. el ic marca 0.58 qye es muy poco pq 0.5 ya es puro azar y va hasta el 0.77 aunque muy lejos del 1. no pinta bien esta prueba eh</p>
+<p>la descriptiva nos hubiera ayudado mucho.</p>
+<p>antes estábamos mirando todo junto. ahora separamos entre muejres y hombres.</p>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
+      <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño mmuestral <span style="color:red;">✗</span></span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../tema_02/tema_02_3_curvas_roc.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:red;">✗</span></span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
