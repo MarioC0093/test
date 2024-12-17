@@ -253,11 +253,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">In this page</h2>
+   
+  <ul>
+<li>
+<a href="#medidas-de-calidad-para-la-curva-roc" id="toc-medidas-de-calidad-para-la-curva-roc" class="nav-link active" data-scroll-target="#medidas-de-calidad-para-la-curva-roc">Medidas de calidad para la curva ROC:</a>
+  <ul>
+<li><a href="#auc" id="toc-auc" class="nav-link" data-scroll-target="#auc">AUC</a></li>
+  <li><a href="#pauc" id="toc-pauc" class="nav-link" data-scroll-target="#pauc">pAUC</a></li>
+  <li><a href="#%C3%ADndice-de-youden" id="toc-índice-de-youden" class="nav-link" data-scroll-target="#%C3%ADndice-de-youden">Índice de Youden</a></li>
+  </ul>
+</li>
+  <li><a href="#estimaci%C3%B3n-de-curvas-roc" id="toc-estimación-de-curvas-roc" class="nav-link" data-scroll-target="#estimaci%C3%B3n-de-curvas-roc">Estimación de curvas ROC</a></li>
+  <li>
+<a href="#estimaci%C3%B3n-param%C3%A9trica-de-curvas-roc" id="toc-estimación-paramétrica-de-curvas-roc" class="nav-link" data-scroll-target="#estimaci%C3%B3n-param%C3%A9trica-de-curvas-roc">Estimación paramétrica de curvas ROC</a>
+  <ul>
+<li><a href="#m%C3%A9todobinormal" id="toc-métodobinormal" class="nav-link" data-scroll-target="#m%C3%A9todobinormal">Métodobinormal</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:red;">✗</span></span></h1>
 </div>
 
@@ -355,7 +373,7 @@ si c <span class="math inline">\(\rightarrow\)</span> +inf =&gt; <span class="ma
 </div>
 </div>
 <p>Para estudiar las propiedas de la curva ROC se varían valores de <em>c</em> entre [0, 1] y se trabaja con funciones de supervivencia.</p>
-<p>Dado un punto de corte c: ROC(c) = “Probabilidad de que la respuesta del test en los enfermos sea superior a la respuesta máxima observada en los sanos con probabilidad (1-c).”</p>
+<p>Dado un punto de corte c : ROC(c) = “Probabilidad de que la respuesta del test en los enfermos sea superior a la respuesta máxima observada en los sanos con probabilidad (1-c).”</p>
 <p>Cuando cambiamos las propiedades de la prueba diagnóstica mediante una transformacion creciente la ROC es la misma. Esto será algo que buscaremos <strong>cuando la transformación nos proporcione normalidad</strong>.</p>
 <p><strong>Interpretación.</strong></p>
 <ul>
@@ -363,31 +381,62 @@ si c <span class="math inline">\(\rightarrow\)</span> +inf =&gt; <span class="ma
 <li>Es una medida global de precisión diagnóstica, independientemente del punto de corte y de la prevalencia de la enfermedad.</li>
 <li>Es una guía en la selección del punto de corte en las pruebas diagnósticas.</li>
 </ul>
-<p>medidas para medir la calidad de ROC: AUC</p>
-<p>eligiendo un par de resultados (uno en muestra de sanos y orto en muestra de enfermos) acertar diciendo que el sano es el que menor valor tiene en la prueba y el enfermo es el que tiene un valor mayor en la prueb tiene una prob de acierto igual a AUC</p>
-<p>si una curva roc siempre está por encima de otra pos el AUC de la primera está por encima de la segunda, pero no se cumple la condición en sentido opuesto.</p>
-<p>diapo60 dependiendo de dónde pongamos el ubral una prueba es más sensible que otra una de ellas solamente es preferible en algunos casos.</p>
-<p>el test B es mejor en el intervalo [0, 0.25]. qué tiene de bueno ese test b. la sensibilidad y la especificidad de esa prueba mejora a la otra. a partir de ese punto la interpretacion es al rev-es, la que gana en especi y seni es la A. no tengo una rpeuba que siempre supere a la otra. area bajo la curva parcial. establecer los puntos de corte en consonancia con ambas curvas.</p>
-<p>otra medida asociada a la ROC: índice de Youden</p>
-<p>en algunos sitios se define como una distancia, aunque en otros sitios se define como la menor o mayor distancia.</p>
-<p>distancia entre mi curva roc y la diagonal de la ROC.</p>
-<p>para cada punto de corte calcula la distancia con la diagonal. creo un ínidce definido como la distancia mayor.</p>
-<p>si el test es perfecto, la mayor distancia es 1. si el test es inutil pues la distancia es 0.</p>
-<p>cuanto más se conozcca de la pd a nivel estadistico diferente será la forma de trabajar con la roc.</p>
-<p>conociendo como se comporta la pd, como se comparten las medidas, uso una metodologia parametrica.</p>
-<p>si conozco cómo se distribuyen los resultados de la pd oues uso parametrica. la cual es idonea si hay distribucion normal en los dos grupos - sanos y no sanos -</p>
-<p>para normales o variables que se puedan transofrmar para ser normales pos usamos paramétricas.</p>
-<p>Effective with Imbalanced Datasets: In datasets where one class significantly dominates, metrics like accuracy might not provide an accurate picture. AUC, which incorporates both TPR and FPR, serves as a more reliable metric in such instances.</p>
-<p>lo más habitual es encontrarnos con una pd donde solo tenemos una muestra, y no tenemos informacion de la distribucion de la prueba que podamos usar en el modelo teorico.</p>
-<p>en el metodo empirico llegamos a tener curvas escaloanadas, lo cual queda feo ya que estamos trabajando con una variable numerica, aplicarmoe un suavizado.</p>
-<p>diapo64. si conozco la distribucion de la prueba no tengo problema en calcular valores para ¿estimar? valores de sensi y especi</p>
-<p>si desconocemos media o varianza pasamos a tener estimacion de la curva roc. con la muestra estimamos media y varianza de la distribucion.</p>
-<p>si son normales (con test de bondad de ajuste donde no rechazo normalidad)</p>
-<p>(elevar potencia solo si tenemos resultados positivos como resultado de pa pd)</p>
+<section id="medidas-de-calidad-para-la-curva-roc" class="level2"><h2 class="anchored" data-anchor-id="medidas-de-calidad-para-la-curva-roc">Medidas de calidad para la curva ROC:</h2>
+<section id="auc" class="level3"><h3 class="anchored" data-anchor-id="auc">AUC</h3>
+<p><strong>Caso de uso.</strong> Eligiendo un par de resultados (uno de la muestra de sanos y otro de la muestra de enfermos) la probabilidad de clasificar correctamente cuando se asigna como sano aquel con menor valor en la prueba y como enfermo aquel que tiene mayor valor en la en la prueba es igual a AUC.</p>
+<p><span class="math inline">\(AUC = p(Y_D &gt; Y_\overline{D})\)</span></p>
+<ul>
+<li>Test perfecto: <span class="math inline">\(AUC=1\)</span>.</li>
+<li>Test noinformativo: <span class="math inline">\(AUC=0.5\)</span>.</li>
+<li>Dados dos test A y B tales que <span class="math inline">\(ROC_A(t) \ge ROC_(t), \forall t \in [0,1] \Rightarrow AUC_A \ge AUC_B\)</span>, pero no se cumple en ambas direcciones.</li>
+</ul>
+<p>Si una prueba es más sensible que otra solo para algunos umbrales, diremos que la prueba es preferible solo en algunos casos.</p>
+</section><section id="pauc" class="level3"><h3 class="anchored" data-anchor-id="pauc">pAUC</h3>
+<p>En casos donde las curvas ROC de dos pruebas diagnósticas se cruzan y las áreas bajo las curvas <strong>son similares</strong>.</p>
+<p><a href="../attachments/tema_03_prueba_sensible_segun_umbral.png" width="75%" height="75%"></a></p>
+<p>El test B demuestra un mejor desempeño en el intervalo [0,0.25]. Este desempeño superior se debe a que la sensibilidad y especificidad de dicha prueba superan a las del test A en este rango. Sin embargo, a partir de este punto, la interpretación se invierte: el test A pasa a ser superior tanto en sensibilidad como en especificidad.</p>
+<p>En general, no existe una prueba que supere consistentemente a la otra en todo el rango evaluado. Es útil considerar el área bajo la curva parcial para realizar comparaciones más específicas y establecer puntos de corte que sean coherentes con el comportamiento de ambas curvas en los distintos intervalos.</p>
+</section><section id="índice-de-youden" class="level3"><h3 class="anchored" data-anchor-id="índice-de-youden">Índice de Youden</h3>
+<p>Algunas publicaciones lo defines como una distancia y otras lo definen como la mayor distancia.</p>
+<p><strong>Distancia entre mi curva ROC y la diagonal.</strong></p>
+<p><span class="math inline">\(YI(c) = |Se(c) + Sp(c) - 1|\)</span></p>
+<ul>
+<li>Test perfecto: <span class="math inline">\(max YI(c)= 1\)</span>.</li>
+<li>Test noinformativo: <span class="math inline">\(YI(c)=0 \quad \forall \quad c\)</span>.</li>
+<li>Dados dos test A y B tales que <span class="math inline">\(ROC_A(t) \ge ROC_(t), \forall t \in [0,1] \Rightarrow AUC_A \ge AUC_B\)</span>, pero no se cumple en ambas direcciones.z</li>
+</ul>
+<p><span class="math inline">\(YI(c) = 0 \; \forall \; c\)</span>ç <span class="math inline">\(YI(c) = 0 \, \forall \, c\)</span></p>
+<p>Dependiendo de cuánto se conozca sobre la prueba diagnóstica a nivel estadístico, la forma de trabajar con la curva ROC será de una manera u otra.</p>
+</section></section><section id="estimación-de-curvas-roc" class="level2"><h2 class="anchored" data-anchor-id="estimación-de-curvas-roc">Estimación de curvas ROC</h2>
+<p>En caso de conocer el comportamiento de la prueba diagnóstica (la distribución de los resultados) uso una metodología paramétrica (la cual es idonea si los grupos de sanos y enfermos se distribuyen normalmente o se pueden transformar para tener normalidad).</p>
+<p>Eficaz con conjuntos de datos desequilibrados: En los conjuntos de datos en los que una clase domina significativamente, las métricas como la precisión pueden no proporcionar una imagen precisa. El AUC, que incorpora tanto el TPR como el FPR, es una métrica más fiable en estos casos.</p>
+<p>Lo más habitual es tener una prueba diagnóstica donde solo tenemos una muestra y <strong>no tenemos información de la distribución</strong> de la prueba (<strong>de los resultados</strong>) <strong>que podamos usar en el modelo teórico.</strong></p>
+<p>Con el método empírico obtenemos curvas escaloanadas. Visualmente es <em>feo</em> y no es lo esperable, ya que estamos trabajando con una variable numerica. En tales casos aplicamos un suavizado.</p>
+</section><section id="estimación-paramétrica-de-curvas-roc" class="level2"><h2 class="anchored" data-anchor-id="estimación-paramétrica-de-curvas-roc">Estimación paramétrica de curvas ROC</h2>
+<section id="métodobinormal" class="level3"><h3 class="anchored" data-anchor-id="métodobinormal">Métodobinormal</h3>
+<p>Sea <span class="math inline">\(Y_D \sim N(\mu_D, \sigma^2_D)\)</span> y sea <span class="math inline">\(Y_\overline{D} \sim N(\mu_\overline{D}, \sigma^2_\overline{D})\)</span>.</p>
+<p>Entonces,</p>
+<p><span class="math display">\[
+ROC(t) = \Phi\left( \frac{\mu_D - \mu_{\overline{D}}}{\sigma_D} + \frac{\sigma_{\overline{D}}}{\sigma_D} \Phi^{-1}(t) \right)
+\]</span></p>
+<p><span class="math display">\[
+AUC= \Phi\left( \frac{\mu_D - \mu_{\overline{D}}}{\sqrt{\sigma^2_D + \sigma^2_\overline{D}}} \right) : \Phi(a) = p(Z&lt;a), \; Z \sim N(0,1)
+\]</span></p>
+<p>En caso de desconocer la media o varianza poblacionales pasamos a tener una estimación de la curva ROC construida a través de la estimación puntual de la media y la varianza con los datos muestrales.</p>
+<p><span class="math display">\[
+\widehat{ROC}(t) = \Phi\left( \frac{\widehat{\mu}_D - \widehat{\mu}_{\overline{D}}}{\widehat{\sigma}_D} + \frac{\widehat{\sigma}_{\overline{D}}}{\widehat{\sigma}_D} \Phi^{-1}(t) \right)
+\]</span></p>
+<p><span class="math display">\[
+\widehat{AUC} = \Phi\left( \frac{\widehat{\mu_D} - \widehat{\mu}_{\overline{D}}}{\sqrt{\widehat{\sigma}^2_D + \widehat{\sigma}^2_\overline{D}}} \right)
+\]</span></p>
+<p>Desconocer la distribucion de la prueba diagnóstica no impide poder hacer estimaciones puntuales para la sensibilidad y la especificidad.</p>
+<p>La curva ROC es invariante ante transformaciones estrictamente crecientes. Decir que la curva ROC es binormal implica que, mediante alguna transformación <span class="math inline">\(h\)</span> estrictamente creciente, <span class="math inline">\(h(Y_D)\)</span> y <span class="math inline">\(h(Y_\overline{D})\)</span> asumen distribuciones normales. (test de bondad de ajuste donde no rechazo normalidad)</p>
+<p><strong>Algunas transformaciones que pueden usarse son las de tipo Box-Cox.</strong><br>
+- <span class="math inline">\(X^a : a \ne 0\)</span>, solo si la prueba diagnóstica puede tener solo resultados positivos.<br>
+- <span class="math inline">\(log(X)\)</span></p>
 
 
-
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -619,7 +668,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation column-page-right"><div class="nav-page nav-page-previous">
+</script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
       <a href="../tema_02/tema_2_28_11_2024.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">tema_2_28_11_2024</span></span>
       </a>          

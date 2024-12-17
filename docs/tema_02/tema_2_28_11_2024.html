@@ -257,8 +257,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">In this page</h2>
    
   <ul>
-<li><a href="#comparaci%C3%B3n-de-curvas-roc" id="toc-comparación-de-curvas-roc" class="nav-link active" data-scroll-target="#comparaci%C3%B3n-de-curvas-roc">Comparación de curvas ROC</a></li>
+<li>
+<a href="#estimaci%C3%B3n-no-param%C3%A9trica-de-curvas-roc" id="toc-estimación-no-paramétrica-de-curvas-roc" class="nav-link active" data-scroll-target="#estimaci%C3%B3n-no-param%C3%A9trica-de-curvas-roc">Estimación no paramétrica de curvas ROC</a>
+  <ul>
+<li><a href="#m%C3%A9todoemp%C3%ADrico" id="toc-métodoempírico" class="nav-link" data-scroll-target="#m%C3%A9todoemp%C3%ADrico">Métodoempírico</a></li>
+  <li><a href="#suavizado-tipo-n%C3%BAcleo" id="toc-suavizado-tipo-núcleo" class="nav-link" data-scroll-target="#suavizado-tipo-n%C3%BAcleo">Suavizado tipo núcleo</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#intervalos-y-bandas-de-confianza" id="toc-intervalos-y-bandas-de-confianza" class="nav-link" data-scroll-target="#intervalos-y-bandas-de-confianza">Intervalos y bandas de confianza</a>
+  <ul>
+<li><a href="#comparaci%C3%B3n-de-curvas-roc" id="toc-comparación-de-curvas-roc" class="nav-link" data-scroll-target="#comparaci%C3%B3n-de-curvas-roc">Comparación de curvas ROC</a></li>
   <li><a href="#elecci%C3%B3n-del-punto-de-corte-c" id="toc-elección-del-punto-de-corte-c" class="nav-link" data-scroll-target="#elecci%C3%B3n-del-punto-de-corte-c">Elección del punto de corte c</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -276,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header><p>hacemos el ejercicio de la diapo54.</p>
+</header><p><u><strong>Ejemplo 2.5.</strong></u></p>
 <p><span class="math inline">\(D = enfermo\)</span> <span class="math inline">\(Y_{\over{D}} ~ N(7.5,0.2)\)</span> <span class="math inline">\(Y_{D} ~ N(8.5,0.6)\)</span></p>
 <p><span class="math display">\[
 ROC(t) = \Phi\left( \frac{\mu_D - \mu_{\overline{D}}}{\sigma_D} + \frac{\sigma_{\overline{D}}}{\sigma_D} \Phi^{-1}(t) \right)
@@ -295,40 +307,60 @@ ROC(t) = \Phi\left( \frac{\mu_D - \mu_{\overline{D}}}{\sigma_D} + \frac{\sigma_{
 <span><span class="va">sigma_D_bar</span> <span class="op">&lt;-</span> <span class="fl">0.2</span> <span class="co"># Desviación estándar de D_bar</span></span>
 <span></span>
 <span><span class="va">ROC_value</span> <span class="op">&lt;-</span> <span class="fu">ROC</span><span class="op">(</span><span class="va">t</span>, <span class="va">mu_D</span>, <span class="va">mu_D_bar</span>, <span class="va">sigma_D</span>, <span class="va">sigma_D_bar</span><span class="op">)</span></span>
-<span><span class="va">ROC_value</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9430769</code></pre>
+<span><span class="va">ROC_value</span></span>
+<span><span class="co">## [1] 0.9430769</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><span class="math inline">\(AUC = \Phi\left( \frac{8.5 - 7.5}{\sqrt{0.6^2 + 0.02^2}} \right) = \Phi(Z &lt; 1.58) = 0.9521\)</span></p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">AUC</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span> <span class="op">(</span><span class="fl">8.5</span> <span class="op">-</span> <span class="fl">7.5</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.6</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">0.02</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] 0.9521175</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Es el area bajo la curva, no una estimacion.</p>
+<p>Con el metodo binomal, siempre que tenemos información acerca de las respuestas de los dos grupos no tenemos una estimación del AUC, sino el AUC.</p>
+<p>En el momento en que tenos que usar información adicional o estimar valores pasamos a tener una estimación del AUC.</p>
+<p>En este caso al ser un dato exacto y no estimado no tenemos IC.</p>
+<p><strong>Interpretación.</strong> Eligiendo dos valores (uno de cada muestra) y asignando el valor más alto a los enfermo (por defecto los valores más altos se asignas como los casos) entonces la probabilidad de acierto es el area bajo la curva.</p>
+<p><strong>Un AUC estimado también tiene la misma interpretación que el AUC.</strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">7.5</span>, <span class="fl">0.2</span><span class="op">)</span></span>
+<span><span class="co">## [1] 7.36778</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#AUC = p(z&lt; (8.5-7.5) / sqrt(0.6^2 + 0.02^2) ) = (p(Z &lt; 1.58) = 0.9430</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">8.5</span>, <span class="fl">0.6</span><span class="op">)</span></span>
+<span><span class="co">## [1] 7.573254</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>es el area bajo la curva, no es una estimacion.</p>
-<p>con el metodo binomal siempre que tenemos infor de algo de las respuestas d los dos grupos, no tenemos una estimacion del ara sobre la curva, sino el ara bajo la curva.</p>
-<p>en el momento en que tenos que usar infor adicionalo estimar valores, entonces tenemos un area estimada del ara bajo la curva.</p>
-<p>en este caso al ser un dato exacto no tenemos IC (que ya que lo ha preguntado una compañera lo apunto)</p>
-<p>interpretación:</p>
-<blockquote class="blockquote">
-<p>rnorm(1, 7.5, 0.2) [1] 7.510489 rnorm(1, 8.5, 0.6) [1] 8.613545</p>
-</blockquote>
-<p>si tengo estos dos valores y asigno el primero a un no cirro y el segundo a un sí cirrot, mi prob de acercar es 0.4.</p>
+<p>Si tengo estos dos valores y asigno el primero a un no cirrótio y el segundo a un sí cirrot, mi prob de acercar es 0.4.</p>
 <p>elijo dos valores (uno en cada muestra) y asigno el valor mas alto a los enfermo (por defecto los valores mas altos para los casos) entonces la prob de acierto es el area bajo la curva</p>
-<p>así interpretaremos también al AUC estimado.</p>
-<p>diapo66</p>
-<p>ahora casos en lo que solo tenemos informacion muestral</p>
-<p>muestra de resultado para casos sanos y muestra de resultados para casos enfermos.</p>
-<p>en la muestra correspondiente miro la proporcion de caos que están por encima del punto de corte.</p>
-<p>la variable respuesta es un biomarcador con unidades de medida. muchas veces la <em>máquina correspondiente</em> nos da pocos decimales o incluso. estamos chocando con la hipótesis de que es imposible que dos individuos tengan el mismo valor. esto lo veremos reflejado en la curva ROC, ya veremos cómo impacta.</p>
-<p><u><strong>Ejemplo.</strong></u></p>
-<p>supongamos que queremos estimar con el metodo empiricio la curva ROC asociada a un biomarcador y que se ha observado la siguiente muestra de resultados del biomarcador en sanos y enfermos.</p>
-<p><span class="math inline">\(Y_{\over{D}} = (1, 1, 2, 4, 4)\)</span> <span class="math inline">\(Y_{D} = (2, 3, 4, 5, 7)\)</span></p>
-<p>Los valores observados se encuentran entre 2 y 7. Asigno c € (0.5, 7.5).</p>
-<p><span class="math inline">\(1 - \hat{Sp}(7.5) = \text{"proporcion de individuos sanos que tienen valores por encima de _c_."} = 0\)</span> <span class="math inline">\(1 - \hat{Sp}(7.5) = \text{"proporcion de individuos enfermos que tienen valores por encima de _c_."} = 0\)</span></p>
+<section id="estimación-no-paramétrica-de-curvas-roc" class="level2"><h2 class="anchored" data-anchor-id="estimación-no-paramétrica-de-curvas-roc">Estimación no paramétrica de curvas ROC</h2>
+<p>Se trata de casos donde solo tenemos información muestral: una muestra de resultados para los casos sanos y otra muestra de resultados para los casos enfermos.</p>
+<section id="métodoempírico" class="level3"><h3 class="anchored" data-anchor-id="métodoempírico">Métodoempírico</h3>
+<p>Es el método no paramétrico más usado tradicionalmente para pruebas diagnósticas continuas y se basa en las distribuciones empíricas de las muestras de sanos y enfermos.</p>
+<p>Para cada una de las muestras miro la proporción de casos que se encuentran por encima del punto de corte.</p>
+<p>En casos donde la variable respuesta es un biomarcador con unidades de medida, muchas veces la <strong>máquina correspondiente</strong> da pocos decimales o incluso ninguno. En esta situación estamos chocando con la hipótesis de que es imposible que dos individuos tengan el mismo valor para una variable continua. (esto se refleja en la curva ROC y ya veremos cómo impacta)</p>
+<p>Sea <span class="math inline">\(\{Y_{D_i}, i = 1, \dots, n_D\} \; \text{m.a.s.} \; Y_D \; m.a.s Y_D\)</span> y sea <span class="math inline">\(\{Y_\overline{D_i}, i = 1, \dots, n_\overline{D_i}\} \; \text{m.a.s.} \; Y_\overline{D}\)</span>.</p>
+<p>Para cada punto de corte <em>c</em> estimamos: <span class="math display">\[\hat{\text{Se}}(c) = \frac{1}{n_D} \sum_{i=1}^{n_D} I\{Y_{D_i} \geq c\} = \frac{\# I\{Y_{D_i} \geq c\}}{n_D}\]</span></p>
+<p><span class="math display">\[1 - \hat{\text{Sp}}(c) = \frac{1}{\bar{n}_D} \sum_{i=1}^{\bar{n}_D} I\{Y_{\bar{D}_i} \geq c\} = \frac{\# I\{Y_{\bar{D}_i} \geq c\}}{\bar{n}_D}\]</span></p>
+<p><u><strong>Ejemplo. (análogo al 2.6. así que ese no le incluyo.</strong></u></p>
+<p>Supongamos que queremos estimar con el método empiricio la curva ROC asociada a un biomarcador y que se ha observado la siguiente muestra de resultados del biomarcador en sanos y enfermos.</p>
+<p><span class="math inline">\(Y_{\overline{D}} = (1, 1, 2, 4, 4)\)</span><br><span class="math inline">\(Y_{D} = (2, 3, 4, 5, 7)\)</span></p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">Y_overD</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">Y_D</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">6</span>, <span class="fl">7</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Y_overD</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="va">Y_D</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">6</span>, <span class="fl">7</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Los valores observados se encuentran entre 2 y 7. <strong>Asigno c € (0.5, 7.5).</strong></p>
+<p><span class="math inline">\(1 - \hat{Sp}(7.5) = \text{"proporcion de individuos sanos que tienen valores por encima de c = 7.5"} = 0\)</span></p>
+<p><span class="math inline">\(1 - \hat{Sp}(7.5) = \text{"proporcion de individuos enfermos que tienen valores por encima de c = 7.5"} = 0\)</span></p>
+<p>Sea <span class="math inline">\(c=6\)</span> el umbral de positivos,</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># sensibilidad</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Y_D</span> <span class="op">&gt;=</span> <span class="fl">6</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">Y_D</span><span class="op">)</span></span>
+<span><span class="co">## [1] 0.4</span></span>
+<span><span class="co"># especificidad</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Y_overD</span> <span class="op">&lt;</span> <span class="fl">6</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">Y_overD</span><span class="op">)</span></span>
+<span><span class="co">## [1] 1</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>c<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>                 `1-Sp`<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/double.html">double</a></span><span class="op">(</span><span class="op">)</span>, </span>
@@ -342,32 +374,43 @@ ROC(t) = \Phi\left( \frac{\mu_D - \mu_{\overline{D}}}{\sigma_D} + \frac{\sigma_{
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">`1-Sp(c)^`</span>, y <span class="op">=</span> <span class="va">`Se(c)^`</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="fl">1</span>, alpha <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span>  <span class="co"># Agrega líneas para unir los puntos</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fl">0</span>, slope <span class="op">=</span> <span class="fl">1</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, color <span class="op">=</span> <span class="st">"gray"</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
-<span>    title <span class="op">=</span> <span class="st">"Curva ROC"</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"ESTIMACIÓN DE LA CURVA ROC"</span>,</span>
 <span>    x <span class="op">=</span> <span class="st">"1 - Especificidad (Tasa de Falsos Positivos)"</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">"Sensibilidad (Tasa de Verdaderos Positivos)"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>este gráfico es la estimacion de la curva roc.</p>
-<p>¿dónde la distancia vertical es máxima? (0, 2/5) – esto es la estiamcion del indice de youden.</p>
-<p>a qué corresponde esa poligonal? a los empates.</p>
-<p>si miras la teoria que hay detras de todo esto pues ves que esas cosas dependen de los empates.</p>
+<p>Ordenada la muestra de mayor a menor, tenemos saltos horizontales de longitud proporcional a la inversa del tamaño muestral de sanos y saltos verticales de longitud proporcional a la inversa del tamaño muestral de enfermos.</p>
+<p><strong>¿Dónde la distancia vertical es máxima?</strong> En (0, 2/5) <span class="math inline">\(\rightarrow\)</span> Esto es la estiamcion del índice de Youden.</p>
+<p>¿a qué corresponde esa poligonal? a los empates. ¿eing?</p>
+<p>Si miras la teoria que hay detras de todo esto pues ves que esas cosas dependen de los empates.</p>
 <p>el AUC estimado es 0.78, sacado a mano sumando el área de los polígonos del dibujo.</p>
-<p>¿los valores observados están en algún sitio en la curva? nop, la curva no representa los valores. si en lugar de números hubieran sido letras ordenadas alfabéticamente hubiera sido el mismo resultado. solo es necesario saber el orden de los valores y saber si los valores se repiten. ni los valores ni el punto del corte a partir del cual decimos que eta enfermo se ve refeljado en la curva roc , a nviel global como se comporta el biomarcador pero no si discrimina o no. para ver si discrimina o no habrá que mirar el AUC, cuanto más esté a 1 mejor sirve para discriminar.</p>
-<p>supongamos que c=6 es el imbral de positivos tal que si y ge6 =&gt; cuáles son las estiaciones de la sensi y la especi para c=6, sensi = 0.4 y especi = 1</p>
-<p>la diapo 67 es el resumen dle método empirico.</p>
+<p>¿Los valores observados están en algún sitio en la curva? Nop, la curva no representa los valores (si en lugar de números hubieran sido letras ordenadas alfabéticamente hubiera sido el mismo resultado). <strong>Solo es necesario saber el orden de los valores y saber si los valores se repiten.</strong> Ni los valores ni el punto del corte a partir del cual decimos que está enfermo se ven reflejados en la curva ROC.</p>
+<p><strong>La curva ROC nos refleja a nivel global cómo se comporta el biomarcador pero no indica nada sobre si discrimina bien o no. Para ver si discrimina bien o no se tiene que mirar el AUC.</strong> (cuanto más cercano a 1 mejor sirve para discriminar)</p>
+<p><span class="math display">\[
+\widehat{\text{ROC}}(\cdot) = \left\{ (1 - \widehat{\text{Sp}}(c), \widehat{\text{Se}}(c)), \, \forall c \in (-\infty, +\infty) \right\} = \left\{ (t, \widehat{\text{ROC}}(t)), \, t \in (0,1) \right\},
+\]</span></p>
+<p><span class="math display">\[
+\widehat{\text{ROC}}(t) = \widehat{S}_D \left( \widehat{S}_{\bar{D}}^{-1}(t) \right),
+\]</span></p>
+<p>Donde <span class="math inline">\(\widehat{S}_D\)</span> y <span class="math inline">\(\widehat{S}_{\bar{D}}\)</span> son las funciones de supervivencia empíricas.</p>
+<p>La curva ROC empírica es una función escalonada creciente que se aproxima a la curva ROC teórica.</p>
+<p><u><strong>Índices o medidas resumen.</strong></u></p>
+<p><span class="math inline">\(\widehat{\text{AUC}} = \int_0^1 \widehat{\text{ROC}}(t) \, dt = \frac{1}{n_D \bar{n}_D} \sum_{j=1}^{\bar{n}_D} \sum_{i=1}^{n_D} \left\{ I[Y_{D_i} &gt; Y_{\bar{D}_j}] + \frac{1}{2} I[Y_{D_i} = Y_{\bar{D}_j}] \right\}\)</span></p>
+<p><span class="math inline">\(\widehat{pAUC}(t_0) = \int_0^{t_0} \widehat{\text{ROC}}(t) \, dt\)</span></p>
+<p><span class="math inline">\(\widehat{YI} = \max \left| \widehat{ROC}(t) - t \right| = \max \left| \widehat{Se} + \widehat{\text{Sp}} - 1 \right|\)</span></p>
 <p><u><strong>Ejemplo.</strong></u></p>
-<p>dist gaussianas distribuciones de tipo beta. dist de tpo gamma</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">602</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">602</span><span class="op">)</span></span>
 <span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">100</span></span>
 <span><span class="va">Ysan3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">10</span>, <span class="fl">3</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
 <span><span class="va">Yenf3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html">rgamma</a></span><span class="op">(</span><span class="va">n</span>, <span class="fl">12</span>, <span class="fl">3</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
@@ -382,17 +425,18 @@ Data: 100 controls &lt; 100 cases.
 Partial area under the curve (specificity 0.2-0): 0.197</code></pre>
 </div>
 </div>
-<p>cambiando la semilla aka cambiando la miestra, las estimaciones de AUC cambian. aumentando el tamaño muestral obvio que tb.</p>
-<p>diapo70.</p>
+<p>Cambiando la semilla, AKA cambiando la muestra, las estimaciones de AUC cambian. Aumentando el tamaño muestral obvio que también.</p>
+<p><u><strong>Ejemplo 2.7.</strong></u></p>
+<p>Se disponen de datos sobre las intensidades relativas de la expresión de un determinado gen para una muestra de 23 tejidos de ovarios sanos y para 30 de tejidos con tumor .</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="va"><a href="https://xrobin.github.io/pROC/">pROC</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="va"><a href="https://xrobin.github.io/pROC/">pROC</a></span><span class="op">)</span></span>
 <span><span class="va">cancer</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"~/Master_Bioestadistica/Simulacion/tema_02/EjemploROCcancer.csv"</span>, header<span class="op">=</span><span class="cn">TRUE</span>, sep<span class="op">=</span><span class="st">";"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">roc1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/roc.html">roc</a></span><span class="op">(</span><span class="va">cancer</span><span class="op">$</span><span class="va">var2</span>,<span class="va">cancer</span><span class="op">$</span><span class="va">var1</span>,plot<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">roc1</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">roc1</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>List of 15
  $ percent           : logi FALSE
@@ -443,61 +487,153 @@ Partial area under the curve (specificity 0.2-0): 0.197</code></pre>
  $ levels            : chr [1:2] "0" "1"
  - attr(*, "class")= chr "roc"</code></pre>
 </div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Youden</span> <span class="op">&lt;-</span> <span class="va">roc1</span><span class="op">$</span><span class="va">sensitivities</span><span class="op">+</span><span class="va">roc1</span><span class="op">$</span><span class="va">specificities</span><span class="op">-</span><span class="fl">1</span></span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Youden</span> <span class="op">&lt;-</span> <span class="va">roc1</span><span class="op">$</span><span class="va">sensitivities</span><span class="op">+</span><span class="va">roc1</span><span class="op">$</span><span class="va">specificities</span><span class="op">-</span><span class="fl">1</span></span>
 <span><span class="va">Youden</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">Youden</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">Youden</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  0.0000  0.1431  0.3297  0.2977  0.4453  0.5696 </code></pre>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">YI</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Youden</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">YI</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Youden</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/pROC/man/plot.roc.html">plot.roc</a></span><span class="op">(</span><span class="va">roc1</span>,print.auc <span class="op">=</span> <span class="cn">TRUE</span>, legacy.axes <span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>diapo72.</p>
-<p>oootro ejemplo.</p>
-<p>no estaría mal representar histogramas y dist de densidad de los datos meustrales. nos puede dar una idea de si vamos a tener un biomarcador que nos sirva para discriminar o no.</p>
+<p><u><strong>Ejemplo 2.8.</strong></u></p>
+<p>¿Es el porcentaje de protombina un buen marcador de cirrosis? Los datos disponibles corresponden a una muestra de 145 individuos sanos y 39 cirróticos.</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="va"><a href="https://xrobin.github.io/pROC/">pROC</a></span><span class="op">)</span></span>
-<span><span class="va">cirroticos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"~/Master_Bioestadistica/Simulacion/tema_02/Protom_SanCirr.csv"</span>, header<span class="op">=</span><span class="cn">TRUE</span>, sep<span class="op">=</span><span class="st">";"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="va"><a href="https://xrobin.github.io/pROC/">pROC</a></span><span class="op">)</span></span>
+<span><span class="va">cirroticos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"~/Master_Bioestadistica/Simulacion/tema_02/Protom_SanCirr.csv"</span>, header<span class="op">=</span><span class="cn">TRUE</span>, sep<span class="op">=</span><span class="st">";"</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Representamos histogramas y distribuciones de densidad de los datos muestrales para hacernos una idea de si vamos a tener un biomarcador que nos ayude a discriminar o no.</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">densidad_cirroticos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/density.html">density</a></span><span class="op">(</span><span class="va">cirroticos</span><span class="op">$</span><span class="va">X.protombina</span><span class="op">[</span><span class="va">cirroticos</span><span class="op">$</span><span class="va">cirroticos.sanos</span> <span class="op">==</span> <span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">densidad_sanos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/density.html">density</a></span><span class="op">(</span><span class="va">cirroticos</span><span class="op">$</span><span class="va">X.protombina</span><span class="op">[</span><span class="va">cirroticos</span><span class="op">$</span><span class="va">cirroticos.sanos</span> <span class="op">==</span> <span class="fl">0</span><span class="op">]</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Gráfica de las distribuciones en sanos y cirroticos</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/density.html">density</a></span><span class="op">(</span><span class="va">cirroticos</span><span class="op">$</span><span class="va">X.protombina</span>,na.rm <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,lty<span class="op">=</span><span class="fl">2</span>,lwd<span class="op">=</span><span class="fl">2</span>,</span>
-<span>     xlab<span class="op">=</span><span class="st">"%Protombina"</span>,ylab<span class="op">=</span><span class="st">"Densidad"</span>,xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">120</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.04</span><span class="op">)</span>,main<span class="op">=</span><span class="st">""</span>,type<span class="op">=</span><span class="st">"l"</span>, col<span class="op">=</span><span class="st">"darkblue"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">densidad_cirroticos</span>, </span>
+<span>     main <span class="op">=</span> <span class="st">"Distribuciones de densidad de X.protombina"</span>, </span>
+<span>     xlab <span class="op">=</span> <span class="st">"X.protombina"</span>, </span>
+<span>     ylab <span class="op">=</span> <span class="st">"Densidad"</span>, </span>
+<span>     col <span class="op">=</span> <span class="st">"blue"</span>, </span>
+<span>     lwd <span class="op">=</span> <span class="fl">2</span>, </span>
+<span>     ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">densidad_cirroticos</span><span class="op">$</span><span class="va">y</span>, <span class="va">densidad_sanos</span><span class="op">$</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/density.html">density</a></span><span class="op">(</span><span class="va">cirroticos</span><span class="op">$</span><span class="va">cirroticos.sanos</span>,na.rm <span class="op">=</span><span class="cn">T</span><span class="op">)</span>, lty<span class="op">=</span><span class="fl">1</span>,lwd<span class="op">=</span><span class="fl">2</span>, xlab<span class="op">=</span><span class="st">""</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">densidad_sanos</span>, col <span class="op">=</span> <span class="st">"red"</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">80</span>,<span class="fl">0.02</span>, <span class="st">"Sanos"</span>, col<span class="op">=</span><span class="st">"darkblue"</span>, adj<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="op">-</span><span class="fl">.1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">40</span>,<span class="fl">0.025</span>, <span class="st">"Cirróticos"</span>, col<span class="op">=</span><span class="st">"red"</span>, adj<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="op">-</span><span class="fl">.1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Cirróticos"</span>, <span class="st">"Sanos"</span><span class="op">)</span>, </span>
+<span>       col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">"red"</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Ref: Estimación no paramétrica de la función de densidad. Antonio Miñarro 1998</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Ref: Estimación no paramétrica de la función de densidad. Antonio Miñarro 1998</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>parece que los sanos tienen valoers superriores a los cirroticos, y eso va al reves de nuestros default. asi que intercambaimos los valores de casos y controles.</p>
-<p>los casos siempre son los que tienen mayores valores, en este caso los casos son los sanos.</p>
-<p>me parecia anti intiuituvo ese valor de curva roc viendo como se solapan las distribuciones pero sí que es cierto que lo que realmente se solapan son los rangos donde se distribuyen las distribuciones, pero por debajo del punto donde se cortan las distribiciones hay muy poca densidad para los sanos.</p>
-<p>diapo74.</p>
+<p>Aparentemente los sanos tienen valores superiores a los cirróticos y esto es al revés que muchos default. Intercambaimos los valores de casos y controles.</p>
+<p>Los “casos” siempre son los que tienen mayor valor, en este caso los “casos” son los sanos.</p>
+<p>Me parecía poco intuitivo ese valor del área bajo la curva (ROC) al observar cómo se solapan las distribuciones. Sin embargo, es cierto que lo que realmente se solapan son los rangos en los que se distribuyen los datos. Por debajo del punto donde las distribuciones se cruzan, la densidad de los datos en el grupo de los sanos es muy baja.</p>
+</section><section id="suavizado-tipo-núcleo" class="level3"><h3 class="anchored" data-anchor-id="suavizado-tipo-núcleo">Suavizado tipo núcleo</h3>
 <p>Ha dicho algo de nucleos y suavizado.</p>
-<p>todo esto viene de que son variables numéricas y muestras que provienen de una variable numérica.</p>
-<p>depende de algo y de un ancho de la ventana.</p>
-<p>en R nos deja elegir el nucleo pero no la ventana. la ventana tiene alicacion en diagnostico por imagen</p>
-<p>tenemos varios métodos para el suavizado. (dapi75)</p>
-<p>binormal: toma una aproximacion de la densiadad a una aproximacion normal y toma las aproximaciones de una curva troc con dist binormal y considerando la muestra como una muestra proveniente de una normal con media y varianza que viene de la muestra.</p>
-<p>densidad: estimar la densidad de los datos usanod un nucleo que le parezca perfecto (tal cual que ha dicho eso pero npi de qué significa su frase)</p>
-<p>fir-distribution: la distriubucions que mejor se aproxima a los datos por el metodo de máxoma verosiiilitud</p>
-<p>lognormal: …</p>
-<p>el AUC es la misma pq es la que estimamos usando la dist empirica. la normalizada es para dibujar solamente, sirve pq el dibujo es “mas intuitivo”, lo que hace es trazar de una forma mas “estetica” pq es una curva mas continua, y menos poligonal y escaloanda</p>
-<p>diapo76.</p>
-<p>cómo le pongo un IC a todo esto.</p>
-<p>si la muestra pequeña tan solo puedo “repetir el experimento” con muestras bootstrap (respetando el tamaño de las muestras - plural pq tengo muestra de sanos y enfermos).</p>
-<p>fijado punto de corte mido sensi para la pd y una especi para la pd, por lo que nuevamente puedo calcular una region de confianza.</p>
-<p>con una dimension fija ver cómo variá la otra dimension. “fijada la sensi ver de qué pto a qué pto va la especi”</p>
-<p>[aquí ha hecho un dubujito muy boniko que a ver si lo replico.]</p>
-<p>diferencia entre bootstrap y la asintotica es muy poca.</p>
+<p>La curva ROC empírica es una función escalonada a pesar de que la curva ROC es continua. Además, parece razonable construir estimadores que también sean continuos. Estos se pueden obtener de forma no paramétrica mediante técnicas de suavización, por ejemplo de tipo núcleo:</p>
+<p><span class="math display">\[
+F_{D, h_D}(y) = \frac{1}{n_D} \sum_{i=1}^{n_D} K \left( \frac{y - y_{D_i}}{h_D} \right)
+\]</span></p>
+<p><span class="math display">\[
+F_{\bar{D}, h_{\bar{D}}}(y) = \frac{1}{n_{\bar{D}}} \sum_{i=1}^{n_{\bar{D}}} K \left( \frac{y - y_{\bar{D}_i}}{h_{\bar{D}}} \right)
+\]</span></p>
+<p>donde <span class="math inline">\(F_D\)</span> y <span class="math inline">\(F_{\bar{D}}\)</span> son las funciones de distribución de enfermos y sanos, y <span class="math inline">\(K(t) = \int_{-\infty}^t k(u) \, du\)</span> es la función kernel.</p>
+<p><span class="math display">\[
+\widehat{\text{ROC}}(t) = 1 - F_{D, h_D} \left( F_{\bar{D}, h_{\bar{D}}}^{-1} (1 - t) \right), \quad t \in (0, 1).
+\]</span></p>
+<p>En R nos deja elegir el nucleo pero no la ventana. la ventana tiene aplicacion en diagnostico por imagen</p>
+<p>Existen varios métodos para el suavizado.</p>
+<ul>
+<li><p>Binormal. Se utiliza una aproximación normal para la densidad de los datos. La curva ROC se estima bajo la suposición de que los datos provienen de distribuciones normales (binormalidad), con medias y varianzas estimadas a partir de la muestra.</p></li>
+<li><p>Densidad. Se estima la densidad de los datos utilizando un núcleo considerado adecuado. Aunque se ha mencionado que es “perfecto”, no queda claro a qué se refiere exactamente dicha afirmación.</p></li>
+<li><p>Best-Fit Distribution. Es la distribución que mejor se ajusta a los datos, determinada mediante el método de máxima verosimilitud.</p></li>
+<li><p>lognormal: …</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<span><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim</a></span><span class="op">(</span><span class="st">"Protom_SanCirr.csv"</span>, delim <span class="op">=</span> <span class="st">";"</span>, escape_double <span class="op">=</span> <span class="cn">FALSE</span>, trim_ws <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">roc1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/roc.html">roc</a></span><span class="op">(</span><span class="va">datos</span><span class="op">$</span><span class="va">`cirroticos/sanos`</span>,<span class="va">datos</span><span class="op">$</span><span class="va">`%protombina`</span><span class="op">)</span></span>
+<span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">roc1</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 15
+ $ percent           : logi FALSE
+ $ sensitivities     : num [1:48] 1 1 0.974 0.949 0.949 ...
+ $ specificities     : num [1:48] 0 0.421 0.441 0.455 0.476 ...
+ $ thresholds        : num [1:48] Inf 99 97 95.5 94.5 ...
+ $ direction         : chr "&gt;"
+ $ cases             : num [1:39] 36 71 50 50 45 42 37 40 42 52 ...
+ $ controls          : num [1:145] 100 73 73 80 57 90 80 75 78 100 ...
+ $ fun.sesp          :function (thresholds, controls, cases, direction)  
+ $ auc               : 'auc' num 0.897
+  ..- attr(*, "partial.auc")= logi FALSE
+  ..- attr(*, "percent")= logi FALSE
+  ..- attr(*, "roc")=List of 15
+  .. ..$ percent           : logi FALSE
+  .. ..$ sensitivities     : num [1:48] 1 1 0.974 0.949 0.949 ...
+  .. ..$ specificities     : num [1:48] 0 0.421 0.441 0.455 0.476 ...
+  .. ..$ thresholds        : num [1:48] Inf 99 97 95.5 94.5 ...
+  .. ..$ direction         : chr "&gt;"
+  .. ..$ cases             : num [1:39] 36 71 50 50 45 42 37 40 42 52 ...
+  .. ..$ controls          : num [1:145] 100 73 73 80 57 90 80 75 78 100 ...
+  .. ..$ fun.sesp          :function (thresholds, controls, cases, direction)  
+  .. ..$ auc               : 'auc' num 0.897
+  .. .. ..- attr(*, "partial.auc")= logi FALSE
+  .. .. ..- attr(*, "percent")= logi FALSE
+  .. .. ..- attr(*, "roc")=List of 8
+  .. .. .. ..$ percent      : logi FALSE
+  .. .. .. ..$ sensitivities: num [1:48] 1 1 0.974 0.949 0.949 ...
+  .. .. .. ..$ specificities: num [1:48] 0 0.421 0.441 0.455 0.476 ...
+  .. .. .. ..$ thresholds   : num [1:48] Inf 99 97 95.5 94.5 ...
+  .. .. .. ..$ direction    : chr "&gt;"
+  .. .. .. ..$ cases        : num [1:39] 36 71 50 50 45 42 37 40 42 52 ...
+  .. .. .. ..$ controls     : num [1:145] 100 73 73 80 57 90 80 75 78 100 ...
+  .. .. .. ..$ fun.sesp     :function (thresholds, controls, cases, direction)  
+  .. .. .. ..- attr(*, "class")= chr "roc"
+  .. ..$ call              : language roc.default(response = datos$`cirroticos/sanos`, predictor = datos$`%protombina`)
+  .. ..$ original.predictor: num [1:184] 100 73 73 80 57 90 80 75 78 100 ...
+  .. ..$ original.response : num [1:184] 0 0 0 0 0 0 0 0 0 0 ...
+  .. ..$ predictor         : num [1:184] 100 73 73 80 57 90 80 75 78 100 ...
+  .. ..$ response          : num [1:184] 0 0 0 0 0 0 0 0 0 0 ...
+  .. ..$ levels            : chr [1:2] "0" "1"
+  .. ..- attr(*, "class")= chr "roc"
+ $ call              : language roc.default(response = datos$`cirroticos/sanos`, predictor = datos$`%protombina`)
+ $ original.predictor: num [1:184] 100 73 73 80 57 90 80 75 78 100 ...
+ $ original.response : num [1:184] 0 0 0 0 0 0 0 0 0 0 ...
+ $ predictor         : num [1:184] 100 73 73 80 57 90 80 75 78 100 ...
+ $ response          : num [1:184] 0 0 0 0 0 0 0 0 0 0 ...
+ $ levels            : chr [1:2] "0" "1"
+ - attr(*, "class")= chr "roc"</code></pre>
+</div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span> <span class="co">#Dibujamos</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">roc1</span>,legacy.axes <span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">rs</span> <span class="op">&lt;-</span> <span class="fu">smooth</span><span class="op">(</span><span class="va">roc1</span>, method<span class="op">=</span><span class="st">"binormal"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">rs</span>, add<span class="op">=</span><span class="cn">TRUE</span>, col<span class="op">=</span><span class="st">"green"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">rs2</span> <span class="op">&lt;-</span> <span class="fu">smooth</span><span class="op">(</span><span class="va">roc1</span>, method<span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">rs2</span>, add<span class="op">=</span><span class="cn">TRUE</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">rs3</span> <span class="op">&lt;-</span> <span class="fu">smooth</span><span class="op">(</span><span class="va">roc1</span>, method<span class="op">=</span><span class="st">"fitdistr"</span>, density<span class="op">=</span><span class="st">"lognormal"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">rs3</span>, add<span class="op">=</span><span class="cn">TRUE</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html">legend</a></span><span class="op">(</span><span class="st">"bottomright"</span>, legend<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Empírica"</span>,<span class="st">"Binormal"</span>,<span class="st">"Densidad"</span>,<span class="st">"Lognormal"</span><span class="op">)</span>, col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"black"</span>,<span class="st">"green"</span>,<span class="st">"blue"</span>,<span class="st">"red"</span><span class="op">)</span>,lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tema_2_28_11_2024_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>El AUC es el mismo porque se estima utilizando la distribución empírica. La versión normalizada se emplea únicamente para representar gráficamente la curva ROC, ya que proporciona una visualización <strong>más intuitiva</strong>. Lo que hace es trazar la curva de manera más “estética”, generando una forma <strong>más continua y suave</strong>, en contraste con la versión empírica, que tiende a ser más <strong>poligonal y escalonada</strong>.</p>
+</section></section><section id="intervalos-y-bandas-de-confianza" class="level2"><h2 class="anchored" data-anchor-id="intervalos-y-bandas-de-confianza">Intervalos y bandas de confianza</h2>
+<p>Cuando la muestra es pequeña, solo es posible “repetir el experimento” utilizando el método bootstrap, generando nuevas muestras (tengo muestas de sanos y de enfermos) de igual tamaño que las originales, respetando la proporción entre los grupos de sanos y enfermos.</p>
+<p>Fijado, se puede calcular la sensibilidad y la especificidad correspondientes para cada muestra bootstrap, lo que permite estimar una región de confianza para estos valores.</p>
+<p>Si se mantiene fija una de las dimensiones (tanto la sensibilidad como la especificidad), es posible observar cómo varía la otra dimensión (en este caso, la especificidad) y determinar el rango en el que se encuentra, es decir, “fijada la sensibilidad, ver de qué punto a qué punto varía la especificidad”.</p>
+<p>[aquí ha hecho un dibujito muy boniko que a ver si lo replico.]</p>
+<p>La diferencia entre las bandas de confianza obtenidas mediante el método bootstrap y las obtenidas a través de la aproximación asintótica es muy pequeña.</p>
+<p>La variabilidad muestral para la curva ROC empírica puede obtenerse desde varios puntos de vista: dipo76.</p>
 <section id="comparación-de-curvas-roc" class="level3"><h3 class="anchored" data-anchor-id="comparación-de-curvas-roc">Comparación de curvas ROC</h3>
 <p>lleva emparejado dos biomarcadores en dos muestras pareaadas o no pareadas, dependiendo del tipo de muestras usaremos un tipo de comparación y otra.</p>
 <p>El estimador que se suele usar es la diferencia de las AUC, normalizado para tener una distribucion asintotica.</p>
@@ -536,7 +672,7 @@ Partial area under the curve (specificity 0.2-0): 0.197</code></pre>
 <p>antes estábamos mirando todo junto. ahora separamos entre muejres y hombres.</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
