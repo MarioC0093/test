@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Mario Camacho">
 
 <title>Máster de Bioestadística - Probabilidad y Simulación</title>
 <style>
@@ -21,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -31,7 +49,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./DUDAS.html" rel="next">
+<link href="./tema_03/tema_03_4_remuestreo_inferencia_roc.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Introducción</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -97,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Introducción</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -226,7 +244,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -235,67 +253,42 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">In this page</h2>
-   
-  <ul>
-  <li><a href="#evaluación" id="toc-evaluación" class="nav-link active" data-scroll-target="#evaluación">Evaluación</a></li>
-  <li><a href="#temario" id="toc-temario" class="nav-link" data-scroll-target="#temario">Temario</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introducción</h1>
+<h1 class="title">References</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Mario Camacho </p>
-          </div>
-  </div>
     
   
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de modificación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">12 septiembre 2024</p>
-    </div>
-  </div>
     
   </div>
   
 
 </header>
 
-<p><u><strong>Entregas y ejercicios</strong></u></p>
-<p>Evalúa casi más la metodología y desarrollo que los resultados. Junto a la <strong>interpretación</strong> del resultado.</p>
-<p>Las entregas se pueden considerar como INFORMES donde tenemos que dar soluciones explicando el desarrollo.</p>
-<p>Usa R como un instrumento para llegar a la solución. No se va a evaluar el código (si es eficiente, claro, tarda o no tarda, etc.).</p>
-<p>La profe lo que va a evaluar es el modelo teorico (no la programcion para llegar a ello). Que funcione y que consiga simular lo que quiero.</p>
-<section id="evaluación" class="level2">
-<h2 class="anchored" data-anchor-id="evaluación">Evaluación</h2>
-<p>Tema 1: un examen (entre finales de octubre y noviembre)<br>
-Tema 2: un examen (el último día de clase)<br>
-Nota final: promedio de exámenes. (pilar de la nota final)</p>
-<p>Nota final + varias entregas hasta un total de un punto (en total serán seis entregas, no son obligatorias).</p>
-</section>
-<section id="temario" class="level2">
-<h2 class="anchored" data-anchor-id="temario">Temario</h2>
-<p>Dos primeros temas: pruebas diagnósticas. (probabildad) Tercer tema: tema transversal dirante el cuatrimestre, relacionado con la creación de muestras. (simulación)</p>
-<p><embed src="Temario de Probabilidad y Simulacion.pdf" style="width:100.0%" height="600"></p>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-camargo2012evaluacion" class="csl-entry" role="listitem">
+Camargo-Ramos, C. M., and otros autores. 2012. <span>“Evaluación de
+Factores Asociados Al Embarazo Adolescente.”</span> <em>Revista
+Colombiana de Obstetricia y Ginecología</em> 61 (3): 256–62. <a href="http://www.scielo.org.co/pdf/rcog/v61n3/v61n3a09.pdf">http://www.scielo.org.co/pdf/rcog/v61n3/v61n3a09.pdf</a>.
+</div>
+<div id="ref-fiabilidad_mediciones_clinicas" class="csl-entry" role="listitem">
+Fisterra. 2024. <span>“La Fiabilidad de Las Mediciones Clínicas:
+Análisis de La Concordancia Para Variables Numéricas.”</span> 2024. <a href="https://www.fisterra.com/formacion/metodologia-investigacion/la-fiabilidad-mediciones-clinicas-analisis-concordancia-para-variables-numericas/">https://www.fisterra.com/formacion/metodologia-investigacion/la-fiabilidad-mediciones-clinicas-analisis-concordancia-para-variables-numericas/</a>.
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -531,13 +524,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-body">
+<nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
+      <a href="./tema_03/tema_03_4_remuestreo_inferencia_roc.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">4. Técnicas de remuestreo aplicadas a la inferencia de curvas ROC <span style="color:red;">✗</span></span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./DUDAS.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title">Dudas</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
