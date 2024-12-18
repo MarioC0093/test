@@ -77,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tema_03/tema_03.html">TEMA 3</a></li><li class="breadcrumb-item"><a href="../tema_03/tema_03_4_remuestreo_inferencia_roc.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">4. Técnicas de remuestreo aplicadas a la inferencia de curvas ROC <span style="color:red;">✗</span></span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tema_03/tema_03.html">TEMA 3</a></li><li class="breadcrumb-item"><a href="../tema_03/tema_03_4_remuestreo_inferencia_roc.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">4. Técnicas de remuestreo aplicadas a la inferencia de curvas ROC <span style="color:red;">✗</span></span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -165,32 +165,27 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1.1. Conceptos básicos <span style="color:green;">✓</span></span></a>
+  <a href="../tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Conceptos básicos <span style="color:green;">✓</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_1_2_cohortes_y_casos_control.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1.2 Estudios de cohorte y casos-control <span style="color:green;">✓</span></span></a>
+  <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_I.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño muestral (I) <span style="color:green;">✓</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño mmuestral <span style="color:red;">✗</span></span></a>
+  <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_II.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño muestral (II) <span style="color:green;">✓</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_2_28_11_2024.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">tema_2_28_11_2024</span></a>
+  <a href="../tema_02/tema_02_3_curvas_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:green;">✓</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_3_curvas_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:red;">✗</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_3_curvas_roc_final.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">curvas ROC - segunda parte</span></a>
+  <a href="../tema_02/tema_02_4_tamanyos_muestrales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Determinación de tamaños muestrales</span></a>
   </div>
 </li>
       </ul>
@@ -242,10 +237,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">In this page</h2>
    
   <ul>
-  <li><a href="#remuestreo-bootstrap-naïf" id="toc-remuestreo-bootstrap-naïf" class="nav-link active" data-scroll-target="#remuestreo-bootstrap-naïf">Remuestreo bootstrap Naïf</a>
+  <li><a href="#remuestreo-bootstrap" id="toc-remuestreo-bootstrap" class="nav-link active" data-scroll-target="#remuestreo-bootstrap">Remuestreo bootstrap</a>
   <ul>
+  <li><a href="#remuestreo-bootstrap-naïf" id="toc-remuestreo-bootstrap-naïf" class="nav-link" data-scroll-target="#remuestreo-bootstrap-naïf">Remuestreo bootstrap Naïf</a></li>
   <li><a href="#remuestreo-bootstrap-con-aproximación-de-monte-carlo" id="toc-remuestreo-bootstrap-con-aproximación-de-monte-carlo" class="nav-link" data-scroll-target="#remuestreo-bootstrap-con-aproximación-de-monte-carlo">Remuestreo bootstrap con aproximación de Monte-Carlo</a></li>
   <li><a href="#bootstrap-suavizado-con-núcleo-k" id="toc-bootstrap-suavizado-con-núcleo-k" class="nav-link" data-scroll-target="#bootstrap-suavizado-con-núcleo-k">Bootstrap suavizado con núcleo K</a></li>
+  <li><a href="#validación-de-la-estimación-de-auc" id="toc-validación-de-la-estimación-de-auc" class="nav-link" data-scroll-target="#validación-de-la-estimación-de-auc">Validación de la estimación de AUC</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -300,8 +297,8 @@ Y_n &amp; D_n \\ \hline
 <p>Nos valemos de las <strong>funciones empíricas de distribución</strong> en el grupo con la característica y en el grupo sin la carecterísticas. Remuestreamos en base a esas densidades.</p>
 <p>Recordamos que la curva ROC se construye estableciendo una comparación entre las proporciones de verdaderos y falsos positivos según los valores del marcador de la prueba diagnóstica. Es decir, suponiendo que el marcador da resultados más altos en los pacientes enfermos, la curva ROC estimada a partir de las observaciones es :</p>
 <p><span class="math display">\[ROC(t) = 1 - F_D \left( F_D^{-1}(1 - t) \right), \quad t \in (0, 1).\]</span></p>
-<p>donde y son las funciones empíricas de distribución de enfermos y sanos.</p>
-<p><span class="math display">\[F_D(y) = \frac{1}{n_D} \sum_{i=1}^{n_D} I(Y_{D_i} \leq y), \quad F_{\bar{D}}(y) = \frac{1}{n_{\bar{D}}} \sum_{i=1}^{n_{\bar{D}}} I(Y_{\bar{D}_i} \leq y)\]</span></p>
+<p>Sean las funciones empíricas de distribución de enfermos y sanos:</p>
+<p><span class="math display">\[F_D(y) = \frac{1}{n_D} \sum_{i=1}^{n_D} I(Y_{D_i} \leq y)\]</span> <span class="math display">\[F_{\bar{D}}(y) = \frac{1}{n_{\bar{D}}} \sum_{i=1}^{n_{\bar{D}}} I(Y_{\bar{D}_i} \leq y)\]</span></p>
 <p>Procedimientos que podemos aplicar a la hora de hacer inferencia sobre la curva roc:</p>
 <ul>
 <li>Bootstrap
@@ -312,12 +309,15 @@ Y_n &amp; D_n \\ \hline
 </ul></li>
 <li>Permutaciones aleatorias (no aplicable en todos los contextos debido a sus características)</li>
 </ul>
-<section id="remuestreo-bootstrap-naïf" class="level2">
-<h2 class="anchored" data-anchor-id="remuestreo-bootstrap-naïf">Remuestreo bootstrap Naïf</h2>
+<section id="remuestreo-bootstrap" class="level2">
+<h2 class="anchored" data-anchor-id="remuestreo-bootstrap">Remuestreo bootstrap</h2>
+<section id="remuestreo-bootstrap-naïf" class="level3">
+<h3 class="anchored" data-anchor-id="remuestreo-bootstrap-naïf">Remuestreo bootstrap Naïf</h3>
 <p>Genera una muestra con reemplazamiento de <span class="math inline">\(n\)</span> individuos con información <span class="math inline">\((Y_i, D_i)\)</span> de mi muestra.</p>
 <p>Por lo general conduce a malas aproximaciones de los cuantiles de la distribución empírica.</p>
 <p><strong>Al elegir aleatoriamente con reemplazamiento pierdo la proporción de enfermos y sanos.</strong></p>
 <p>Para generar la curva ROC y demás estimaciones perdemos la characteristic intrínseca del biomarcador de que no haya valores repetidos.</p>
+</section>
 <section id="remuestreo-bootstrap-con-aproximación-de-monte-carlo" class="level3">
 <h3 class="anchored" data-anchor-id="remuestreo-bootstrap-con-aproximación-de-monte-carlo">Remuestreo bootstrap con aproximación de Monte-Carlo</h3>
 <p>Tras obtener un remuestreo naïf se altera el resultado de la prueba. Se perturba a través de la simulación de un valor aditivo <span class="math inline">\(a\)</span> con distribucion <span class="math inline">\(N(0, \frac{1}{\sqrt[5]{n}})\)</span></p>
@@ -337,6 +337,7 @@ Y_n + a_n &amp; D_n \\ \hline
 </section>
 <section id="bootstrap-suavizado-con-núcleo-k" class="level3">
 <h3 class="anchored" data-anchor-id="bootstrap-suavizado-con-núcleo-k">Bootstrap suavizado con núcleo K</h3>
+<p>La idea es realizar un remuestreo D*n en una función suavizada de la distribución empírica y no sobre la misma distribución empírica.</p>
 <p>trabajar priemero con las funciones de distribucion empricas y simular con ellas</p>
 <ol type="1">
 <li>tener muestra inicial<br>
@@ -352,13 +353,16 @@ Y_n + a_n &amp; D_n \\ \hline
 <li>Repito el punto 3 y 4.</li>
 </ol>
 <p>B muestras</p>
+</section>
+<section id="validación-de-la-estimación-de-auc" class="level3">
+<h3 class="anchored" data-anchor-id="validación-de-la-estimación-de-auc">Validación de la estimación de AUC</h3>
 <p>si el “Calculamos di= AUC*i – AUC^, i=1,…,B” lo hiciéramos sin hacer la resta, es decir, apartar solo los extremos de las muestras en vez de los extremos de las diferencias, podría pasar que mi estimacion inicial no estuviera en el intervalo.</p>
 <p>el hacer la resta y tal se hace para asegurar que mi estimacion está contenida en el intervalo. busco la estimacion del AUC de las muestas bootstrap</p>
 <p>NOTA: en la diapo51 los <span class="math inline">\(\hat{F}_D^*\)</span> y <span class="math inline">\(\hat{F}_{\over{D}}^*\)</span> son estimados.</p>
 <p><strong>Ejemplo.</strong></p>
 <p>los pacientes sin anemia tiene unos contenidos de hierro bajo inferiores (relacion inversa a la que estamos acostumrbados): tengo que identificar los ceros y los unos al revés.</p>
 <p>seleccionamos remuestreos, alterarlo con la dist normal, calcular diferencias, etc.</p>
-<p>es es curva roc con muestra inicial. 0.70 puede ser una pruebaadmisible si tuvieramos un IC que dice que no estamos con algo muy disparatado.</p>
+<p>es es curva roc con muestra inicial. 0.70 puede ser una prueba admisible si tuvieramos un IC que dice que no estamos con algo muy disparatado.</p>
 <p>calculamos el IC. para una muestr que no era muy grande y aplicamos boots pq no etabamos seguros que nos diera buenos resultados aplicando los metodos asintoticos nos un IC estrechito. buscamos punto de corte con el metodo habitial.</p>
 <p>¿el índice yeuden (pregunto yo) es sobre la muestra original o sobre las muestas simuladas?</p>
 <p>youden lo haces sobre tu original, la simu bootrap lo utilizas para IC para tu curva roc.</p>

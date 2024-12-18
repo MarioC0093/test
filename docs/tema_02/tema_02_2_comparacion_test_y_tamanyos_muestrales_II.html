@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Máster de Bioestadística - Probabilidad y Simulación</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../tema_02/tema_02_3_curvas_roc.html" rel="next">
+<link href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_I.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tema_02/tema_02.html">TEMA 2</a></li><li class="breadcrumb-item"><a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_II.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">2. Comparación de test y tratamiento del tamaño muestral (II) <span style="color:green;">✓</span></span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../DUDAS.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dudas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../tema_00/tema_00.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEMA 0</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_00/tema_00_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../tema_01/tema_01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEMA 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_01/tema_01_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Introducción <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_01/tema_01_2_concordancia_categoricas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Análisis de concordancia en variables categóricas <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_01/tema_01_3_concordancia_numericas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Análisis de concordancia en variables numéricas <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_01/tema_01_4_tamanyo_muestral.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Cálculo del tamaño muestral <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../tema_02/tema_02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEMA 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Conceptos básicos <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_I.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño muestral (I) <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_II.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño muestral (II) <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_3_curvas_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_02/tema_02_4_tamanyos_muestrales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Determinación de tamaños muestrales</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../tema_03/tema_03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEMA 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_03/tema_03_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Introducción <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_03/tema_03_2_selección_aleatoria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Selección aleatoria de pacientes y asignación de tratamientos <span style="color:red;">✗</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_03/tema_03_3_obtener_datos_simulados.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Obtener datos simulados a partir de observaciones reales <span style="color:green;">✓</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tema_03/tema_03_4_remuestreo_inferencia_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Técnicas de remuestreo aplicadas a la inferencia de curvas ROC <span style="color:red;">✗</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">In this page</h2>
+   
+  <ul>
+<li>
+<a href="#tratamiento-muestral-de-la-comparativa" id="toc-tratamiento-muestral-de-la-comparativa" class="nav-link active" data-scroll-target="#tratamiento-muestral-de-la-comparativa">Tratamiento muestral de la comparativa</a>
+  <ul>
+<li>
+<a href="#estimaci%C3%B3n-de-medidas-de-comparaci%C3%B3n-en-datos-no-paradeados" id="toc-estimación-de-medidas-de-comparación-en-datos-no-paradeados" class="nav-link" data-scroll-target="#estimaci%C3%B3n-de-medidas-de-comparaci%C3%B3n-en-datos-no-paradeados">Estimación de medidas de comparación en datos no paradeados</a>
+  <ul>
+<li><a href="#en-estudios-de-cohortes" id="toc-en-estudios-de-cohortes" class="nav-link" data-scroll-target="#en-estudios-de-cohortes">En estudios de cohortes</a></li>
+  <li><a href="#en-estudios-de-caso-control" id="toc-en-estudios-de-caso-control" class="nav-link" data-scroll-target="#en-estudios-de-caso-control">En estudios de caso-control</a></li>
+  <li><a href="#resultados-para-muestras-grandes" id="toc-resultados-para-muestras-grandes" class="nav-link" data-scroll-target="#resultados-para-muestras-grandes">Resultados para muestras grandes</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#estimaci%C3%B3n-de-medidas-de-comparaci%C3%B3n-en-datos-paradeados" id="toc-estimación-de-medidas-de-comparación-en-datos-paradeados" class="nav-link" data-scroll-target="#estimaci%C3%B3n-de-medidas-de-comparaci%C3%B3n-en-datos-paradeados">Estimación de medidas de comparación en datos paradeados</a>
+  <ul>
+<li><a href="#resultados-para-muestras-grandes-1" id="toc-resultados-para-muestras-grandes-1" class="nav-link" data-scroll-target="#resultados-para-muestras-grandes-1">Resultados para muestras grandes</a></li>
+  </ul>
+</li>
+  <li><a href="#eficiencia-de-dise%C3%B1os-pareados-frente-no-pareados" id="toc-eficiencia-de-diseños-pareados-frente-no-pareados" class="nav-link" data-scroll-target="#eficiencia-de-dise%C3%B1os-pareados-frente-no-pareados">Eficiencia de diseños pareados frente no pareados</a></li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño muestral (II) <span style="color:green;">✓</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><section id="tratamiento-muestral-de-la-comparativa" class="level2"><h2 class="anchored" data-anchor-id="tratamiento-muestral-de-la-comparativa">Tratamiento muestral de la comparativa</h2>
+<p>En la comparativa de dos pruebas diagnósticas, es importante la forma en que se han elegido los individuos y cómo se ha construido el estudio comparativo.</p>
+<p><strong>Diseño pareado. Cada sujeto se somete a todas las pruebas que se quieren comparar.</strong> - Son válidos cuando las pruebas diagnósticas no interfieren entre ellas - Se debe diseñar el experimento de forma que las pruebas se realicen en distinto orden para cada sujeto.</p>
+<p><strong>Diseño no pareado. Un sujeto solo se somete a una prueba. Cada test se aplica a un conjunto de sujetos diferente.</strong> - Implican un protocolo detallado del estudio. - Se aplican en pruebas diagnósticas invasivas, que causan malestar en el paciente, que consumen tiempo o que conllevan un riesgo significativo. - En pruebas que interfieren en los resultados de la otra. - En estudios observacionales.</p>
+<p><u>Es preferible el diseño pareado ya que genera menos variabildiad inter sujetos.</u></p>
+<p><u><strong>Notación.</strong></u></p>
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{No pareado}
+\end{aligned}
+\]</span></p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><span class="math display">\[
+\scriptsize
+\begin{aligned}
+\textbf{D=0}
+\end{aligned}
+\begin{array}{c|c|c|c|}
+&amp; Y = 0 &amp; Y = 1 \\
+\hline
+\text{Test A} &amp; n_{D}^{-}(A) &amp; n_{D}^{+}(A) &amp; n_{D}(A)\\
+\text{Test B} &amp; n_{D}^{-}(B) &amp; n_{D}^{+}(B) &amp; n_{D}(B)\\
+\hline
+\end{array}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><span class="math display">\[
+\scriptsize
+\begin{aligned}
+\textbf{D=1}
+\end{aligned}
+\begin{array}{c|c|c|c|}
+&amp; Y = 0 &amp; Y = 1 \\
+\hline
+\text{Test A} &amp; n_{\overline{D}}^{-}(A) &amp; n_{\overline{D}}^{+}(A) &amp; n_{\overline{D}}(A)\\
+\text{Test B} &amp; n_{\overline{D}}^{-}(B) &amp; n_{\overline{D}}^{+}(B) &amp; n_{\overline{D}}(B)\\
+\hline
+\end{array}
+\]</span></p>
+</div>
+</div>
+</div>
+<p><span class="math display">\[
+\begin{aligned}
+\textbf{Pareado}
+\end{aligned}
+\]</span></p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><span class="math display">\[
+\scriptsize
+\begin{aligned}
+\textbf{D=1}
+\end{aligned}
+\begin{array}{c|c|c|c|}
+&amp; \text{(Test A) Y = 0} &amp; \text{(Test A) Y = 1} \\
+\hline
+\text{(Test B) Y = 0} &amp; a &amp; b &amp; n_{D}^-(B)\\
+\text{(Test B) Y = 1} &amp; c &amp; d &amp; n_{D}^+(B)\\
+\hline
+&amp; n_{D}^-(A) &amp; n_{D}^+(A) &amp; n_{D}
+\end{array}
+\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><span class="math display">\[
+\scriptsize
+\begin{aligned}
+\textbf{D=0}
+\end{aligned}
+\begin{array}{c|c|c|c|}
+&amp; \text{(Test A) Y = 0} &amp; \text{(Test A) Y = 1} \\
+\hline
+\text{(Test B) Y = 0} &amp; e &amp; f &amp; n_{\overline{D}}^-(B)\\
+\text{(Test B) Y = 1} &amp; g &amp; h &amp; n_{\overline{D}}^+(B)\\
+\hline
+&amp; n_{\overline{D}}^-(A) &amp; n_{\overline{D}}^+(A) &amp; n{\overline{D}}
+\end{array}
+\]</span></p>
+</div>
+</div>
+</div>
+<section id="estimación-de-medidas-de-comparación-en-datos-no-paradeados" class="level3"><h3 class="anchored" data-anchor-id="estimación-de-medidas-de-comparación-en-datos-no-paradeados">Estimación de medidas de comparación en datos no paradeados</h3>
+<p>Se observa la situacion real de cada conjunto de personas (grupo con la caracteristica y grupo sin la caracteristica; grupo con un test y grupo con otro test, etc.). Se contabiliza y realizan estimaciones de manera independiente.</p>
+<section id="en-estudios-de-cohortes" class="level4"><h4 class="anchored" data-anchor-id="en-estudios-de-cohortes">En estudios de cohortes</h4>
+<p><img src="../attachments/output_tema2_page35.png" style="width:80.0%;height:80.0%"></p>
+</section><section id="en-estudios-de-caso-control" class="level4"><h4 class="anchored" data-anchor-id="en-estudios-de-caso-control">En estudios de caso-control</h4>
+<p>No se puede estimar las medidas comparativas para los valores predictivos puesto que involucran a la prevalencia.</p>
+<p><img src="../attachments/output_tema2_page36.png" style="width:80.0%;height:80.0%"></p>
+</section><section id="resultados-para-muestras-grandes" class="level4"><h4 class="anchored" data-anchor-id="resultados-para-muestras-grandes">Resultados para muestras grandes</h4>
+<div style="text-align: center; border: 1px solid black; padding: 5px;">
+<p><img src="../attachments/tema_02_resultados_grandes_datosnoparaeados_0.png" style="width: 75%; height: 75%;"></p>
+</div>
+<div style="text-align: center; border: 1px solid black; padding: 5px;">
+<p><img src="../attachments/tema_02_resultados_grandes_datosnoparaeados_1.png" style="width:75.0%;height:75.0%"><img src="../attachments/tema_02_resultados_grandes_datosnoparaeados_2.png" style="width:75.0%;height:75.0%"><img src="../attachments/tema_02_resultados_grandes_datosnoparaeados_3.png" style="width:75.0%;height:75.0%"></p>
+</div>
+<p><u><strong>Ejemplo 2.4.</strong></u></p>
+<p>Los siguientes datos corresponden a dos pruebas diagnósticas aplicadas a mujeres embarazadas en el primer trimestre de embarazo para diagnosticar anormalidades cromosómicas fetales. Estas pruebas son CVS (Chorionic villus sampling) y EA (Early amniocentesis). Las mujeres fueron aleatorizadas para recibir CVS o EA. Los datos obtenidos se resumen como:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>col1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">13</span><span class="op">)</span>,</span>
+<span>                 col2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">116</span>, <span class="fl">111</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Y=0"</span>, <span class="st">"Y=1"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">df_1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"EA"</span>,<span class="st">"CVS"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_1_extended</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">df_1</span>, <span class="st">"Total"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">df_1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df_1_extended</span> <span class="op">&lt;-</span> <span class="va">df_1_extended</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="st">"Total"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">df_1_extended</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df_1_extended</span></span>
+<span><span class="co">##       Y=0 Y=1 Total</span></span>
+<span><span class="co">## EA      6 116   122</span></span>
+<span><span class="co">## CVS    13 111   124</span></span>
+<span><span class="co">## Total  19 227   246</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>col1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4844</span>, <span class="fl">4765</span><span class="op">)</span>,</span>
+<span>                 col2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">34</span>, <span class="fl">111</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_0</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Y=0"</span>, <span class="st">"Y=1"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">df_0</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"EA"</span>,<span class="st">"CVS"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_0_extended</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">df_0</span>, <span class="st">"Total"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">df_0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df_0_extended</span> <span class="op">&lt;-</span> <span class="va">df_0_extended</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="st">"Total"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">df_0_extended</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df_0_extended</span></span>
+<span><span class="co">##        Y=0 Y=1 Total</span></span>
+<span><span class="co">## EA    4844  34  4878</span></span>
+<span><span class="co">## CVS   4765 111  4876</span></span>
+<span><span class="co">## Total 9609 145  9754</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>prueba EA: 122 + 4.878 = 5.000 prueba CVS: 124 + 4.876 = 5.000</p>
+<p>gente con problemas: 122 + 124 = 246 gente sin problemas: las otras = 5.000 + 5.000 - 246 = 9.754</p>
+<p><em>Algo ha pasado que ha dicho nuestro gozo en un pozo</em></p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Se_EA</span> <span class="op">=</span> <span class="fl">116</span> <span class="op">/</span> <span class="fl">122</span></span>
+<span><span class="va">Se_CVS</span> <span class="op">=</span> <span class="fl">111</span> <span class="op">/</span> <span class="fl">124</span></span>
+<span><span class="co"># rSe_est_EA_sobre_CVS</span></span>
+<span><span class="op">(</span><span class="va">rSE_est</span> <span class="op">=</span> <span class="va">Se_EA</span> <span class="op">/</span> <span class="va">Se_CVS</span><span class="op">)</span></span>
+<span><span class="co">## [1] 1.062177</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Uno_menos_Sp_EA</span> <span class="op">=</span> <span class="fl">1</span> <span class="op">-</span> <span class="fl">4844</span> <span class="op">/</span> <span class="fl">4878</span></span>
+<span><span class="va">Uno_menos_Sp_CVS</span> <span class="op">=</span> <span class="fl">1</span> <span class="op">-</span> <span class="fl">4765</span> <span class="op">/</span> <span class="fl">4876</span></span>
+<span><span class="co"># rSe_est_EA_sobre_CVS</span></span>
+<span><span class="op">(</span><span class="va">rUno_menos_Sp_est</span> <span class="op">=</span> <span class="va">Uno_menos_Sp_EA</span> <span class="op">/</span> <span class="va">Uno_menos_Sp_CVS</span><span class="op">)</span></span>
+<span><span class="co">## [1] 0.3061807</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">IC_log_rSe_est_EA_CVS</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rSE_est</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1.96</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.00137</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rSE_est</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1.96</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.00137</span><span class="op">)</span> <span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] -0.01222597  0.13286699</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">IC_rSe_est_EA_CVS</span> <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">IC_log_rSe_est_EA_CVS</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] 0.9878485 1.1420981</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">IC_log_rUno_menos_Sp_est_EA_CVS</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rUno_menos_Sp_est</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1.96</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.038</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rUno_menos_Sp_est</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1.96</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">0.038</span><span class="op">)</span> <span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] -1.5656541 -0.8015054</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">IC_rUno_menos_Sp_est_EA_CVS</span> <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">IC_log_rUno_menos_Sp_est_EA_CVS</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] 0.2089513 0.4486530</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">RC_log_rSe_est_log_rUno_menos_Sp_est_EA_CVS</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">IC_log_rSe_est_EA_CVS</span>, <span class="va">IC_log_rUno_menos_Sp_est_EA_CVS</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] -0.01222597  0.13286699 -1.56565410 -0.80150543</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">RC_rSe_estrUno_menos_Sp_est_EA_CVS</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">IC_log_rSe_est_EA_CVS</span>, <span class="va">IC_log_rUno_menos_Sp_est_EA_CVS</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] 0.9878485 1.1420981 0.2089513 0.4486530</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>En el 95 % de los casos con una muestra de igual tamaño y mismo comportamiento encontraríamos razón de sensibilidades de 0.98 a 1.14 por lo que no se puede asumir que ninguna prueba sea mejor que otra ya que el 1 está contenido en el intervalo de confianza.</p>
+<p>Con estas razones no podríamos decir que una prueba sea mejor que otra, no se cumple la condición i y consecuentemente la ii tampoco. Hay que mirar la iii.</p>
+<p>Al hacer un IC para ambas medidas conjuntamente debo subir levemente la confianza y construir una region como producto de los intervalos. Esta región de confianza no nos conviene ya que es aún más ancha debido a que hemos subido esa confianza.</p>
+<p>Respecto a la sensibilidad no tengo diferencias de comprtamiento entre ambas pruebas al 95 %. En una confianza del 90 % el intervalo será más pequeño y nos estaremos arriesgando más. (Calcularlo el 90 % a ver si sirve o no, tal vez podamos dar una respuesta clara con una confianza más pequeña)</p>
+<p>95 % en esa región vs 95 % en una prueba y 95 % en otra prueba.</p>
+</section></section><section id="estimación-de-medidas-de-comparación-en-datos-paradeados" class="level3"><h3 class="anchored" data-anchor-id="estimación-de-medidas-de-comparación-en-datos-paradeados">Estimación de medidas de comparación en datos paradeados</h3>
+<section id="resultados-para-muestras-grandes-1" class="level4"><h4 class="anchored" data-anchor-id="resultados-para-muestras-grandes-1">Resultados para muestras grandes</h4>
+<div style="text-align: center; border: 1px solid black; padding: 5px;">
+<p><img src="../attachments/tema_02_resultados_grandes_datosparaeados_0.png" style="width: 75%; height: 75%;"></p>
+</div>
+<div style="text-align: center; border: 1px solid black; padding: 5px;">
+<p><img src="../attachments/tema_02_resultados_grandes_datosparaeados_1_2.png" style="width:75.0%;height:75.0%"><img src="../attachments/tema_02_resultados_grandes_datosparaeados_2_3.png" style="width:75.0%;height:75.0%"></p>
+</div>
+</section></section><section id="eficiencia-de-diseños-pareados-frente-no-pareados" class="level3"><h3 class="anchored" data-anchor-id="eficiencia-de-diseños-pareados-frente-no-pareados">Eficiencia de diseños pareados frente no pareados</h3>
+<p>Queremos comparar la precisión de la estimación de rSe(A,B) en estudios pareados y no pareados.</p>
+<p>Supondremos que en el diseño no pareado se tiene <span class="math inline">\(n_D(A) = n_D(B)\)</span>.</p>
+<p>Y también coincide la cantidad de individuos sanos que realizan ambas pruebas.</p>
+<p>En el diseño no pareado participa el doble de sujetos que en el diseño pareado</p>
+<p>Para comparar la precisión de la estimación comparamos la varianza de la estimación de <span class="math inline">\(rSe(A,B)\)</span> en cada diseño.</p>
+<p>Para diseños no pareados con muestras grandes y <span class="math inline">\(n_D(A) = n_D(B)\)</span>:</p>
+<p><span class="math display">\[
+Var\left(\log \widehat{rSe}(A,B)\right) = \frac{1}{n_D} \left( \frac{\text{Se}(A) + \text{Se}(B) - 2\text{Se}(A)\text{Se}(B)}{\text{Se}(A) \cdot \text{Se}(B)} \right)
+\]</span></p>
+<p>Que se relaciona con la varianza de un diseño pareado del modo siguiente:</p>
+<p><span class="math display">\[
+\text{Var}_{\text{no pareado}}\left( \log \widehat{rSe}(A,B) \right) - \text{Var}_{\text{pareado}}\left( \log \widehat{rSe}(A,B) \right) = \frac{2}{n_D} \left( \frac{\text{TPPF}}{\text{Se}(A) \cdot \text{Se}(B)} - 1 \right)
+\]</span></p>
+<p>Si las pruebas son condicionalmente independientes, entonces los diseños pareados y no pareados son igualmente eficientes.</p>
+<div class="recuardro_1">
+<p><strong>Medidas de asociación entre las pruebas.</strong></p>
+<p><span class="math display">\[
+A_D(A,B) = \frac{P(Y_A = 1, Y_B = 1 / D = 1)}{P(Y_A = 1 / D = 1)P(Y_B = 1 / D = 1)} = \frac{\text{TPPF}}{\text{Se}(A) \cdot \text{Se}(B)}
+\]</span></p>
+<p>Suponemos en que el mismo número de individuos en A que en B, por lo que el diseño tiene el doble tamaño que en el pareado.</p>
+<p>Para comparar la precisión de las estiamciones, la única medida que tengo es el cociente entre las probabilidades de clasificacion.</p>
+<p>Obtamos por comparar la varianza del cociente (<span class="math inline">\(rSe\)</span>) en el diseño no pareado con la varianza en el diseño pareado.</p>
+<p>No comparo las pruebas. Sino que tengo dos pruebas para comparar y podemos compararlas en un diseño pareado o en un diseño no pareado. Prefiriendo elegir un diseño que introduzca la menor variabilidad posible para poder comparar las pruebasdiagnósticas mejor.</p>
+<p><strong>Interpretación.</strong></p>
+<ul>
+<li><p><span class="math inline">\(Α_D(A,B)\)</span>. Riesgo relativo de tener un resultado positivo con un test cuando ya se ha observado un resultado positivo con el otro test.</p></li>
+<li><p><span class="math inline">\(Α_D(A,B) &gt; 1\)</span>. Asociación positiva. Los diseños pareados son más eficientes que los no pareados para estimar <span class="math inline">\(rSe(A,B)\)</span>.</p></li>
+</ul>
+<p>Muestras pequeñas -&gt; Simulación.</p>
+<p>De manera análoga se puede comparar la eficiencia de los diseños comparando la varianza del estimador de <span class="math inline">\(r(1-Sp(A,B)\)</span> en ambos estudios.</p>
+<p>La medida de asociación entre las pruebas es:</p>
+<p><span class="math display">\[
+A_\overline{D}(A,B) = \frac{P(Y_A = 1, Y_B = 1 / D = 0)}{P(Y_A = 1 / D = 0)P(Y_B = 1 / D = 0)} = \frac{\text{TPPF}}{\text{Se}(A) \cdot \text{Se}(B)}
+\]</span></p>
+<p>Los diseños pareados son más eficientes para estimar <span class="math inline">\(r(1-Sp(A,B))\)</span> cuando <span class="math inline">\(A_\overline{D} &gt; 1\)</span>.</p>
+<p>Si son condicionalmente independientes me da igual un modelo pareado que un modelo no parado para compararlas (si se puede aplicar las dos pruebas diagnósticas a un mismo individuo, claro).</p>
+<p>Aunque<span class="math inline">\(n\)</span> no sea grande, el método sigue siendo válido siempre que tengamos al menos cinco observaciones en los falsos negativos y cinco en los falsos positivos (que conste que ha dicho “cinco falsos positivos Y cinco falsos negativos”, que luego me acusa de ser literal y decirlo mal). En este caso, se puede aplicar una metodología asintótica basada en resultados recientes.</p>
+</div>
+<p><u><strong>Ejemplo 2.2.</strong></u></p>
+<p><img src="../attachments/output_tema2_page48.png" style="width:100.0%;height:80.0%"><img src="../attachments/output_tema2_page49.png" style="width:100.0%;height:80.0%"><img src="../attachments/output_tema2_page50.png" style="width:100.0%;height:80.0%"><img src="../attachments/output_tema2_page51.png" style="width:100.0%;height:80.0%"></p>
+<p>Estimación de la sensibilidad en cada prueba.</p>
+<ul>
+<li><p>Para EST.</p></li>
+<li><p>En el modelo pareado. Tengo 1.023 enfermos. (voy a enfermos y ver que tienen resultados positivos en una y en otra). De 1023 enfermos hay 815 positivos.</p></li>
+<li><p>En el modelo no pareado. Tengo 1023 enfermos y 815 positivos.</p></li>
+</ul>
+<p><strong>DISEÑO PAREADO.</strong></p>
+<p><span class="math inline">\(\widehat{rSe}(CPH,EST) = \frac{\frac{969}{1023}}{\frac{815}{1023}} = \frac{969}{815} = 1.1889\)</span>. CPH detecta casi un 20 % más enfermos que EST<br><span class="math inline">\(IC_{95}(\widehat{rSe}) = (1.151, 1.228)\)</span><br><span class="math inline">\(IC_{95}(\widehat{r(1-Sp)}) = (1.790, 2.535)\)</span></p>
+<p><strong>DISEÑO NO PAREADO.</strong></p>
+<p><span class="math inline">\(\widehat{rSe}(CPH,EST) = \frac{\frac{969}{1023}}{\frac{815}{1023}} = \frac{969}{815} = 1.1889\)</span>. CPH detecta casi un 20 % más enfermos que EST. (el ejercicio está hecho para que den los mismos números)<br><span class="math inline">\(IC_{95}(\widehat{rSe}) = (1.149, 1.229)\)</span><br><span class="math inline">\(IC_{95}(\widehat{r(1-Sp)}) = (1.783, 2.546)\)</span></p>
+<p><strong>Intervalos obtenidos en el diseño no pareado muy similares a los obtenidos para el diseño pareado</strong></p>
+<p><strong><span class="math inline">\(\hat{A}_\overline{D}(CPH,EST) = 1.018\)</span>. Es pracitcamente 1. Usar una misma muestra para realizar las dos pruebas o dos muestras independientes que realice cada una una de las pruebas es, a fectos de estimacion y de variabildiad, lo misma. No hay ventaja en buscar un único grupo que realice ambas pruebas.</strong></p>
+<p><span class="math inline">\(\hat{A}_\overline{D}(CPH,EST) = 1.018\)</span> = frecuencia de individuos sanos con dos pruebas positivas vs individuos sanos con priemra positiva * individuos sanos con segunda positiva. Si el valor estimado hubiera sido 3.25, se diría que la prueba CPH detecta 3.25 veces más enfermos que la prueba de EST.</p>
+<p><span class="math inline">\(r(Se(EST, CPH)) = 815/969 = 0.84\)</span>. La prueba EST detecta un 20 % más de qué, de enfermos.</p>
+
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
+      <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_I.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño muestral (I) <span style="color:green;">✓</span></span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../tema_02/tema_02_3_curvas_roc.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:green;">✓</span></span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

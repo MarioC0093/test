@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../tema_02/tema_02_1_2_cohortes_y_casos_control.html" rel="next">
+<link href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_I.html" rel="next">
 <link href="../tema_02/tema_02.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -99,7 +99,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tema_02/tema_02.html">TEMA 2</a></li><li class="breadcrumb-item"><a href="../tema_02/tema_02_1_introduccion.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">1.1. Conceptos básicos <span style="color:green;">✓</span></span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tema_02/tema_02.html">TEMA 2</a></li><li class="breadcrumb-item"><a href="../tema_02/tema_02_1_introduccion.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">1. Conceptos básicos <span style="color:green;">✓</span></span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -183,32 +183,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">1.1. Conceptos básicos <span style="color:green;">✓</span></span></a>
+  <a href="../tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">1. Conceptos básicos <span style="color:green;">✓</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_1_2_cohortes_y_casos_control.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1.2 Estudios de cohorte y casos-control <span style="color:green;">✓</span></span></a>
+  <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_I.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño muestral (I) <span style="color:green;">✓</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño mmuestral <span style="color:red;">✗</span></span></a>
+  <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_II.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño muestral (II) <span style="color:green;">✓</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_2_28_11_2024.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">tema_2_28_11_2024</span></a>
+  <a href="../tema_02/tema_02_3_curvas_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:green;">✓</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_3_curvas_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:red;">✗</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tema_02/tema_02_3_curvas_roc_final.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">curvas ROC - segunda parte</span></a>
+  <a href="../tema_02/tema_02_4_tamanyos_muestrales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Determinación de tamaños muestrales</span></a>
   </div>
 </li>
       </ul>
@@ -258,24 +253,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">In this page</h2>
    
   <ul>
-<li>
-<a href="#tests-binarios" id="toc-tests-binarios" class="nav-link active" data-scroll-target="#tests-binarios">Tests binarios</a>
-  <ul>
-<li><a href="#odds" id="toc-odds" class="nav-link" data-scroll-target="#odds">Odds</a></li>
+<li><a href="#tests-binarios" id="toc-tests-binarios" class="nav-link active" data-scroll-target="#tests-binarios">Tests binarios</a></li>
+  <li><a href="#probabilidades-de-clasificaci%C3%B3n" id="toc-probabilidades-de-clasificación" class="nav-link" data-scroll-target="#probabilidades-de-clasificaci%C3%B3n">Probabilidades de clasificación</a></li>
   <li>
-<a href="#razones-de-verosimilitud-diagnostic-likelihood-ratio" id="toc-razones-de-verosimilitud-diagnostic-likelihood-ratio" class="nav-link" data-scroll-target="#razones-de-verosimilitud-diagnostic-likelihood-ratio">Razones de verosimilitud (Diagnostic Likelihood Ratio)</a>
+<a href="#valores-predictivos" id="toc-valores-predictivos" class="nav-link" data-scroll-target="#valores-predictivos">Valores predictivos</a>
   <ul>
 <li><a href="#utilidad" id="toc-utilidad" class="nav-link" data-scroll-target="#utilidad">Utilidad</a></li>
   </ul>
 </li>
-  <li><a href="#diferencias-entre-odds-y-dlr" id="toc-diferencias-entre-odds-y-dlr" class="nav-link" data-scroll-target="#diferencias-entre-odds-y-dlr">Diferencias entre Odds y DLR</a></li>
+  <li><a href="#odds" id="toc-odds" class="nav-link" data-scroll-target="#odds">Odds</a></li>
+  <li>
+<a href="#razones-de-verosimilitud-diagnostic-likelihood-ratio" id="toc-razones-de-verosimilitud-diagnostic-likelihood-ratio" class="nav-link" data-scroll-target="#razones-de-verosimilitud-diagnostic-likelihood-ratio">Razones de verosimilitud (Diagnostic Likelihood Ratio)</a>
+  <ul>
+<li><a href="#utilidad-1" id="toc-utilidad-1" class="nav-link" data-scroll-target="#utilidad-1">Utilidad</a></li>
   </ul>
 </li>
+  <li><a href="#diferencias-entre-odds-y-dlr" id="toc-diferencias-entre-odds-y-dlr" class="nav-link" data-scroll-target="#diferencias-entre-odds-y-dlr">Diferencias entre Odds y DLR</a></li>
+  <li><a href="#diferencias-entre-valores-predictivos-y-dlr" id="toc-diferencias-entre-valores-predictivos-y-dlr" class="nav-link" data-scroll-target="#diferencias-entre-valores-predictivos-y-dlr">Diferencias entre valores predictivos y DLR</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span class="chapter-title">1.1. Conceptos básicos <span style="color:green;">✓</span></span></h1>
+<h1 class="title"><span class="chapter-title">1. Conceptos básicos <span style="color:green;">✓</span></span></h1>
 </div>
 
 
@@ -290,12 +289,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header><p><u><strong>Test o prueba diagnóstica</strong></u></p>
 <p><strong>Cada prueba diagnóstica tiene por detrás el cómo se he escogido esa muestra.</strong></p>
-<p>En sentido general, es cualquier prueba que sirve para determinar la naturaleza de una condición particular.</p>
-<p>En el ámbito médico, es cualquier prueba clínica que se realiza para ayudar en la diagnosis o detección de una enfermedad.</p>
-<p>No confundir con los test a los que suponemos los estadísticos de una hipótesis. (sí, ya, bueno, me parece lógico no confundirlos)</p>
-<p>Se crea para analizar la naturaleza de una determinada condición. En el ámbito médico, cuando el resultado de una prueba sea X podemos decir que una persona puede tener la enfermedad.</p>
+<p>En general, es cualquier prueba que sirve para determinar la naturaleza de una condición en particular.</p>
+<p>En el ámbito médico, es cualquier prueba clínica que se realiza para ayudar en la diagnosis o detección de una enfermedad. Cuando el resultado de una prueba sea X podemos decir que una persona [<strong>puede tener</strong>]{bck_color_02} la enfermedad. (el diagnóstico no lo hace es test)</p>
 <p>Introducimos la idea de que una cosa es que el paciente tenga una enfermedad y otra que el test diga que esa persona tiene esa enfermedad.</p>
-<p>Clasificación de las pruebas diagnóstica <strong>según el tipo de resultado</strong>:</p>
+<p>No confundir con los test a los que suponemos los estadísticos de una hipótesis. (sí, ya, bueno, me parece obvio no confundirlos)</p>
+<p><strong>Clasificación</strong> de las pruebas diagnóstica <strong>según el tipo de resultado</strong>:</p>
 <ul>
 <li>
 <strong>Binario</strong>. Dos posibles resultados (padecer o no la enfermedad).</li>
@@ -305,8 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <strong>Continuos (biomarcador)</strong>. El resultado del test toma valores en una escala continua, tiene algún tipo de unidad e incluso puede tener un intervalo de valores como resultado.</li>
 </ul>
 <p>La metodología en los casos que no son binarios adapta la metodología de los casos binarios. <strong>El resultado final es que dada una condición binaria</strong> (pertenece a la categoría ordinal a, tiene un marcador por encima de un punto) <strong>tiene o no la enfermedad</strong>.</p>
-<p>Sea X el resultado de la prueba diagnóstica de un individuo, dada la característica del individuo intento asociarla a un estado del individio.</p>
-<p>Clasificación de las pruebas diagnóstica <strong>según la forma de elegir los individuos</strong>:</p>
+<p><strong>Clasificación</strong> de las pruebas diagnóstica <strong>según la forma de elegir los individuos</strong>:</p>
 <ul>
 <li>
 <strong>Estudios de cohorte</strong>. Dada una muestra de la población objetivo se les aplica la prueba diagnóstica. También se recoge la información sobre el estado real de la enfermedad en estos sujetos utilizando una prueba de referencia (gold standard).
@@ -382,12 +379,24 @@ Verdadero estado de la enfermedad
 </div>
 </div>
 <p>El test da el resultado para la enfermedad, no el diagnóstoco. Queremos medir si la prueba diagnóstica es válida para que, cuando esta de positivo o negativo, una persona 100tífika pueda tomar una decisión en base a esa prueba.</p>
+<div class="recuadro_1">
+<p><u><strong>Medidas asociadas a un test.</strong></u></p>
+<p><strong>Probabilidades de clasificación (correcta a un individuo).</strong><br>
+- Se<br>
+- 1-Sp</p>
+<p><strong>Probabilidad de emitir un diagnóstico erróneo (contexto no médico).</strong></p>
+<p><strong>Valores predictivos.</strong></p>
+<p><strong>Razón de verosimilitudes.</strong><br>
+- Odds pre-test<br>
+- Odds post test</p>
+</div>
+</section><section id="probabilidades-de-clasificación" class="level2"><h2 class="anchored" data-anchor-id="probabilidades-de-clasificación">Probabilidades de clasificación</h2>
 <p><strong>A partir de las probabilidades de estos sucesos se definen las siguientes probabilidades.</strong></p>
 <ul>
 <li>
 <strong>Probabilidades de acierto</strong>. Probabilidades que determinan cómo de válidas son las pruebas que estamos midiendo</li>
 <li>
-<strong>Probabilidades de fallo</strong>. Ya que creamos las probabiliades de error</li>
+<strong>Probabilidades de fallo</strong>. Consecuencia de haber creado las probabilidades de acierto.</li>
 </ul>
 <div class="recuadro_1">
 <p><u><strong>Probabilidades de acierto.</strong></u></p>
@@ -404,6 +413,11 @@ Verdadero estado de la enfermedad
 <p><span class="math display">\[p(FN) = 1 - Se = 1 - p(Y = 1 | D = 1) = p(Y = 0 | D = 1)\]</span></p>
 <p><strong>Probabilidad de falsos positivos.</strong> Probabilidad de clasificar erróneamente a un sano.</p>
 <p><span class="math display">\[p(FN) = 1 - Sp = 1 - p(Y = 0 | D = 0) = p(Y = 1 | D = 0)\]</span></p>
+</div>
+<div class="recuadro_1">
+<p><u><strong>Probabilidades de clasificar como positivo.</strong></u></p>
+<p><strong>Sensibilidad.</strong> <span class="math inline">\(Se = p(Y = 1 | D = 1)\)</span></p>
+<p><strong>1 - especificidad.</strong> <span class="math inline">\(1 - Sp = 1 - p(Y = 0 | D = 0) = p(Y = 1 | D = 0)\)</span></p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -465,30 +479,23 @@ Verdadero estado de la enfermedad
 </ul>
 </li>
 </ul>
-<div class="recuadro_1">
-<p><u><strong>Medidas asociadas a un test.</strong></u></p>
-<p>medidas de clasificacion, probabilidades de clasificar bien a un individuo.</p>
-<p><strong>Probabilidades de clasificación (correcta a un individuo).</strong><br>
-- Se - 1-Sp</p>
-<p><strong>Probabilidad de emitir un diagnóstico erróneo (contexto no médico).</strong></p>
-<p><strong>Valores predictivos.</strong></p>
-<p><strong>Razón de verosimilitudes.</strong><br>
-- Odds pre-test - Odds post test</p>
-</div>
-<p><strong>Si quiero hacer una compartaiva con varias pruebas diagnósticas</strong>, al tener dos medidas, ¿cuál priorizo para la comprativa? (novio guapo y pobre vs novio feo y rico)</p>
+<p><strong>Si quiero hacer una compartaiva con varias pruebas diagnósticas, ¿qué métrica priorizo para la comprativa?</strong> (novio guapo y pobre vs novio feo y rico)</p>
 <p><strong>Necesitamos una escala doble</strong>. Así podemos pasar nuestra decision en una comparativa donde las dos comparativas iniciales están reducidas a una única dimensión.</p>
 <p><span class="math display">\[
 \begin{aligned}
-p(\text{emitir un diagnóstico erróneo}) &amp;= p(Y \neq D) \\
+p(\text{"emitir un resultado erróneo"}) &amp;= p(Y \neq D) \\
 &amp;= p(FP) + p(FN) \\
 &amp;= p(Y=1 \cap D=0) + p(Y=0 \cap D=1) \\
 &amp;= p(Y=1 | D=0) \cdot p(D=0) + p(Y=0 | D=1) \cdot p(D=1) \\
 &amp;= (\text{un error}) \cdot p(D=0) + p(\text{otro error}) \cdot \rho \\
 &amp;= (1 - \text{Sp}) \cdot (1-\rho) + (1 - \text{Se}) \cdot \rho
 \end{aligned}
-\]</span></p>
-<p><strong>Esto me dice cuál de los dos errores tiene más “importancia”.</strong></p>
-<p>Pensar en el significado que tiene una prevalencia alta o baja en relación con cada uno de los errores. <em>A mayor prevalencia da más peso a tal error porque…</em></p>
+\]</span><br>
+::: recuadro_1 <strong>Cuál de los dos errores tiene más “importancia”.</strong></p>
+<ul>
+<li>Si <span class="math inline">\(\rho &gt; 0.5 \Rightarrow\)</span> más peso <span class="math inline">\(1-Se \Rightarrow\)</span> más peso los FN.</li>
+<li>Si <span class="math inline">\(\rho &lt; 0.5 \Rightarrow\)</span> más peso <span class="math inline">\(1-Sp \Rightarrow\)</span> más peso los FP. :::</li>
+</ul>
 <p><u><strong>Ejemplo.</strong></u></p>
 <p>Imaginemos una una prueba diagnóstica que siempre da positivo a cualquier individuo.</p>
 <p><span class="math inline">\(p(Y=1 | D=0) = p(Y=1 | D=1) = 1.\)</span></p>
@@ -498,20 +505,22 @@ p(\text{emitir un diagnóstico erróneo}) &amp;= p(Y \neq D) \\
 <li><p>La prueba no me sirve para nada porque no discrimina.</p></li>
 </ul>
 <p>Cuando comparamos entre varias prueba diagnóstica tenemos dos medidas que evalúan la calidad de cada una de las pruebas. Para lidiar ese problema usamos otra medida mediante los valores predictivos y las razones de verosimilitudes.</p>
+</section><section id="valores-predictivos" class="level2"><h2 class="anchored" data-anchor-id="valores-predictivos">Valores predictivos</h2>
 <p><strong><em>Vale, mijo, pero cuando yo hago un test y tengo un positivo, ¿qué hago?</em></strong></p>
 <p>Desde un punto de vista clínico, la utilidad de una test recae en tener el resultado de la prueba y hacer un diagnóstico.</p>
-<p>La utilidad de una prueba diagnóstica puede cuantificarse analizando las posibilidades de que el resultado de la prueba prediga el verdadero estado del sujeto.</p>
+<p>La utilidad de una prueba diagnóstica puede cuantificarse analizando <strong>las posibilidades o PROBABILIDADES de que el resultado de la prueba diagnóstica sea capaz de predecir el verdadero estado del sujeto</strong>.</p>
+<div class="recuadro_1">
 <p><strong>Valor predictivo positivo</strong>: <span class="math inline">\(PPV = P(D=1 | Y=1)\)</span><br><strong>Valor predictivo negativo</strong>: <span class="math inline">\(NPV = P(D=0 | Y=0)\)</span></p>
 <p>Es decir:</p>
 <ul>
-<li>Si da un resultado positivo, ¿cuál es la probabilidad de que realmente esté enfermo?<br>
-</li>
-<li>Si da un resultado negativo, ¿cuál es la probabilidad de que realmente esté sano?</li>
+<li><strong>Si da un resultado positivo, ¿cuál es la probabilidad de que realmente esté enfermo?</strong></li>
+<li><strong>Si da un resultado negativo, ¿cuál es la probabilidad de que realmente esté sano?</strong></li>
 </ul>
-<p>Test ideal: PPV = NPV = 1<br>
-Test sin utilidad: PPV = <span class="math inline">\(\rho\)</span> y NPV = 1 - <span class="math inline">\(\rho\)</span></p>
+<p>Test ideal: PPV = NPV = 1</p>
+<p>Test sin utilidad: PPV = <span class="math inline">\(\rho\)</span> y NPV = 1 - <span class="math inline">\(\rho\)</span></p>
 <p><strong>Los valores predictivos dependen de la prevalencia.</strong></p>
 <p><strong>Que un test sea más sensible o más específico no depende de la prevalencia.</strong></p>
+</div>
 <p><u><strong>Ejemplo 2.1.</strong></u></p>
 <p>Se considera una prueba para diagnosticar el cáncer de mama. Supongamos que la prevalencia en la población femenina es del 1%. En un estudio caso-control las probabilidades de resultados positivos del test fueron 0,85 dentro de los casos y 0,03 dentro de los controles. ¿Cuáles son los valores predictivos positivo y negativo?</p>
 <p>Que sea de caso-control ahora me vale verga no me sirve para nada en este punto de evaluacion del modelo.</p>
@@ -540,29 +549,84 @@ Test sin utilidad: PPV = <span class="math inline">\(\rho\)</span> y NPV = 1 - <
 </li>
 <li>NPV=1: que cuando la prueba da negativo la probabilidad de que el individuo sea un negativo es 1 AKA todos los negativos son TN.</li>
 </ul>
-<p><u>Utilidad</u>: ¿podemos hacer una criba?</p>
+<section id="utilidad" class="level3"><h3 class="anchored" data-anchor-id="utilidad">Utilidad</h3>
+<p>¿Podemos hacer una criba?</p>
 <p>Para una persona que da un resultado negativo tenemos una probabilidad muy alta de no tener la enfermedad (0.9984). <strong>Es importante asegurarse de que si a una paciente se le dice que está sano realmente lo esté.</strong></p>
 <p>La prueba no sirve para diagnosticar un positivo de la muestra. Para los individuos donde la prueba dé positivo o repito la prueba o hago otro test diferente.</p>
 <p>¿Qué miramos en esta prueba o qué utilidad le damos? Aquello que nos conviene: los resultados o las probabilidades altas.</p>
-<section id="odds" class="level3"><h3 class="anchored" data-anchor-id="odds">Odds</h3>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 36%">
+<col style="width: 56%">
+</colgroup>
+<thead><tr class="header">
+<th><strong>Métrica</strong></th>
+<th><strong>Interpretación</strong></th>
+<th><strong>Ejemplo</strong></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>VPP &gt; 90%</strong></td>
+<td>La prueba tiene un excelente valor predictivo positivo, indicando alta probabilidad de enfermedad en positivos.</td>
+<td>“Con un VPP de 95%, podemos decir que 95 de cada 100 pacientes con un resultado positivo en esta prueba realmente tienen la enfermedad, lo que la hace altamente confiable para confirmar el diagnóstico.”</td>
+</tr>
+<tr class="even">
+<td><strong>VPP entre 70%-90%</strong></td>
+<td>La prueba tiene un buen valor predictivo positivo, útil para confirmar la enfermedad.</td>
+<td>“Un VPP de 80% significa que 8 de cada 10 pacientes con resultado positivo tienen la enfermedad, lo que hace que esta prueba sea útil, pero no definitiva.”</td>
+</tr>
+<tr class="odd">
+<td><strong>VPP entre 50%-70%</strong></td>
+<td>La prueba tiene una utilidad moderada, pero debe usarse con precaución para confirmar la enfermedad.</td>
+<td>“Con un VPP de 60%, aunque la prueba identifica correctamente a la mayoría de los positivos, hay un riesgo significativo de falsos positivos, lo que podría llevar a sobretratamientos.”</td>
+</tr>
+<tr class="even">
+<td><strong>VPP &lt; 50%</strong></td>
+<td>La prueba tiene un bajo valor predictivo positivo y es poco fiable para confirmar la enfermedad.</td>
+<td>“Un VPP de 40% indica que menos de la mitad de los pacientes con un resultado positivo realmente tienen la enfermedad, lo que limita su utilidad diagnóstica.”</td>
+</tr>
+<tr class="odd">
+<td><strong>VPN &gt; 90%</strong></td>
+<td>La prueba tiene un excelente valor predictivo negativo, útil para descartar la enfermedad.</td>
+<td>“Con un VPN de 98%, podemos afirmar que 98 de cada 100 pacientes con un resultado negativo realmente no tienen la enfermedad, lo que garantiza confianza en descartar el diagnóstico.”</td>
+</tr>
+<tr class="even">
+<td><strong>VPN entre 70%-90%</strong></td>
+<td>La prueba tiene un buen valor predictivo negativo, adecuada para descartar la enfermedad.</td>
+<td>“Un VPN de 85% implica que, aunque no perfecto, la mayoría de los pacientes con resultados negativos están libres de enfermedad, lo que da tranquilidad en el diagnóstico.”</td>
+</tr>
+<tr class="odd">
+<td><strong>VPN entre 50%-70%</strong></td>
+<td>La prueba tiene utilidad limitada para descartar la enfermedad.</td>
+<td>“Con un VPN de 65%, la prueba reduce la probabilidad de enfermedad en negativos, pero no lo suficiente como para descartar por completo el diagnóstico.”</td>
+</tr>
+<tr class="even">
+<td><strong>VPN &lt; 50%</strong></td>
+<td>La prueba tiene un bajo valor predictivo negativo y es poco fiable para descartar la enfermedad.</td>
+<td>“Un VPN de 45% significa que menos de la mitad de los resultados negativos están libres de enfermedad, lo que genera dudas sobre su utilidad para descartar casos.”</td>
+</tr>
+</tbody>
+</table></section></section><section id="odds" class="level2"><h2 class="anchored" data-anchor-id="odds">Odds</h2>
 <p><strong>Dependen de la prevalencia.</strong></p>
 <p>Representan la razón entre la probabilidad de que ocurra un evento y la probabilidad de que no ocurra.</p>
 <p><span class="math display">\[Odds = \frac{p(D=1)}{1-p(D=1)}\]</span></p>
 <p>Se interpretan como _<strong>por cada vez que ocurre el evento, hay x veces en las que el evento no ocurre_</strong>.</p>
-</section><section id="razones-de-verosimilitud-diagnostic-likelihood-ratio" class="level3"><h3 class="anchored" data-anchor-id="razones-de-verosimilitud-diagnostic-likelihood-ratio">Razones de verosimilitud (Diagnostic Likelihood Ratio)</h3>
+</section><section id="razones-de-verosimilitud-diagnostic-likelihood-ratio" class="level2"><h2 class="anchored" data-anchor-id="razones-de-verosimilitud-diagnostic-likelihood-ratio">Razones de verosimilitud (Diagnostic Likelihood Ratio)</h2>
 <p><strong>No dependen de la prevalencia</strong>: son medidas inherentes a la prueba diagnóstica.</p>
-<p>Se trata de razones de verosimilitud utilizadas en el contexto de pruebas diagnósticas para medir la capacidad de una prueba para diferenciar entre personas con y sin enfermedad.</p>
-<p>Indican cómo de plausible/admisible es algo.</p>
+<p>Utilizadas en el contexto de pruebas diagnósticas <strong>para medir la capacidad de una prueba para diferenciar entre personas con y sin enfermedad</strong>.</p>
+<p><strong>Indican la verosimilitud de</strong> o cómo de creíble/plausible/admisible son <strong>los resultados positvos y los resultados negativos</strong>.</p>
 <p><span class="math inline">\(DLR^{???} = \frac{P(Y=??? | D=111)}{P(Y=??? | D=000)}, \quad DLR^{???} \in (0, \infty)\)</span></p>
 <div class="recuadro_1">
 <p><strong>Razón de verosimilitud de diagnóstico positivo:</strong> se trata de una comparación de dos situaciones donde tengo resultados positivos. <span class="math inline">\(DLR^+ = \frac{P(Y=1 | D=1)}{P(Y=1 | D=0)} = \frac{Se}{1 - Sp}, \quad DLR^+ \in (0, \infty)\)</span></p>
 <p><strong>Cuánto más probable es obtener un resultado positivo en alguien con la enfermedad comparado con alguien sin la enfermedad.</strong></p>
 </div>
-<p>Comparo cómo de creible es tener un positivo en los sanos respecto a tener un positivo en los enfermos. Lo idóneo es tener unas razones de verosimilutd altas, ya que refleja que hay mucha más probabilidad de tener positivos en los enfermos de tener positivos en los sanos.</p>
+<p>Comparo cómo de creible es tener un positivo en los sanos respecto a tener un positivo en los enfermos. Lo idóneo es tener unas razones de verosimiltud positivas altas, ya que refleja que hay mucha más probabilidad de tener positivos en los enfermos que de tener positivos en los sanos.</p>
 <div class="recuadro_1">
 <p><strong>Razón de verosimilitud de diagnóstico negativo:</strong> se trata de una comparación de dos situaciones donde tengo resultados negativos. <span class="math inline">\(DLR^- = \frac{P(Y=0 | D=1)}{P(Y=0 | D=0)} = \frac{1 - Se}{Sp}, \quad DLR^- \in (0, \infty)\)</span></p>
 <p><strong>Cuánto más probable es obtener un resultado negativo en alguien con la enfermedad comparado con alguien sin la enfermedad.</strong></p>
 </div>
+<p>Comparo cómo de creible es tener un negativo en los sanos respecto a tener un negativo en los enfermos. Lo idóneo es tener unas razones de verosimiltud negativas bajas, ya que refleja que hay mucha menos probabilidad de tener negativo en los enfermos que de tener negativo en los sanos.</p>
 <p><span class="bck_color_02"><strong>Test ideal:</strong></span></p>
 <ul>
 <li>Pensemos:
@@ -573,7 +637,7 @@ Test sin utilidad: PPV = <span class="math inline">\(\rho\)</span> y NPV = 1 - <
 </li>
 </ul>
 </li>
-<li>Si no llegamos a ese punto, <strong>al menos</strong>:
+<li>Si no llegamos a ese punto, <span class="bck_color_02"><strong>al menos</strong></span>:
 <ul>
 <li>
 <span class="bck_color_02"><span class="math inline">\(DLR^+ \ge 1\)</span></span><br>
@@ -590,10 +654,25 @@ Test sin utilidad: PPV = <span class="math inline">\(\rho\)</span> y NPV = 1 - <
 <li>Ambos puntos se resumen en que un test no informativo es aquel que: <span class="math inline">\(DLR^+ = DLR^- = 1\)</span>
 </li>
 </ul>
-<p><span class="bck_color_02"><strong>Test que no quiero:</strong></span> - El test no tiene mayor probabilidad de resultado positivo en el grupo de los enfermos que en el grupo de los sanos. <span class="math inline">\(\Rightarrow DLR^+ \lt 1\)</span>.<br>
-- El test no tiene mayor probabilidad de resultado negativo en el grupo de los sanos que en el grupo de los enfermos. <span class="math inline">\(\Rightarrow DLR^- \gt 1\)</span>.</p>
-<p><strong>Las razones de verosimilitud cuantifican el conocimiento que se ha ganado acerca de la presencia de la enfermedad tras realizar el test</strong> AKA <strong>sirven para evaluar la utilidad de una prueba diagnóstica.</strong></p>
-<p>Pasamos te comparar <em>probabilidad de tener la enfermedad vs probabilidad de no tenerla</em> a comparar <em>probabilidad de tener la enfermedad sabiendo el resultados del test vs.&nbsp;probabilidad de no tener la enfermedad sabiendo el resultado del test</em>.</p>
+<p><span class="bck_color_02"><strong>Test que no quiero:</strong></span></p>
+<ul>
+<li>El test no tiene mayor probabilidad de resultado positivo en el grupo de los enfermos que en el grupo de los sanos. <span class="math inline">\(\Rightarrow DLR^+ \lt 1\)</span>.<br>
+</li>
+<li>El test no tiene mayor probabilidad de resultado negativo en el grupo de los sanos que en el grupo de los enfermos. <span class="math inline">\(\Rightarrow DLR^- \gt 1\)</span>.</li>
+</ul>
+<p>Las razones de verosimilitud cuantifican el <strong>conocimiento que se ha ganado</strong> acerca de la presencia de la enfermedad <strong>tras realizar el test</strong> AKA <strong>sirven para evaluar la utilidad de una prueba diagnóstica.</strong></p>
+<p>Pasamos de comparar <em>probabilidad de tener la enfermedad vs probabilidad de no tenerla</em> a comparar <em>probabilidad de tener la enfermedad sabiendo el resultados del test vs.&nbsp;probabilidad de no tener la enfermedad sabiendo el resultado del test</em>.</p>
+<p><span class="math display">\[
+\displaylines{
+\text{probabilidad de tener la enfermedad} \\
+\text{vs.} \\
+\text{probabilidad de no tenerla} \\
+{\Downarrow} \\
+\text{probabilidad de tener la enfermedad sabiendo el resultados del test} \\
+\text{vs.} \\
+\text{probabilidad de no tenerla sabiendo el resultados del test}  \\
+}
+\]</span></p>
 <table class="table">
 <colgroup>
 <col style="width: 33%">
@@ -618,7 +697,61 @@ Test sin utilidad: PPV = <span class="math inline">\(\rho\)</span> y NPV = 1 - <
 </tr>
 </tbody>
 </table>
-<section id="utilidad" class="level4"><h4 class="anchored" data-anchor-id="utilidad">Utilidad</h4>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 44%">
+<col style="width: 44%">
+</colgroup>
+<thead><tr class="header">
+<th><strong>Valor del DLR</strong></th>
+<th><strong>Interpretación</strong></th>
+<th><strong>Ejemplo</strong></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>DLR+ &gt; 10</strong></td>
+<td>Prueba diagnóstica muy útil para confirmar la enfermedad.</td>
+<td>“Con un DLR+ de 12, esta prueba tiene un alto valor confirmatorio, ya que los pacientes positivos tienen 12 veces más probabilidades de tener la enfermedad que los negativos.”</td>
+</tr>
+<tr class="even">
+<td><strong>DLR+ entre 5 y 10</strong></td>
+<td>Moderada utilidad para confirmar la enfermedad.</td>
+<td>“Un DLR+ de 6 indica que la prueba tiene utilidad razonable para confirmar la enfermedad, pero no es definitiva.”</td>
+</tr>
+<tr class="odd">
+<td><strong>DLR+ entre 2 y 5</strong></td>
+<td>Baja utilidad para confirmar la enfermedad.</td>
+<td>“Con un DLR+ de 3, la prueba incrementa la probabilidad de enfermedad, pero su utilidad diagnóstica es limitada.”</td>
+</tr>
+<tr class="even">
+<td><strong>DLR+ &lt; 2</strong></td>
+<td>Escasa o nula utilidad para confirmar la enfermedad.</td>
+<td>“Un DLR+ de 1.5 sugiere que esta prueba no es útil para confirmar la enfermedad en la práctica clínica.”</td>
+</tr>
+<tr class="odd">
+<td><strong>DLR- &lt; 0.1</strong></td>
+<td>Prueba diagnóstica muy útil para descartar la enfermedad.</td>
+<td>“Con un DLR- de 0.05, esta prueba tiene un excelente valor para descartar la enfermedad, reduciendo la probabilidad casi a cero.”</td>
+</tr>
+<tr class="even">
+<td><strong>DLR- entre 0.1 y 0.2</strong></td>
+<td>Moderada utilidad para descartar la enfermedad.</td>
+<td>“Un DLR- de 0.15 indica que la prueba es razonablemente útil para descartar la enfermedad, pero no es concluyente.”</td>
+</tr>
+<tr class="odd">
+<td><strong>DLR- entre 0.2 y 0.5</strong></td>
+<td>Baja utilidad para descartar la enfermedad.</td>
+<td>“Con un DLR- de 0.3, la prueba reduce la probabilidad de enfermedad, pero su capacidad para descartarla es limitada.”</td>
+</tr>
+<tr class="even">
+<td><strong>DLR- &gt; 0.5</strong></td>
+<td>Escasa o nula utilidad para descartar la enfermedad.</td>
+<td>“Un DLR- de 0.6 sugiere que esta prueba no es adecuada para descartar la enfermedad en la práctica clínica.”</td>
+</tr>
+</tbody>
+</table>
+<section id="utilidad-1" class="level3"><h3 class="anchored" data-anchor-id="utilidad-1">Utilidad</h3>
 <p><strong>Ver cuánta información añade el resultado de una prueba diagnóstica.</strong></p>
 <p>Tras realizar el test, cómo cambia el resultado esa percepción sobre la presencia de la enfermedad.</p>
 <p><span class="math display">\[\textbf{En ausencia de test} \Rightarrow \quad \text{Odd pre-test} = \frac{p(D=1)}{p(D=0)}\]</span></p>
@@ -628,7 +761,7 @@ Test sin utilidad: PPV = <span class="math inline">\(\rho\)</span> y NPV = 1 - <
 <p><span class="math display">\[\text{Odd post-test (con Y=1)} = \text{Odd pre-test} × DLR^+\]</span></p>
 <p><span class="math display">\[\text{Odd post-test (con Y=0)} = \text{Odd pre-test} × DLR^-\]</span></p>
 <p><strong>La forma de interpretar las razones de verosimilitud no es probabilistas.</strong></p>
-</section></section><section id="diferencias-entre-odds-y-dlr" class="level3"><h3 class="anchored" data-anchor-id="diferencias-entre-odds-y-dlr">Diferencias entre Odds y DLR</h3>
+</section></section><section id="diferencias-entre-odds-y-dlr" class="level2"><h2 class="anchored" data-anchor-id="diferencias-entre-odds-y-dlr">Diferencias entre Odds y DLR</h2>
 <table class="table">
 <colgroup>
 <col style="width: 33%">
@@ -644,7 +777,7 @@ Test sin utilidad: PPV = <span class="math inline">\(\rho\)</span> y NPV = 1 - <
 <tr class="odd">
 <td>Definición</td>
 <td>Razón entre probabilidad de éxito y fracaso.</td>
-<td>Relación entre la sensibilidad/especificidad y la probabilidad de resultados positivos/negativos.</td>
+<td>Relación de la probabilidad de tener resultados positivos/negativos en cada uno de los grupos.</td>
 </tr>
 <tr class="even">
 <td>Aplicación</td>
@@ -664,11 +797,12 @@ Test sin utilidad: PPV = <span class="math inline">\(\rho\)</span> y NPV = 1 - <
 </tbody>
 </table>
 <p><u><strong>Ejemplo 2.1. (cont.)</strong></u></p>
-<p><span class="math inline">\(DLR^+ = \frac{Se}{1-Sp} = \frac{0.85}{1-0.97} = 28.3333\)</span> <span class="math inline">\(DLR^- = \frac{1-Se}{Sp} = \frac{1-0.85}{0.97} = 0.1546\)</span></p>
-<p>Estas razones de verosimilitud indican que la prueba tiene una buena capacidad para confirmar la enfermedad (<span class="math inline">\(DLR^+ &gt; 10\)</span>) y una moderada capacidad para descartarla (<span class="math inline">\(DLR^- &lt;0.2\)</span>).</p>
+<p><span class="math inline">\(DLR^+ = \frac{Se}{1-Sp} = \frac{0.85}{1-0.97} = 28.3333\)</span><br><span class="math inline">\(DLR^- = \frac{1-Se}{Sp} = \frac{1-0.85}{0.97} = 0.1546\)</span></p>
+<p>[Estas razones de verosimilitud indican que la prueba tiene una buena capacidad para confirmar la enfermedad (<span class="math inline">\(DLR^+ &gt; 10\)</span>) y una moderada capacidad para descartarla (<span class="math inline">\(DLR^- &lt;0.2\)</span>).]{bck_color_02}</p>
 <p>La estimacion para las razones dependen de las estimaciones de Se y Sp. Los valores predictivos no.</p>
-<p><span class="math display">\[\text{Odd pre-test} = \frac{p(D=1)}{p(D=0)} = \frac{0.01}{1-0.01} = 0.0101\]</span> Antes de hacerme la prueba: sin hacerme la prueba la únnica informacion que tengo la prevalencia de la enfermedad</p>
-<p><span class="math display">\[\text{Odd post-test (para un resultado positivo)} = \frac{p(D=1|Y=1)}{p(D=0|Y=1)} = \frac{0.2225}{1-0.2225} = 0.28617.\]</span> Cuando tengo un positivo en la prueba: tener ese positivo en la prueba diagnóstica aumenta la credebilidade de que tengo la enfermedad. <strong>Aumenta la credebilidad</strong> de tener la enfermedad, <strong>no la probabilidad</strong>. Ha aumentado en casi 28.83 %. 28 veces es la relación que existe entre las dos situaciones.</p>
+<p><span class="math display">\[\text{Odd pre-test} = \frac{p(D=1)}{p(D=0)} = \frac{0.01}{1-0.01} = 0.0101\]</span> <strong>Antes de hacerme la prueba la única informacion que tengo la prevalencia de la enfermedad.</strong></p>
+<p><span class="math display">\[\text{Odd post-test (para un resultado positivo)} = \frac{p(D=1|Y=1)}{p(D=0|Y=1)} = \frac{0.2225}{1-0.2225} = 0.28617.\]</span> Cuando tengo un positivo en la prueba: tener ese positivo en la prueba diagnóstica aumenta la credebilidade de que tengo la enfermedad.</p>
+<p><strong>Aumenta la credebilidad</strong> de tener la enfermedad, <strong>no la probabilidad</strong>. Ha aumentado en casi 28.83 %.</p>
 <p><span class="math display">\[\text{Odd post-test (para un resultado positivo)} = \text{Odd pre-test} · DLR^+ = 0.0101 · 28.33 = 0.28613\]</span></p>
 <p>Si pensamos en los resultados negativos:</p>
 <ul>
@@ -678,9 +812,65 @@ Test sin utilidad: PPV = <span class="math inline">\(\rho\)</span> y NPV = 1 - <
 <p>¿Un resultado negativo es seis veces más verosimil en un paciente sano que en uno enfermo?</p>
 <p>La <span class="math inline">\(DLR^−\)</span> mide cuántas veces más probable es obtener un resultado negativo en personas sin la enfermedad comparado con personas con la enfermedad.</p>
 <p>Como <span class="math inline">\(DLR^− = 0.157 \approx \frac{1}{6}\)</span>, entonces sí. Un resultado negativo es aproximadamente 6 veces más probable en personas sanas que en personas con la enfermedad.</p>
+</section><section id="diferencias-entre-valores-predictivos-y-dlr" class="level2"><h2 class="anchored" data-anchor-id="diferencias-entre-valores-predictivos-y-dlr">Diferencias entre valores predictivos y DLR</h2>
+<p>[Under review]</p>
+<table class="table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 42%">
+<col style="width: 44%">
+</colgroup>
+<thead><tr class="header">
+<th><strong>Aspecto</strong></th>
+<th><strong>Valores Predictivos (VPP, VPN)</strong></th>
+<th><strong>Razones de Verosimilitud (DLR+ y DLR-)</strong></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>Definición</strong></td>
+<td>Probabilidad de que un resultado positivo o negativo en una prueba corresponda con la presencia o ausencia real de la enfermedad.</td>
+<td>Indican cuánto cambia la probabilidad de la enfermedad tras un resultado positivo (DLR+) o negativo (DLR-) en la prueba.</td>
+</tr>
+<tr class="even">
+<td><strong>Dependencia del contexto</strong></td>
+<td>Dependen de la prevalencia de la enfermedad en la población estudiada.</td>
+<td>Independientes de la prevalencia de la enfermedad, ya que se basan solo en la sensibilidad y especificidad de la prueba.</td>
+</tr>
+<tr class="odd">
+<td><strong>Interpretación</strong></td>
+<td>Proporcionan información sobre la probabilidad posterior a partir de un resultado positivo o negativo.</td>
+<td>Ayudan a actualizar las probabilidades pretest para obtener las probabilidades postest mediante el teorema de Bayes.</td>
+</tr>
+<tr class="even">
+<td><strong>Utilidad clínica</strong></td>
+<td>Son útiles para estimar directamente la probabilidad de enfermedad en un paciente individual.</td>
+<td>Son útiles para ajustar probabilidades pretest y evaluar el impacto de un resultado de la prueba en el diagnóstico.</td>
+</tr>
+<tr class="odd">
+<td><strong>Ventajas</strong></td>
+<td>Fáciles de interpretar en términos de probabilidad para el médico o paciente.</td>
+<td>No se ven afectados por la prevalencia, lo que los hace más estables en diferentes poblaciones.</td>
+</tr>
+<tr class="even">
+<td><strong>Limitaciones</strong></td>
+<td>Cambian según la prevalencia, lo que puede limitar su generalización a otras poblaciones.</td>
+<td>Necesitan ser combinados con una probabilidad pretest para calcular una probabilidad postest interpretable.</td>
+</tr>
+<tr class="odd">
+<td><strong>Ejemplo clínico (VPP, VPN)</strong></td>
+<td>“Con un VPP de 90%, el paciente con un resultado positivo tiene un 90% de probabilidad de tener la enfermedad.”</td>
+<td>“Con un DLR+ de 10, un resultado positivo multiplica por 10 las probabilidades pretest de que el paciente tenga la enfermedad.”</td>
+</tr>
+<tr class="even">
+<td><strong>Ejemplo clínico (DLR+ y DLR-)</strong></td>
+<td>“Con un VPN de 95%, un resultado negativo implica un 95% de probabilidad de no tener la enfermedad.”</td>
+<td>“Con un DLR- de 0.1, un resultado negativo reduce significativamente la probabilidad de enfermedad.”</td>
+</tr>
+</tbody>
+</table>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -918,8 +1108,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../tema_02/tema_02_1_2_cohortes_y_casos_control.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title">1.2 Estudios de cohorte y casos-control <span style="color:green;">✓</span></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_I.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño muestral (I) <span style="color:green;">✓</span></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

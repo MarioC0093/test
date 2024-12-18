@@ -1,0 +1,60 @@
+project:
+  type: book
+  title: ""
+  output-dir: _book
+pagetitle: "Máster de Bioestadística - Probabilidad y Simulación"
+lang: es
+bibliography: references.bib
+#citation-style: https://www.zotero.org/styles/chicago-fullnote-bibliography-16th-edition
+
+book:
+  chapters:
+        - index.qmd
+        - DUDAS.qmd
+        - part: tema_00/tema_00.qmd
+          chapters:
+            - tema_00/tema_00_introduccion.qmd
+        - part: tema_01/tema_01.qmd
+          chapters:
+            - tema_01/tema_01_1_introduccion.qmd
+            - tema_01/tema_01_2_concordancia_categoricas.qmd
+            - tema_01/tema_01_3_concordancia_numericas.qmd
+            - tema_01/tema_01_4_tamanyo_muestral.qmd
+        - part: tema_02/tema_02.qmd
+          chapters:
+            - tema_02/tema_02_1_introduccion.qmd
+            - tema_02/tema_02_1_2_cohortes_y_casos_control.qmd
+            - tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales.qmd
+            - tema_02/tema_2_28_11_2024.qmd
+            - tema_02/tema_02_3_curvas_roc.qmd
+            - tema_02/tema_02_3_curvas_roc_final.qmd
+        - part: tema_03/tema_03.qmd
+          chapters:
+            - tema_03/tema_03_1_introduccion.qmd
+            - tema_03/tema_03_2_selección_aleatoria.qmd
+            - tema_03/tema_03_3_obtener_datos_simulados.qmd
+            - tema_03/tema_03_4_remuestreo_inferencia_roc.qmd
+        - references.qmd
+
+
+format:
+  html:
+    #mainfont: Georgia, serif
+    grid:
+      sidebar-width: 350px
+      body-width: 900px
+      margin-width: 300px
+    #csl: https://www.zotero.org/styles/chicago-fullnote-bibliography-16th-edition
+    css: css/styles.css
+    code-link: true
+    toc: true
+    toc-title: "In this page"
+    toc-location: right
+    toc-expand: true
+    toc-depth: 8
+    number-sections: false
+
+editor: source
+page-layout: full
+code-fold: false
+warning: false
