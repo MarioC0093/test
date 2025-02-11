@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Mario Camacho">
-
-<title>Máster de Bioestadística - Probabilidad y Simulación</title>
+<title>Máster de Bioestadística - Análisis de Supervivencia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,8 +18,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -31,7 +61,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./DUDAS.html" rel="next">
+<link href="./ejercicio_00.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -40,8 +70,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -60,192 +89,61 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Enviar",
     "search-label": "Buscar"
   }
-}</script>
-
-
-<link rel="stylesheet" href="css/styles.css">
+}</script><link rel="stylesheet" href="css/styles_entregas.css">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Introducción</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Hojas de ejercicios curso 2024-2025</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Buscar"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Introducción</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Hojas de ejercicios curso 2024-2025</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./DUDAS.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dudas</span></a>
+  <a href="./ejercicio_00.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejercicio 0</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./tema_00/tema_00.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TEMA 0</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_00/tema_00_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./tema_01/tema_01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TEMA 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_01/tema_01_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Introducción <span style="color:green;">✓</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_01/tema_01_2_concordancia_categoricas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Análisis de concordancia en variables categóricas <span style="color:green;">✓</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_01/tema_01_3_concordancia_numericas.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Análisis de concordancia en variables numéricas <span style="color:green;">✓</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_01/tema_01_4_tamanyo_muestral.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Cálculo del tamaño muestral <span style="color:green;">✓</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./tema_02/tema_02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TEMA 2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_02/tema_02_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Conceptos básicos <span style="color:green;">✓</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_I.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño muestral (I) <span style="color:green;">✓</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_02/tema_02_2_comparacion_test_y_tamanyos_muestrales_II.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Comparación de test y tratamiento del tamaño muestral (II) <span style="color:green;">✓</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_02/tema_02_3_curvas_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Validación de biomarcadores. Curvas ROC <span style="color:green;">✓</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_02/tema_02_4_tamanyos_muestrales.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Determinación de tamaños muestrales</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./tema_03/tema_03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TEMA 3</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Alternar sección">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_03/tema_03_1_introduccion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1. Introducción <span style="color:green;">✓</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_03/tema_03_2_selección_aleatoria.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2. Selección aleatoria de pacientes y asignación de tratamientos <span style="color:red;">✗</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_03/tema_03_3_obtener_datos_simulados.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3. Obtener datos simulados a partir de observaciones reales <span style="color:green;">✓</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tema_03/tema_03_4_remuestreo_inferencia_roc.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4. Técnicas de remuestreo aplicadas a la inferencia de curvas ROC <span style="color:red;">✗</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+  <a href="./ejercicio_01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejercicio 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ejercicio_02.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejercicio 1</span></a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">In this page</h2>
-   
-  <ul>
-  <li><a href="#evaluación" id="toc-evaluación" class="nav-link active" data-scroll-target="#evaluación">Evaluación</a></li>
-  <li><a href="#temario" id="toc-temario" class="nav-link" data-scroll-target="#temario">Temario</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Introducción</h1>
+<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Hojas de ejercicios curso 2024-2025</h1>
 </div>
 
 
@@ -263,37 +161,20 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Fecha de modificación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">12 septiembre 2024</p>
+      <p class="date-modified">31 enero 2025</p>
     </div>
   </div>
     
   </div>
   
 
-</header>
-
-<p><u><strong>Entregas y ejercicios</strong></u></p>
-<p>Evalúa casi más la metodología y desarrollo que los resultados. Junto a la <strong>interpretación</strong> del resultado.</p>
-<p>Las entregas se pueden considerar como INFORMES donde tenemos que dar soluciones explicando el desarrollo.</p>
-<p>Usa R como un instrumento para llegar a la solución. No se va a evaluar el código (si es eficiente, claro, tarda o no tarda, etc.).</p>
-<p>La profe lo que va a evaluar es el modelo teorico (no la programcion para llegar a ello). Que funcione y que consiga simular lo que quiero.</p>
-<section id="evaluación" class="level2">
-<h2 class="anchored" data-anchor-id="evaluación">Evaluación</h2>
-<p>Tema 1: un examen (entre finales de octubre y noviembre)<br>
-Tema 2: un examen (el último día de clase)<br>
-Nota final: promedio de exámenes. (pilar de la nota final)</p>
-<p>Nota final + varias entregas hasta un total de un punto (en total serán seis entregas, no son obligatorias).</p>
-</section>
-<section id="temario" class="level2">
-<h2 class="anchored" data-anchor-id="temario">Temario</h2>
-<p>Dos primeros temas: pruebas diagnósticas. (probabildad) Tercer tema: tema transversal dirante el cuatrimestre, relacionado con la creación de muestras. (simulación)</p>
-<p><embed src="Temario de Probabilidad y Simulacion.pdf" style="width:100.0%" height="600"></p>
+</header><div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"C:/Users/MarioC/Documents/Master_Bioestadistica/Supervivencia/00_Ejercicios"</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
-</section>
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -525,13 +406,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation column-body">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation column-page-right"><div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./DUDAS.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title">Dudas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./ejercicio_00.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">Ejercicio 0</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
